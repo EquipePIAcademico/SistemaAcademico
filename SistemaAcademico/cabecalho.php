@@ -34,7 +34,6 @@
                             echo "<li><a href='http://localhost/Modelo/curso/listar.php'>Gerenciamento de cursos   </a></li>";
                             echo "<li><a href='http://localhost/Modelo/disciplina/listar.php'>Gerenciamento de disciplinas   </a></li>";
                             echo "<li><a href='http://localhost/Modelo/turma/listar.php'>Gerenciamento de turmas   </a></li>";
-//                          echo "<a href='http://localhost/Modelo/curso/grade.php'>Grade   </a>";
                         } else {
                             echo 'Olá ' . exibirUsername() . '   ';
                             echo "<li><a href='#'>Registrar notas   </a></li>";
