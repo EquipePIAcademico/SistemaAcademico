@@ -1,0 +1,159 @@
+body{
+    background-color: #dddddd;
+    color: rgba(0,0,0,1);
+    font-family: sans-serif;
+    font-size: 14px;
+}
+div#interface{
+    background-color: white;
+    width: 1118px;
+    margin: 0px auto 10px auto;
+    box-shadow: 0px 0px 10px;
+    padding: 0px 0px 50px 30px;
+}
+
+ul{
+    text-transform: capitalize;
+}
+
+
+p{
+    font-size: 20px;
+    text-align: center;
+        
+}
+
+td{
+    
+    text-transform: lowercase;
+}
+table#tabelaspec{
+    position: relative;
+    border: 1px solid #606060;
+    border-spacing: 0px;
+    margin: auto;
+}
+
+table#tabelaspec td{
+    border: 1px solid #606060;
+    padding: 1px;
+    text-align: center;
+    
+}
+table#tabelaspec td.cc{
+    color: white;
+    background-color: #FE9A2E;
+    font-weight: bold;
+}
+
+table#tabelaspec td.cd{
+    color: white;
+    background-color: #34ce57;
+    font-weight: bold;
+}
+
+table#tabelaspec td.ce{
+    color: white;
+    background-color: #FE2E2E;
+    font-weight: bold;
+}
+table#tabelaspec td.ca{
+    color: white;
+    background-color: #0000FF;
+    font-weight: bold;
+}
+
+table#tabelaspec caption{
+    color: #888888;
+    font-size: 20px;
+    padding: 0px 0px 10px 0px; 
+}
+
+header#cabecalho{
+    border-bottom: 2px #dddddd double;
+    height: 100px;
+}
+
+h3.nome{
+    position: absolute;
+    left: 900px;
+    top: 50px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #606060;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.2);
+}
+
+h3#cadastro{
+    text-align: center;
+    color: #606060;
+}
+
+nav#menu{
+    display: block;
+}
+
+
+nav#menu ul{
+    list-style: none;
+    position: relative;
+    top: 0px;
+    left: 50px;
+}
+
+nav#menu li{
+    display: inline-block;
+    background-color: #dddddd;
+    padding: 10px;
+    margin: 1px;
+    transition: background-color 0.2s;
+    
+}
+nav#menu li:hover{
+    background-color: #606060;
+}
+nav#menu a{
+    color: #000000;
+    text-decoration: none;
+    
+}
+nav#menu a:hover{
+    color: #ffffff;
+    text-decoration: underline;
+}
+li#login{
+    color: orange;
+}
+.btn{
+    font-family: arial;
+    font-size: 14px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    color: #606060;
+    margin-top: 10px;
+}
+div#interface.msg{
+    margin: 0px 50px 0px 50px;
+}
+
+input{
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+select{
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+form{
+    text-align: center;
+    font-size: 18px;
+}
+fieldset#sexo{
+    margin: auto;
+    margin-bottom: 10px;
+}
