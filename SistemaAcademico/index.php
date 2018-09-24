@@ -7,12 +7,11 @@
 
     <body>
         <div id="interface">
-        <?php
-        require_once './cabecalho.php';
-        
-        ?>   
-            </div>
-    </body>
-
-
+            <?php
+            require_once './cabecalho.php';
+            ?>   
+            <?php
+            require_once './rodape.php';
+            ?>   
+        </div>
 </html>

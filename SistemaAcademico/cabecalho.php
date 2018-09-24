@@ -6,9 +6,9 @@
         <link href="css/estilo.css" rel="stylesheet">
     </head>
     <body>
-        
-            <header id="cabecalho">
-                <nav id="menu">
+
+        <header id="cabecalho">
+            <nav id="menu">
                 <ul type="disc">
                     <?php
                     require_once 'usuario/autenticacao.php';
@@ -21,7 +21,7 @@
                             echo "<li><a href='http://localhost/SistemaAcademico/usuario/listar_perfil.php'>Meu perfil   </a></li>";
                         } else if (exibirPerfilAcesso() == 'secretario(a)') {
                             echo '<h3 class="nome">Olá ' . exibirUsername() . '  </h3> ';
-                            echo "<li><a href='http://localhost/SistemaAcademico/index.php'>Home</a></li>";                             
+                            echo "<li><a href='http://localhost/SistemaAcademico/index.php'>Home</a></li>";
                             echo "<li><a href='http://localhost/SistemaAcademico/aluno/form_inserir.php'>Cadastrar alunos</a></li>";
                             echo "<li><a href='http://localhost/SistemaAcademico/tipo/form_inserir.php'>Cadastrar tipos de curso   </a></li>";
                             echo "<li><a href='http://localhost/SistemaAcademico/curso/form_inserir.php'>Cadastrar cursos   </a>";
@@ -47,9 +47,7 @@
                     }
                     ?>
                 </ul>
-                    </nav>
-            </header>
-         
+            </nav>
+        </header>
     </body>
-
-</html>    
+</html>
