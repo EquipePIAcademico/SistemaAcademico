@@ -43,7 +43,6 @@
                     } else {
                         echo '<p>Seja Bem-Vindo(a)</p>';
                         echo "<li><a href='http://localhost/SistemaAcademico/usuario/form_login.php'>Login   </a></li>";
-                        echo "<li><a href='http://localhost/SistemaAcademico/usuario/form_inserir.php'>Cadastrar   </a></li>";
                     }
                     ?>
                 </ul>
