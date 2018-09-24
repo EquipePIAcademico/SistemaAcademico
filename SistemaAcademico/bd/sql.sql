@@ -131,4 +131,3 @@ create table aluno_turma(
 );
 
 
-

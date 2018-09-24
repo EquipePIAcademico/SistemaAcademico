@@ -13,7 +13,15 @@
             //session_start();
             include '../cabecalho.php';
             include '../bd/conectar.php';
+            ?>
 
+            <form method="post" action="pesquisa.php?a=buscar">
+                Pesquisar alunos: <input type="search" placeholder="Por nome" name="pesquisaAluno">
+                <input class="btn" type="submit" value="Buscar">
+            </form>
+
+
+            <?php
             $sql_aluno = "select aluno.id, aluno.nome, aluno.email, aluno.dataN, aluno.nacionalidade, aluno.bairro, aluno.rua, aluno.complemento, aluno.cep, "
                     . "aluno.numero, renda.valor from aluno join renda on renda.id=aluno.renda_id order by nome";
 
@@ -56,7 +64,7 @@
 
             </form>
         </div>
-        
+
         <?php
         require_once '../rodape.php';
         ?>
