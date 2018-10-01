@@ -14,7 +14,14 @@
             //session_start();
             include '../cabecalho.php';
             include '../bd/conectar.php';
+            ?>
 
+            <form method="post" action="pesquisa.php?a=buscar">
+                Pesquisar tipos: <input type="search" placeholder="Por nome" name="pesquisaTipo">
+                <input class="btn" type="submit" value="Buscar">
+            </form>
+
+            <?php
             ini_set("display_errors", true);
 
             $sql = "select * from tipo order by nome";

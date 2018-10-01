@@ -30,7 +30,7 @@
                 <input type="hidden" name="id" value="<?= $id ?>">
 
                 <?php
-                $sql_curso = "select id, nome from curso order by nome";
+                $sql_curso = "select curso.id, curso.nome as curso_nome, tipo.nome as tipo_nome from curso join tipo on tipo.id=curso.tipo_id order by curso_nome"; 
 
                 $retorno_curso = mysqli_query($conexao, $sql_curso);
                 ?>
@@ -47,7 +47,7 @@
                         }
                         ?>
 
-                        <option <?= $selecionado ?> value="<?= $linha_curso['id'] ?>"><?= $linha_curso['nome'] ?></option>
+                        <option <?= $selecionado ?> value="<?= $linha_curso['id'] ?>"><?= $linha_curso['tipo_nome'] ?> - <?= $linha_curso['curso_nome'] ?></option>
 
                         <?php
                     }

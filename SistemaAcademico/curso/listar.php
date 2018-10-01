@@ -13,7 +13,14 @@
             include '../cabecalho.php';
 
             include '../bd/conectar.php';
+            ?>
 
+            <form method="post" action="pesquisa.php?a=buscar">
+                Pesquisar cursos: <input type="search" placeholder="Por nome" name="pesquisaCurso">
+                <input class="btn" type="submit" value="Buscar">
+            </form>
+
+            <?php
             ini_set("display_errors", true);
 
             $sql = "select curso.id, curso.nome as curso_nome, curso.descricao, curso.carga_horaria, curso.anoInicio, curso.semestreInicio, curso.anoTermino, curso.semestreTermino, "
