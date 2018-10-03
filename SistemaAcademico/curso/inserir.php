@@ -22,18 +22,24 @@ $tipo_id = $_POST['tipo_id'];
 $turno_id = $_POST['turno_id'];
 
 if ($anoInicio > $anoTermino) {
-    echo 'Erro! Ano de início é maior que o de término <br> <a href=form_inserir.php>Insira novamente</a>';
+    //echo 'Erro! Ano de início é maior que o de término <br> <a href=form_inserir.php>Insira novamente</a>';
+    echo  "<script>alert('Erro! Ano de início é maior que o de término')</script>"; 
+    echo '<a href=form_alterar.php?id=$id>Insira novamente</a>';
+    
 } else if ($anoInicio == $anoTermino) {
     if ($semestreInicio > $semestreTermino) {
-        echo 'Erro! Semestre de início é maior que o de término <br> <a href=form_inserir.php>Insira novamente</a>';
+        echo "<script>alert('Erro! Semestre de início é maior que o de término')</script>";
+        echo " <a href=form_inserir.php>Insira novamente</a>";
     } else {
         $sql = "insert into curso (nome, descricao, carga_horaria, anoInicio, semestreInicio, anoTermino, semestreTermino, usuario_id, tipo_id, turno_id) values "
                 . "('$nome', '$descricao', $carga_horaria, $anoInicio, $semestreInicio, $anoTermino, $semestreTermino, $usuario_id[0], $tipo_id, $turno_id)";
 
         if (@mysqli_query($conexao, $sql)) {
-            echo 'Cadastro realizado com sucesso! <br> <a href=form_inserir.php>Continuar cadastrando</a>   <a href=listar.php>Ir para gerenciamento</a>';
+            echo "<script>alert('Cadastro realizado com sucesso!')</script>";
+            echo " <a href=form_inserir.php>Continuar cadastrando</a>   <a href=listar.php>Ir para gerenciamento</a>";
         } else {
-            echo 'Erro! <br> <a href=form_inserir.php>OK</a>';
+            echo "<script>alert('Não foi possível realizar o cadastro')</script>"; 
+            echo "<a href=form_inserir.php>Insira novamente</a>";
         }
     }
 } else {
@@ -41,9 +47,11 @@ if ($anoInicio > $anoTermino) {
             . "('$nome', '$descricao', $carga_horaria, $anoInicio, $semestreInicio, $anoTermino, $semestreTermino, $usuario_id[0], $tipo_id, $turno_id)";
 
     if (@mysqli_query($conexao, $sql)) {
-        echo 'Cadastro realizado com sucesso! <br> <a href=form_inserir.php>Continuar cadastrando</a>   <a href=listar.php>Ir para gerenciamento</a>';
+        echo "<script>alert('Cadastro realizado com sucesso!')</script>";
+        echo " <a href=form_inserir.php>Continuar cadastrando</a>   <a href=listar.php>Ir para gerenciamento</a>";
     } else {
-        echo 'Erro! <br> <a href=form_inserir.php>OK</a>';
+        echo "<script>alert('Não foi possível realizar o cadastro!')</script>";
+        echo " <a href=form_inserir.php>Insira novamente</a>";
     }
 }
 ?>

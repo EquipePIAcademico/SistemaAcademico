@@ -20,9 +20,11 @@ $sql = "insert into turma (nVagas, disciplina_id, semestre_id, professor_id, usu
         . "($nVagas, $disciplina_id, $semestre_id, $professor_id, $usuario_id[0])";
 
 if (@mysqli_query($conexao, $sql)){
-    echo 'Cadastro realizado com sucesso! <br> <a href=form_inserir.php>Continuar cadastrando</a>   <a href=listar.php>Ir para gerenciamento</a>';
+    echo "<script>alert('Cadastro realizado com sucesso!')</script>";
+    echo " <a href=form_inserir.php>Continuar cadastrando</a>   <a href=listar.php>Ir para gerenciamento</a>";
 }else {
-    echo 'Erro! <br> <a href=form_inserir.php>OK</a>';
+    echo "<script>alert('Não foi possível realiar o cadastro!')</script>";
+    echo " <a href=form_inserir.php>Insira novamente</a>";
 }
 ?>
 

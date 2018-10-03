@@ -62,7 +62,9 @@
                 </div>
                 <?php
             } else {
-                echo "Nenhum aluno foi encontrado com o nome " . $pesquisaAluno . " ";
+                 echo  "<script>alert('Nenhum aluno foi encontrado com o nome $pesquisaAluno')</script>";
+            //    echo  "Nenhum aluno foi encontrado com o nome ' . $pesquisaAluno . ' )</script>";
+
             }
             ?>
 

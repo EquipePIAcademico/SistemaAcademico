@@ -3,8 +3,10 @@
     <head>
         <title>Alunos</title>
         <meta charset="utf-8">
-        <link href="../css/estilo.css" rel="stylesheet">
-
+       <link href="../css/estilo.css" rel="stylesheet">
+       <style>
+          
+       </style>
     </head>
     <body>
         <div id="interface">
@@ -29,7 +31,7 @@
             ?>
             <form action="excluir_lote.php" method="post">
 
-                <table id="tabelaspec">
+                <table id="customers">
                     <caption>Alunos Cadastrados</caption>
                     <tr> <td class="cc">Selecionar</td><td class="cc">Nome</td><td class="cc">E-mail</td><td class="cc">Data de nascimento</td><td class="cc">Renda</td><td class="cc">Nacionalidade</td><td class="cc" colspan="5">Endereço</td><td class="ce">Excluir</td><td class="ca">Alterar</td>
                     </tr>

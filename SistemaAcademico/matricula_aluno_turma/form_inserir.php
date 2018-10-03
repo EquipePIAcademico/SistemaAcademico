@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Matricular Aluno em Turma</title>
-        <link href="../css/estilo.css" rel="stylesheet">
-        <link href="../css/form.css" rel="stylesheet">
+       <link href="../css/estilo.css" rel="stylesheet">
+       <link href="../css/form.css" rel="stylesheet">
     </head>
 
     <body>
@@ -13,13 +13,15 @@
             include '../cabecalho.php';
             ?>  
             <h3 id="cadastro">Matricular aluno em turma</h3>
-            <form method="post" action="inserir.php">
+            <form method="get" action="inserir.php">
 
                 <?php
                 include '../bd/conectar.php';
+                
+                
 
-                $sql_matricula = "select aluno.nome, aluno_curso.id from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id order by nome";
-                $retorno = mysqli_query($conexao, $sql_matricula);
+                $sql_aluno = "select distinct aluno_curso.aluno_id, aluno.nome from aluno_curso join aluno on aluno.id=aluno_curso.aluno_id order by nome";
+                $retorno = mysqli_query($conexao, $sql_aluno);
                 ?>
 
                 <label>Aluno:</label> <select name="aluno_curso_id">
@@ -28,7 +30,7 @@
                     while ($linha = mysqli_fetch_array($retorno)) {
                         ?>
 
-                        <option value="<?= $linha['id'] ?>"><?= $linha['nome'] ?></option>
+                        <option value="<?= $linha['aluno_id'] ?>"><?= $linha['nome'] ?></option>
 
                         <?php
                     }
@@ -36,29 +38,36 @@
 
                 </select> <br>
                 <?php
-                $sql_turma = "select turma.id from turma";
-                $retorno = mysqli_query($conexao, $sql_turma);
+                $sql_disciplina = "select disciplina.id, disciplina.nome, turma.disciplina_id from disciplina join turma on turma.disciplina_id=disciplina.id";
+                $retorno = mysqli_query($conexao, $sql_disciplina);
                 ?>
-                <label>Turma:</label> <select name="turma_id">
-
+                
+                <fieldset> 
+                    <legend>Turma</legend>
+                
+                <label>Disciplina:</label><select name="disciplina_id">
+                    
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
                         ?>
 
-                        <option value="<?= $linha['id'] ?>"><?= $linha['id'] ?></option>
-
-                        <?php
+                        <option value="<?= $linha['id'] ?>"><?= $linha['nome'] ?></option>
+                         <?php
                     }
                     ?>
 
                 </select>
                 <br>
-<!--               <label>Ano: </label>
-                <input type="text" required="" name="ano"><br>
-                <label>Semestre: </label>
-                <input type="text" required="" name="semestre"><br>-->
+                
+                 <label>Semestre: </label>
+                 
+                <input type="text" required="" name="semestre"><br>
+                </fieldset>
                 <br>
-                <input class="btn" type="submit" value="Inserir">
+                <label>Ano: </label>
+                 
+                <input type="text" required="" name="ano"><br>
+                 <input class="btn" type="submit" value="Inserir">
             </form>
 
 

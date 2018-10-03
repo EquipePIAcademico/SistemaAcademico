@@ -57,7 +57,8 @@
                 </div>
                 <?php
             } else {
-                echo "Nenhum usuário foi encontrado com o nome " . $pesquisaUsuario . " ";
+                echo "<script>alert('Nenhum usuário foi encontrado com o nome $pesquisaUsuario')</script>";
+                echo "<a href=listar.php>Voltar para gerenciamento</a>";
             }
             ?>
 

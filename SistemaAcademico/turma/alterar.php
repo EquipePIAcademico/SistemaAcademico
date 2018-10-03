@@ -11,7 +11,9 @@ include '../bd/conectar.php';
 $sql = "update turma set nVagas=$nVagas, disciplina_id=$disciplina_id, semestre_id=$semestre_id, professor_id=$professor_id where id = $id";
 
 if (@mysqli_query($conexao, $sql)){
-    echo 'Alteração realizada com sucesso! <br> <a href=listar.php>OK</a>';
+    echo "<script>alert('Alteração realizada com sucesso!')</script>";
+    echo " <a href=listar.php>Voltar para gerenciamento</a>";
 }else {
-    echo 'Erro! <br> <a href=form_alterar.php>OK</a>';
+    echo "<script>alert('Não foi possível realizar a alteração')</script>";
+    echo " <a href=form_alterar.php>Insira novamente</a>";
 }

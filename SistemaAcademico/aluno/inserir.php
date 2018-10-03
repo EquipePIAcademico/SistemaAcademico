@@ -31,9 +31,11 @@ $sql = "insert into aluno (nome, email, sexo, dataN, rg, cpf, nacionalidade, bai
         . "'$cep', $numero, $usuario_id[0], $renda_id)";
 
 if (@mysqli_query($conexao, $sql)) {
-    echo 'Cadastro realizado com sucesso! <br> <a href=form_inserir.php>Continuar cadastrando</a>   <a href=listar.php>Ir para gerenciamento</a>';
+    echo  "<script>alert('Aluno cadastrado com sucesso!')</script>";
+    echo '<br> <a href=form_inserir.php>Continuar cadastrando</a>   <a href=listar.php>Ir para gerenciamento</a>';
 } else {
-    echo 'Erro! <br> <a href=form_inserir.php>OK</a>';
+    echo  "<script>alert('Não foi possível realizar o cadastro!')</script>";
+  echo '<a href=form_inserir.php>Tentar novamente</a> <a href=listar.php>Ir para gerenciamento</a>';
 }
 ?>
 

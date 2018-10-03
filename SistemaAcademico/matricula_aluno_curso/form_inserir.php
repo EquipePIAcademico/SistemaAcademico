@@ -13,12 +13,14 @@
             include '../cabecalho.php';
             ?>  
             <h3 id="cadastro">Matricular aluno em curso</h3>
-            <form method="post" action="inserir.php">
+            <form method="get" action="inserir.php">
 
                 <?php
                 include '../bd/conectar.php';
 
                 $sql_aluno = "select aluno.id, aluno.nome from aluno order by nome";
+                
+                
                 $retorno = mysqli_query($conexao, $sql_aluno);
                 ?>
 
@@ -49,7 +51,9 @@
 
                         <?php
                     }
+                
                     ?>
+                        
 
                 </select>
                 <br>
@@ -59,6 +63,7 @@
                 <input type="text" required="" name="semestre"><br>
                 <br>
                 <input class="btn" type="submit" value="Inserir">
+                
             </form>
 
 

@@ -54,7 +54,8 @@
                 </div>
                 <?php
             } else {
-                echo "Nenhum usuário foi encontrado com o nome " . $pesquisaTipo . " ";
+                echo "<script>alert('Nenhum tipo de curso foi encontrado com o nome $pesquisaTipo')</script> ";
+                echo "<a href=listar.php>Ir para gerenciamento</a>";
             }
             ?>
 

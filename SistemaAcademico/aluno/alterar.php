@@ -16,8 +16,10 @@ $sql_aluno = "update aluno set nome='$nome', email='$email', "
         . "bairro='$bairro', rua='$rua', complemento='$complemento', cep='$cep', numero='$numero', renda_id='$renda_id' where id = $id";
 
 if (@mysqli_query($conexao, $sql_aluno)){
-    echo 'Alteração realizada com sucesso! <br> <a href=listar.php>OK</a>';
+     echo  "<script>alert('Alteração realizada com sucesso!');</script>";
+    echo '<a href=listar.php>Voltar para gerenciamento</a>';
 }else {
-    echo 'Erro! <br> <a href=form_alterar.php>OK</a>';
+ echo  "<script>alert('Não foi possível realizar a alteração!')</script>";
+  echo '<a href=listar.php>Voltar para gerenciamento</a>';
 }
 

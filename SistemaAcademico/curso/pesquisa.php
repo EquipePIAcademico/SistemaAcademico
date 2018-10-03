@@ -62,7 +62,7 @@
                 </div>
                 <?php
             } else {
-                echo "Nenhum curso foi encontrado com o nome " . $pesquisaCurso . " ";
+                echo "<script>alert('Nenhum curso foi encontrado com o nome $pesquisaCurso')</script>";
             }
             ?>
 

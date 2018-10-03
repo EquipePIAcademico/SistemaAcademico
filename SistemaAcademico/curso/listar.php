@@ -31,7 +31,7 @@
 
             <form action="excluir_lote.php" method="post">   
 
-                <table id="tabelaspec">
+                <table id="customers">
                     <caption>Cursos Cadastrados</caption>
                     <tr>
                         <td class="cc">Selecionar</td><td class="cc">Tipo</td><td class="cc">Nome</td><td class="cc">Descrição</td><td class="cc">Carga horária</td><td class="cc">Ano de início</td><td class="cc">Semestre de início</td><td class="cc">Ano de término</td><td class="cc">Semestre de término</td><td class="cc">Turno</td><td class="ce">Excluir</td><td class="ca">Alterar</td>

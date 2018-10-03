@@ -18,8 +18,8 @@ $retorno = mysqli_query($conexao, $sql);
 $resultado = mysqli_fetch_array($retorno);
 
 if ($resultado == null) {
-    echo 'usuário nao encontrado';
-    echo '<a href=form_login.php>Logar</a>';
+    echo "<script>alert('Usuário não encontrado')</script>";
+    echo "<a href=form_login.php>Logar</a>";
 } else {
     logar($resultado['perfil_acesso'], $resultado['username']);
 

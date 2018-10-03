@@ -17,10 +17,11 @@ $sql = "insert into usuario (nome, email, dataN, cpf, perfil_acesso, username, p
 
 if (@mysqli_query($conexao, $sql)){
     
-    echo '<p>Cadastro realizado com sucesso!</p>'; 
-    echo '<br> <a href=form_inserir.php>Continuar cadastrando     </a>' . '<a href=listar.php>Ir para gerenciamento</a>';
+    echo "<script>alert('Cadastro realizado com sucesso!')</script>"; 
+    echo "<a href=form_inserir.php>Continuar cadastrando</a>     <a href=listar.php>Ir para gerenciamento</a>";
 }else {
-    echo 'Usuário ou e-mail já cadastrados! <br> <a href=form_inserir.php>OK</a>';
+    echo "<script>alert('Usuário ou e-mail já cadastrados!')</script>";
+    echo " <a href=form_inserir.php>Insira novamente</a>";
 }
 //header('Location: form_inserir.php');
 ?>

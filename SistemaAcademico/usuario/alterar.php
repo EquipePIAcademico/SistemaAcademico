@@ -15,12 +15,15 @@ $sql_pessoa = "update usuario set nome='$nome', email='$email', dataN='$dataN', 
 
 if (@mysqli_query($conexao, $sql_pessoa)) {
     if ($username == 'administrador') {
-        echo 'Alteração realizada com sucesso! <br> <a href=listar_perfil.php>OK</a>';
+        echo "<script>alert('Alteração realizada com sucesso!')</script>";
+        echo " <a href=listar_perfil.php>Ver perfil</a>";
     } else {
-        echo 'Alteração realizada com sucesso! <br> <a href=listar.php>OK</a>';
+        echo "<script>alert('Alteração realizada com sucesso!')</script>";
+        echo " <a href=listar.php>Ir para gerenciamento</a>";
     }
 } else {
-    echo 'Usuário ou e-mail já cadastrados! <br> <a href=form_alterar.php>OK</a>';
+    echo "<script>alert('Usuário ou e-mail já cadastrados!')</script>";
+    echo " <a href=form_alterar.php>OK</a>";
 }
 
 //header('Location: form_inserir.php');

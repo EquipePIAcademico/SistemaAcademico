@@ -11,7 +11,11 @@ $sql = "update tipo set nome='$nome', descricao='$descricao' where id = $id";
 mysqli_query($conexao, $sql);
 
 if (@mysqli_query($conexao, $sql)){
-    echo 'Alteração realizada com sucesso! <br> <a href=listar.php>OK</a>';
+     echo  "<script>alert('Alteração realizada com sucesso!');</script>";
+    echo '<a href=listar.php>Voltar para gerenciamento</a>';
 }else {
-    echo 'Erro! <br> <a href=form_alterar.php>OK</a>';
+    
+    echo  "<script>alert('Não foi possível realizar a alteração!');</script>";
+    echo " <a href=form_alterar.php>Insira novamente</a>";
+    
 }
