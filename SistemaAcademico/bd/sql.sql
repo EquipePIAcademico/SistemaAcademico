@@ -5,10 +5,6 @@ create table renda(
     valor varchar(30)
 );
 
-select curso.id, curso.nome, curso.descricao, curso.carga_horaria, curso.anoInicio, curso.semestreInicio, curso.anoTermino, curso.semestreTermino, tipo.nome as tipo_nome, turno.nome as turno_nome 
-from tipo join curso on curso.tipo_id = tipo.id join turno on turno.id=curso.turno_id where curso.nome like 'd%' order by curso.nome;
-
-select * from aluno where nome like 'alb%' order by nome;
 insert into renda (valor) values ('Abaixo de R$ 1000,00');
 insert into renda (valor) values ('R$ 1000,00 a R$ 2000,00');
 insert into renda (valor) values ('R$ 2000,00 a R$ 3000,00');
@@ -36,7 +32,6 @@ create table aluno(
         
 );
 
-
 create table usuario(
 	id integer primary key auto_increment,
         nome varchar(100),
@@ -49,7 +44,8 @@ create table usuario(
   	
 );
 
-insert into usuario (nome, email, dataN, cpf, perfil_acesso, username, password) values ('Carlos Nascimento da Silva', 'carlos@carlos', "1960-03-03", '11122233344', 'secretario(a)', 'administrador', '123');
+insert into usuario (nome, email, dataN, cpf, perfil_acesso, username, password) values ('Carlos Nascimento da Silva', 'carlos@carlos',  "1960-03-03", '11122233344', 'secretario(a)', 'administrador', '123');
+
 
 create table tipo(
         id integer primary key auto_increment,

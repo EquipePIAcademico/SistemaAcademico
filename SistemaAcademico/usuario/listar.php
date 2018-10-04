@@ -59,7 +59,7 @@ div#interface{
             </form>
 
             <?php
-            $sql_pessoa = "select * from usuario where username != '$_SESSION[username]'";
+            $sql_pessoa = "select id, nome, email, date_format(dataN, '%d/%m/%Y') as dataNformatada, perfil_acesso, username from usuario where username != '$_SESSION[username]'";
 
             $resultado = mysqli_query($conexao, $sql_pessoa);
             ?>
@@ -78,7 +78,7 @@ div#interface{
 
                             <td><?= $linha['nome'] ?></td>
                             <td><?= $linha['email'] ?></td>
-                            <td><?= $linha['dataN'] ?></td>
+                            <td><?= $linha['dataNformatada'] ?></td>
                             <td><?= $linha['perfil_acesso'] ?></td>
                             <td><?= $linha['username'] ?></td>
 

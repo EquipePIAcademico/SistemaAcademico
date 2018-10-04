@@ -52,7 +52,14 @@ div#interface{
             include '../cabecalho.php';
 
             include '../bd/conectar.php';
+            ?>
 
+            <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
+                Pesquisar disciplinas: <input type="search" placeholder="Por nome" name="pesquisaDisciplina">
+                <input class="btn" type="submit" value="Buscar">
+            </form>
+
+            <?php
             ini_set("display_errors", true);
 
             $sql = "select disciplina.id, disciplina.nome as disc_nome, disciplina.descricao, disciplina.carga_horaria, curso.nome as curso_nome, tipo.nome as tipo_nome "

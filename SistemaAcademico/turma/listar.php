@@ -53,7 +53,15 @@ div#interface{
             include '../cabecalho.php';
 
             include '../bd/conectar.php';
+            ?>
 
+            <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
+                Pesquisar disciplina: <input required="" type="search" placeholder="Por nome" name="pesquisaDisciplina">
+                Pesquisar semestre: <input required="" type="search" placeholder="Por semestre" name="pesquisaSemestre">
+                <input class="btn" type="submit" value="Buscar">
+            </form>
+
+            <?php
             ini_set("display_errors", true);
 
             $sql = "select turma.id, turma.nVagas, disciplina.nome as disc_nome, semestre.valor as semestre_valor, usuario.nome as professor_nome from "

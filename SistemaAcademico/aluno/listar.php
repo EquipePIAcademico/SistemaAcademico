@@ -74,13 +74,13 @@ div#interface{
             ?>
 
             <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
-                Pesquisar alunos: <input type="search" placeholder="Por nome" name="pesquisaAluno">
+                Pesquisar alunos: <input required="" type="search" placeholder="Por nome" name="pesquisaAluno">
                 <input class="btn" type="submit" value="Buscar">
             </form>
 
 
             <?php
-            $sql_aluno = "select aluno.id, aluno.nome, aluno.email, aluno.dataN, aluno.nacionalidade, aluno.bairro, aluno.rua, aluno.complemento, aluno.cep, "
+            $sql_aluno = "select aluno.id, aluno.nome, aluno.email, date_format(aluno.dataN, '%d/%m/%Y') as dataNformatada, aluno.nacionalidade, aluno.bairro, aluno.rua, aluno.complemento, aluno.cep, "
                     . "aluno.numero, renda.valor from aluno join renda on renda.id=aluno.renda_id order by nome";
 
             $resultado = mysqli_query($conexao, $sql_aluno);
@@ -98,7 +98,7 @@ div#interface{
 
                         <td><?= $linha['nome'] ?></td>
                         <td><?= $linha['email'] ?></td>
-                        <td><?= $linha['dataN'] ?></td>
+                        <td><?= $linha['dataNformatada'] ?></td>
                         <td><?= $linha['valor'] ?></td>
                         <td><?= $linha['nacionalidade'] ?></td>
                         <td>Bairro: <br><?= $linha['bairro'] ?></td>
