@@ -49,9 +49,11 @@
                 </select>
                 <br>
                 
-                 <label>Semestre: </label>
-                 
-                <input type="text" required="" name="semestre"><br>
+                  <label>Semestre:</label> <select name="semestre">
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                </select>
+                <br>
                 </fieldset>
                
                     

@@ -3,8 +3,8 @@
     <head>
         <title>Cadastrar Aluno</title>
         <meta charset="utf-8">
-        <link href="../css/estilo.css" rel="stylesheet">
-        <link href="../css/form.css" rel="stylesheet">
+       <link href="../css/estilo.css" rel="stylesheet">
+    <link href="../css/form.css" rel="stylesheet">
     </head>
     <body>
         <div id="interface">

@@ -3,7 +3,42 @@
     <head>
         <title>Tipos</title>
         <meta charset="utf-8">
-        <link href="../css/estilo.css" rel="stylesheet">
+       <!-- <link href="../css/estilo.css" rel="stylesheet">-->
+              <style>
+          #customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+.btn{
+    font-family: arial;
+    font-size: 14px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    background-color:green;
+    margin-top: 10px;
+}
+
+       </style>
+
 
     </head>
     <body>
@@ -26,7 +61,7 @@
                     <form action="excluir_lote.php" method="post">    
 
                         <h3 id="cadastro">Tipos de Curso Cadastrados</h3>
-                        <table id="tabelaspec">
+                        <table id="customers">
 
                             <tr>
                                 <td class="cc">Selecionar</td><td class="cc">Nome</td><td class="cc">Descrição</td><td class="ce">Excluir</td><td class="ca">Alterar</td>

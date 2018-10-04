@@ -17,7 +17,8 @@ $disciplina_id = $_GET['disciplina_id'];
 //$ano = $_POST['ano'];
 //$semestre = $_POST['semestre'];
 
-$sql = "insert into aluno_turma (aluno_id, turma_id) values ($aluno_curso_id, $disciplina_id)";
+
+    $sql = "insert into aluno_turma (aluno_id, turma_id) values ($aluno_curso_id, $disciplina_id)";
 
 if (@mysqli_query($conexao, $sql)) {
             echo "<script>alert('Matricula realizada com sucesso!')</script>";

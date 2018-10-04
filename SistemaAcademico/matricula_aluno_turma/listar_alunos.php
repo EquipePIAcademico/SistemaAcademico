@@ -3,8 +3,45 @@
     <head>
         <title>Cursos</title>
         <meta charset="utf-8">
-        <link href="../css/estilo.css" rel="stylesheet">
+<!--        <link href="../css/estilo.css" rel="stylesheet">-->
+        <style>
+          #customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
 
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+body{
+    background-color: #dddddd;
+    color: rgba(0,0,0,1);
+    font-family: sans-serif;
+    font-size: 14px;
+}
+div#interface{
+    background-color: white;
+    width: 1300px;
+    margin: 0px auto 10px auto;
+    box-shadow: 0px 0px 10px;
+    padding: 0px 0px 50px 30px;
+}
+       </style>
     </head>
     <body>
         <div id="interface">
@@ -21,13 +58,13 @@
          //  echo "O id é: $pegaid"; 
                     
             $sql = "select aluno_turma.aluno_id, aluno_turma.turma_id, aluno.id, aluno.nome, aluno_curso.aluno_id, aluno_curso.matricula from aluno_turma "
-                    . "join aluno on aluno_turma.aluno_id=aluno.id join aluno_curso on aluno_curso.aluno_id=aluno.id where aluno_turma.turma_id=$pegaid order by nome";
+                    . "join aluno on aluno_turma.aluno_id=aluno.id join aluno_curso on aluno_curso.aluno_id=aluno.id where aluno_turma.turma_id=$disciplina_id order by nome";
             
        $retorno = mysqli_query($conexao, $sql);
        
        ?>
         <form action="excluir_lote.php" method="post">
-                <table id="tabelaspec">
+                <table id="customers">
                      <caption>Alunos Matriculados</caption>
                     <tr>
                         <td class="cc">Matricula</td><td class="cc">Nome do aluno</td><td class="cc">Excluir</td><td class="cc">Alterar</td>

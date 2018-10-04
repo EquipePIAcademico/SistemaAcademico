@@ -3,9 +3,65 @@
     <head>
         <title>Alunos</title>
         <meta charset="utf-8">
-       <link href="../css/estilo.css" rel="stylesheet">
+      <!-- <link href="../css/estilo.css" rel="stylesheet">-->
        <style>
-          
+          #customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 2.5px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+.btn-excluir{
+    font-family: arial;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    background-color:red;
+    margin-top: 10px;
+   
+}
+
+body{
+    background-color: #dddddd;
+    color: rgba(0,0,0,1);
+    font-family: sans-serif;
+    font-size: 14px;
+}
+div#interface{
+    background-color: white;
+    width: 1250px;
+    margin: 0px auto 10px auto;
+    box-shadow: 0px 0px 10px;
+    padding: 0px 30px 50px 30px;
+}
+
+.form-pesquisa{
+    position: absolute;
+    left: 900px;
+   margin-bottom: 100px;
+   
+}
+
+
        </style>
     </head>
     <body>
@@ -13,11 +69,11 @@
 
             <?php
             //session_start();
-            include '../cabecalho.php';
-            include '../bd/conectar.php';
+            include_once '../cabecalho.php';
+            include_once '../bd/conectar.php';
             ?>
 
-            <form method="post" action="pesquisa.php?a=buscar">
+            <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
                 Pesquisar alunos: <input type="search" placeholder="Por nome" name="pesquisaAluno">
                 <input class="btn" type="submit" value="Buscar">
             </form>
@@ -45,11 +101,11 @@
                         <td><?= $linha['dataN'] ?></td>
                         <td><?= $linha['valor'] ?></td>
                         <td><?= $linha['nacionalidade'] ?></td>
-                        <td>Bairro: <?= $linha['bairro'] ?></td>
-                        <td>Rua: <?= $linha['rua'] ?></td>
-                        <td>Complemento: <?= $linha['complemento'] ?></td>
-                        <td>CEP:<?= $linha['cep'] ?></td>
-                        <td>Número: <?= $linha['numero'] ?></td>
+                        <td>Bairro: <br><?= $linha['bairro'] ?></td>
+                        <td>Rua: <br><?= $linha['rua'] ?></td>
+                        <td>Complemento: <br> <?= $linha['complemento'] ?></td>
+                        <td>CEP: <br><?= $linha['cep'] ?></td>
+                        <td>Número: <br><?= $linha['numero'] ?></td>
 
                         <td><a href="excluir.php?id=<?= $linha['id'] ?>">
                                 <img src="../img/excluir2.png" height="30" width="30"/></a></td>
@@ -62,7 +118,7 @@
                     ?>
 
                 </table>
-                <input class="btn" type="submit" value="Excluir">
+                <input class="btn-excluir" type="submit" value="Excluir">
 
             </form>
         </div>

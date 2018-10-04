@@ -9,7 +9,8 @@
     <body>
         <div id="interface">
             <?php
-            include '../cabecalho.php';
+            //include '../cabecalho.php';
+            echo '<p>Seja Bem-Vindo(a)</p>';
             ?>        
             <h3 id="cadastro">Acesso</h3>
             <form method="post" action="logar.php">

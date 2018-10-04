@@ -59,9 +59,12 @@
                 <br>
                <label>Ano: </label>
                 <input type="text" required="" name="ano"><br>
-                <label>Semestre: </label>
-                <input type="text" required="" name="semestre"><br>
+                <label>Semestre:</label> <select name="semestre">
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                </select>
                 <br>
+               
                 <input class="btn" type="submit" value="Inserir">
                 
             </form>
