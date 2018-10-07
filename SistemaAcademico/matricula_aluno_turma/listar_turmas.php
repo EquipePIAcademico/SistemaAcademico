@@ -49,10 +49,25 @@
                 </select>
                 <br>
                 
-                  <label>Semestre:</label> <select name="semestre">
-                    <option value="01">01</option>
-                    <option value="02">02</option>
-                </select>
+                <?php
+                    $sql_semestre = "select semestre.id, semestre.valor from semestre order by id";
+                    $retorno_semestre = mysqli_query($conexao, $sql_semestre);
+                    ?>
+
+                    <label>Semestre:</label> <select name="semestre_id">
+
+                        <?php
+                        while ($linha_semestre = mysqli_fetch_array($retorno_semestre)) {
+                            ?>
+
+                            <option value="<?= $linha_semestre['id'] ?>"><?= $linha_semestre['valor'] ?></option>
+
+                            <?php
+                        }
+                        ?>
+
+                    </select> <br>
+                
                 <br>
                 </fieldset>
                

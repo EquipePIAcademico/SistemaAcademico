@@ -92,7 +92,9 @@
                             ?>
                         </table>
                         <input class = "btn" type = "submit" value = "Excluir">
-
+                        <?php
+                         echo '<br> <a href=listar.php>Voltar para gerenciamento</a>   ';
+                         ?>
                     </form>
                 </div>
                 <?php

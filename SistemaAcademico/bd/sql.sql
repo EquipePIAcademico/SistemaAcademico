@@ -1,5 +1,5 @@
 create database bancoSistema;
-
+select * from curso;
 create table renda(
     id integer primary key auto_increment,
     valor varchar(30)
