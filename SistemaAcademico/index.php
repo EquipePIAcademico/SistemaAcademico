@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Home Page Teste</title>
+        <title>Home Page Teste 2</title>
         <meta charset="utf-8">
         <link href="css/estilo.css" rel="stylesheet">
     </head>
