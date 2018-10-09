@@ -67,13 +67,7 @@
                 text-decoration: none;
                 display: block;
             }
-            .dropdown-admin a {
-              
-                padding: 12px 16px;
-                text-decoration: none;
-                display: inline;
-                 background-color: #3e8e41;
-            }
+           
 
             .dropdown-gerenciamento a {
                 color: black;
@@ -111,38 +105,32 @@
             display: flex;
             justify-content: center;
             }
-            .l{
-                margin-top: 50px;
-                margin-left: -120px;
-            }
-            
+           
             
         </style>
     </head>
     <body>
 
         <header id="cabecalho">
+          <div class="dropdown">
             
                 <!--  <ul type="disc">-->
                 <?php
-
+                  require_once 'usuario/autenticacao.php';
+            
                 if (estaLogado()) {
                     if (exibirUsername() == 'administrador') {
                        // echo '<h3 class="nome">Olá ' . exibirUsername() . '  </h3> ';
-                         ?>
-                           <div class="dropdown"><?php
-                        echo "<a href='http://localhost/SistemaAcademico/usuario/form_inserir.php'><button class='dropbtn'>Cadastrar usuários </button></a>";
-                       ?> </div>
-                      <div class="dropdown"><?php 
-                       echo "<a href='http://localhost/SistemaAcademico/usuario/listar.php'><button class='dropbtn'>Gerenciamento de usuários</button></a>";
-                     ?></div>
-                     <div class="dropdown"><?php 
-                       echo "<a href='http://localhost/SistemaAcademico/usuario/listar_perfil.php'><button class='dropbtn'>Meu perfil </button></a>";
-                       ?></div>
-                   <?php
+                        
+                        echo "<a href='http://localhost/SistemaAcademico/usuario/form_inserir.php'>Cadastrar usuários </a>";
+                      
+                       echo "<a href='http://localhost/SistemaAcademico/usuario/listar.php'>Gerenciamento de usuários</a>";
+                   
+                       echo "<a href='http://localhost/SistemaAcademico/usuario/listar_perfil.php'>Meu perfil </a>";
+                      
                     } else if (exibirPerfilAcesso() == 'secretario(a)') {
                       //  echo '<h3 class="nome">Olá ' . exibirUsername() . '  </h3> ';
-                     ?>   <div class="dropdown"><?php 
+                     
                         echo "<a href=//localhost/SistemaAcademico/index.php><button class='dropbtn'>Home</button> </a>   ";
                         ?>
                      </div>
@@ -194,15 +182,14 @@
                 <div class="dropdown">
                 <?php
               echo "<a href='http://localhost/SistemaAcademico/usuario/logout.php'><button class='dropbtn'>Logout</button></a>";
-            ?>
-              </div><?php
-              
-                        } else {
-                
-                header('Location: http://localhost/SistemaAcademico/usuario/form_login.php');
-                 
+                }else{
+                  echo '<p>Seja Bem-Vindo(a)</p>';
+                  ?>
+                  <div class="dropdown login">
+                    <?php
+                  echo "<a href='http://localhost/SistemaAcademico/usuario/form_login.php'><button class='dropbtn'>Login</button></a>";
                 }
-                ?></div>
+                ?>
                     </header>
                     </body>
                     </html>
