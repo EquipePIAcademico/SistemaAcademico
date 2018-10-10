@@ -5,6 +5,23 @@
         <meta charset="utf-8">
         <link href="../css/estilo.css" rel="stylesheet">
         <link href="../css/form.css" rel="stylesheet">
+            <style>
+    .button:hover {
+    background-color:blue; /* Green */
+    color: white;
+    
+}
+.button{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+</style>
     </head>
     <body>
         <div id="interface">
@@ -35,7 +52,7 @@
                 $retorno_curso = mysqli_query($conexao, $sql_curso);
                 ?>
 
-                <label>Curso:</label> <select required="" name="curso_id">
+                <label class="espacamento">Curso:</label> <select required="" name="curso_id" class="espacamento" style="width: 220px;">
 
                     <?php
                     while ($linha_curso = mysqli_fetch_array($retorno_curso)) {
@@ -62,7 +79,7 @@
                 <label> Carga horária:  </label>
                 <input type="number" required="" name="carga_horaria" value="<?= $linha['carga_horaria'] ?>"><br>
 
-                <input class="btn" type="submit" value="Alterar">
+                 <button class="button">Alterar</button>
             </form>
 
         </div>

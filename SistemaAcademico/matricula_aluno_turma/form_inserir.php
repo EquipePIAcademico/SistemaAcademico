@@ -5,6 +5,24 @@
         <title>Matricular Aluno em Turma</title>
         <link href="../css/estilo.css" rel="stylesheet">
         <link href="../css/form.css" rel="stylesheet">
+                <style>
+            .button:hover {
+                background-color:green; /* Green */
+                color: white;
+
+            }
+            .button{
+                background-color: ;
+                color: #2E2E2E;
+                border: 2px solid #A4A4A4;
+                cursor: pointer;
+                border-radius: 5px;
+                padding: 10px;
+                font-size: 15px;
+                margin-bottom: 20px;
+            }
+        </style>
+
     </head>
 
     <body>
@@ -24,7 +42,7 @@
                 $retorno = mysqli_query($conexao, $sql_aluno);
                 ?>
 
-                <label>Aluno:</label> <select name="aluno_curso_id">
+                <label class="espacamento">Aluno:</label> <select name="aluno_curso_id" class="espacamento" style="width: 220px;">
 
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
@@ -45,7 +63,7 @@
                 <fieldset> 
                     <legend>Turma</legend>
 
-                    <label>Disciplina:</label><select name="disciplina_id">
+                    <label>Disciplina:</label><select name="disciplina_id" style="width: 220px;">
 
                         <?php
                         while ($linha = mysqli_fetch_array($retorno)) {
@@ -64,7 +82,7 @@
                     $retorno_semestre = mysqli_query($conexao, $sql_semestre);
                     ?>
 
-                    <label>Semestre:</label> <select name="semestre_id">
+                    <label>Semestre:</label> <select name="semestre_id" style="width: 220px;">
 
                         <?php
                         while ($linha_semestre = mysqli_fetch_array($retorno_semestre)) {
@@ -81,10 +99,9 @@
                     <br>
                 </fieldset>
                 <br>
-                <label>Ano: </label>
+            
 
-                <input type="text" required="" name="ano"><br>
-                <input class="btn" type="submit" value="Inserir">
+                 <button class="button">Inserir</button>
             </form>
 
 

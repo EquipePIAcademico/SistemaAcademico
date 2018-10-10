@@ -11,7 +11,7 @@ $sql_turma = "delete from aluno_turma where aluno_id= $id";
 mysqli_query($conexao, $sql_curso);
 mysqli_query($conexao, $sql_turma);
  
-echo "<script>alert('Aluno removido com sucesso!')</script>";
+
 
 
 header('Location: listar_alunos.php');

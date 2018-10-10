@@ -42,6 +42,49 @@
                 box-shadow: 0px 0px 10px;
                 padding: 0px 30px 50px 30px;
             }
+            .form-pesquisa{
+    position: absolute;
+    left: 900px;
+
+   
+}
+ img {
+	margin: 0 auto;
+	text-align: center;
+}
+.btn-insira:hover {
+    background-color:#F35548; /* Green */
+    color: white;
+    
+}
+button.btn-insira{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 18px;
+    margin-bottom: 20px;
+    
+}
+caption{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+             form{
+                 background-color: white;
+                 margin-top: -20px;
+                 margin-left: 20px;
+                 margin-right: 20px;
+             }
+
+             td{
+                 text-align:center;
+             }
         </style>
     </head>
     <body>
@@ -71,23 +114,23 @@
                 <table id="customers">
                     <caption>Disciplinas Cadastradas</caption>
                     <tr>
-                        <td align="center" valign="top">Selecionar</td><td align="center" valign="top">Curso da disciplina</td><td align="center" valign="top">Nome</td><td align="center" valign="top">Descrição</td><td align="center" valign="top">Carga horária</td><td align="center" valign="top">Excluir</td><td align="center" valign="top">Alterar</td>
+                        <td>Selecionar</td><td >Curso da disciplina</td><td>Nome</td><td>Descrição</td><td>Carga horária</td><td>Excluir</td><td>Alterar</td>
                     </tr>
                     <?php
                     while ($linha = mysqli_fetch_array($resultado)) {
                         ?>
                         <tr>
-                            <td align="center" valign="top"><input type="checkbox" name="id[]" value="<?= $linha['id'] ?>"</td>
+                            <td><input type="checkbox" name="id[]" value="<?= $linha['id'] ?>"</td>
 
-                            <td align="center" valign="top"><?= $linha['tipo_nome'] ?> - <?= $linha['curso_nome'] ?></td>
-                            <td align="center" valign="top"><?= $linha['disc_nome'] ?></td>
-                            <td align="center" valign="top"><?= $linha['descricao'] ?></td>
-                            <td align="center" valign="top"><?= $linha['carga_horaria'] ?></td>
+                            <td><?= $linha['tipo_nome'] ?> - <?= $linha['curso_nome'] ?></td>
+                            <td><?= $linha['disc_nome'] ?></td>
+                            <td><?= $linha['descricao'] ?></td>
+                            <td><?= $linha['carga_horaria'] ?></td>
 
-                            <td align="center" valign="top"><a href="excluir.php?id=<?= $linha['id'] ?>">
+                            <td><a href="excluir.php?id=<?= $linha['id'] ?>">
                                     <img src="../img/excluir2.png" height="30" width="30"/></a></td>
 
-                            <td align="center" valign="top"><a href="form_alterar.php?id=<?= $linha['id'] ?>">
+                            <td><a href="form_alterar.php?id=<?= $linha['id'] ?>">
                                     <img src="../img/alterar2.png" height="30" width="30"/></a></td>
                         </tr>
                         <?php
@@ -95,7 +138,7 @@
                     ?>
 
                 </table><br>
-                <input class="btn" type="submit" value="Excluir">
+               <button class="btn-insira">Excluir</button>
             </form>
 
             <?php

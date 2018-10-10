@@ -5,6 +5,24 @@
         <title>Matricular Aluno em Curso</title>
         <link href="../css/estilo.css" rel="stylesheet">
         <link href="../css/form.css" rel="stylesheet">
+                 <style>
+    .button:hover {
+    background-color:blue; /* Green */
+    color: white;
+    
+}
+.button{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+</style>
+
     </head>
 
     <body>
@@ -35,7 +53,7 @@
                 $retorno_aluno = mysqli_query($conexao, $sql_aluno);
                 ?>
 
-                <label>Alunos:</label> <select name="aluno_id">
+                 <label class="espacamento">Alunos:</label> <select name="aluno_id" class="espacamento" style="width: 250px;">
 
                     <?php
                     while ($linha_aluno = mysqli_fetch_array($retorno_aluno)) {
@@ -60,7 +78,7 @@
                 $sql_curso = "select curso.id, curso.nome from curso order by nome";
                 $retorno_curso = mysqli_query($conexao, $sql_curso);
                 ?>
-                <label>Cursos:</label> <select name="curso_id">
+                <label>Cursos:</label> <select name="curso_id" style="width: 250px;">
 
                     <?php
                     while ($linha_curso = mysqli_fetch_array($retorno_curso)) {
@@ -86,7 +104,7 @@
                 <label>Semestre: </label>
                 <input type="text" required="" name="semestre" value="<?=$linha['semestre']?>"><br>
                 <br>
-                <input class="btn" type="submit" value="Alterar">
+                <button class="button">Alterar</button>
                 
             </form>
 

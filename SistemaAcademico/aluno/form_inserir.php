@@ -5,6 +5,19 @@
         <meta charset="utf-8">
        <link href="../css/estilo.css" rel="stylesheet">
     <link href="../css/form.css" rel="stylesheet">
+    <script>
+function formatar(mascara, documento){
+  var i = documento.value.length;
+  var saida = mascara.substring(0,1);
+  var texto = mascara.substring(i)
+  
+  if (texto.substring(0,1) != saida){
+            documento.value += texto.substring(0,1);
+  }
+  
+}
+ 
+</script>
     </head>
     <body>
         <div id="interface">
@@ -24,15 +37,14 @@
 
                     <label>Sexo:</label>
 
-                        <input type="radio" name="sexo" id="cMasc" value="masculino" checked/>Masculino<br>
-                        <input type="radio" name="sexo" id="cFem" value="feminino"/>Feminino<br>
+                        <input type="radio" name="sexo" id="cMasc" value="masculino" checked/>Masculino <input type="radio" name="sexo" id="cFem" value="feminino"/>Feminino<br>
                     
                     <label for="dt">Data de nascimento: </label>
-                    <input type="date" required="" name="dataN" id="dt" ><br>
+                    <input type="date" required="" name="dataN" id="dt" style="width: 215px;"><br>
                     <label for="cRg">RG: </label>
-                    <input type="text" required="" name="rg" id="cRg"><br>
+                    <input type="text" required="" name="rg" id="cRg" maxlength="12"><br>
                     <label for="cCpf">CPF: </label>
-                    <input type="text" required="" name="cpf" id="cCpf"><br>
+                    <input type="text" required="" name="cpf" id="cCpf"  maxlength="14" OnKeyPress="formatar('###.###.###-##', this)"><br>
                     
                     <?php
                     include '../bd/conectar.php';
@@ -42,7 +54,7 @@
                     ?>
                     
                     <label for="rf">Renda familiar: </label>
-                    <select required="" name="renda_id" id="rf">
+                    <select required="" name="renda_id" id="rf" style="width: 215px;">
 
                         <?php
                         while ($linha = mysqli_fetch_array($retorno)) {
@@ -57,7 +69,7 @@
                     </select> <br>
                     
                     <label for="nasc">Nacionalidade: </label>
-                    <select required="" name="nacionalidade" id="nasc">
+                    <select required="" name="nacionalidade" id="nasc" style="width: 215px;">
                         <option value="África do Sul">África do Sul</option>
                         <option value="Albânia">Albânia</option>
                         <option value="Alemanha">Alemanha</option>
@@ -244,9 +256,9 @@
                     <label for="comp">Complemento:</label>
                     <input type="text" required="" name="complemento" id="comp"><br>
                     <label for="cCep">CEP:</label>
-                    <input type="text" required="" name="cep" id="cCep"><br>
+                    <input type="text" required="" name="cep" id="cCep" maxlength="9" OnKeyPress="formatar('#####-###', this)"><br>
                     <label for="num">Número:</label>
-                    <input type="number" required="" name="numero" id="num"min="0" max="99999"><br>
+                    <input type="number" required="" name="numero" id="num"min="0" max="99999" ><br>
                 </fieldset><br><br>
 
                 <input class="btn" type="submit" value="Inserir">

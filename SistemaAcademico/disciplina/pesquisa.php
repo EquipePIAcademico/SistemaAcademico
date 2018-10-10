@@ -27,15 +27,115 @@
                 background-color: #4CAF50;
                 color: white;
             }
-            .btn{
-                font-family: arial;
-                font-size: 14px;
-                border: none;
-                padding: 10px;
-                cursor: pointer;
-                background-color:green;
-                margin-top: 10px;
-            }
+           .btn-excluir{
+    font-family: arial;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    background-color:red;
+    margin-top: 10px;
+   
+}
+
+body{
+    background-color: #dddddd;
+    color: rgba(0,0,0,1);
+    font-family: sans-serif;
+    font-size: 14px;
+}
+div#interface{
+    background-color: white;
+    width: 1250px;
+    margin: 0px auto 10px auto;
+    box-shadow: 0px 0px 10px;
+    padding: 0px 30px 50px 30px;
+}
+
+.form-pesquisa{
+    position: absolute;
+    left: 900px;
+   margin-bottom: 100px;
+   
+}
+ .btn-insira:hover {
+    background-color:#FE2E2E; /* Green */
+    color: white;
+    
+    
+}
+button.btn-insira{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+caption{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+             form{
+                 background-color: white;
+                 margin-top: -20px;
+                 margin-left: 20px;
+                 margin-right: 20px;
+             }
+                h3{
+            display: flex;
+            justify-content: center;
+              
+          }
+         .btn-continuar:hover {
+    background-color:green; /* Green */
+    color: white;
+    
+}
+.button{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    
+}
+          
+          .btn-continuar{
+              position: absolute;
+              left: 590px;
+             
+          }
+
+.btn-insira:hover {
+    background-color:#FE2E2E; /* Green */
+    color: white;
+    
+}
+button.btn-insira{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 15px;
+    margin-left: 610px;
+    margin-bottom: 20px;
+    
+}
+td{
+    text-align: center;
+}
 
         </style>
 
@@ -65,30 +165,30 @@
                         <table id="customers">
                             <caption>Disciplinas Cadastradas</caption>
                             <tr>
-                                <td align="center" valign="top">Selecionar</td><td align="center" valign="top">Curso da disciplina</td><td align="center" valign="top">Nome</td><td align="center" valign="top">Descrição</td><td align="center" valign="top">Carga horária</td><td align="center" valign="top">Excluir</td><td align="center" valign="top">Alterar</td>
+                                <td>Selecionar</td><td>Curso da disciplina</td><td>Nome</td><td>Descrição</td><td>Carga horária</td><td>Excluir</td><td>Alterar</td>
                             </tr>
                             <?php
                             while ($linha = mysqli_fetch_array($resultado)) {
                                 ?>
                                 <tr>
-                                    <td align="center" valign="top"><input type="checkbox" name="id[]" value="<?= $linha['id'] ?>"</td>
+                                    <td><input type="checkbox" name="id[]" value="<?= $linha['id'] ?>"</td>
 
-                                    <td align="center" valign="top"><?= $linha['tipo_nome'] ?> - <?= $linha['curso_nome'] ?></td>
-                                    <td align="center" valign="top"><?= $linha['nome'] ?></td>
-                                    <td align="center" valign="top"><?= $linha['descricao'] ?></td>
-                                    <td align="center" valign="top"><?= $linha['carga_horaria'] ?></td>
+                                    <td><?= $linha['tipo_nome'] ?> - <?= $linha['curso_nome'] ?></td>
+                                    <td><?= $linha['nome'] ?></td>
+                                    <td><?= $linha['descricao'] ?></td>
+                                    <td><?= $linha['carga_horaria'] ?></td>
 
-                                    <td align="center" valign="top"><a href="excluir.php?id=<?= $linha['id'] ?>">
+                                    <td><a href="excluir.php?id=<?= $linha['id'] ?>">
                                             <img src="../img/excluir2.png" height="30" width="30"/></a></td>
 
-                                    <td align="center" valign="top"><a href="form_alterar.php?id=<?= $linha['id'] ?>">
+                                    <td><a href="form_alterar.php?id=<?= $linha['id'] ?>">
                                             <img src="../img/alterar2.png" height="30" width="30"/></a></td>
                                 </tr>
                                 <?php
                             }
                             ?>
                         </table>
-                        <input class = "btn" type = "submit" value = "Excluir">
+                         <button class="btn-insira button">Excluir</button>
                         <?php
                         echo '<br> <a href=listar.php>Voltar para gerenciamento</a>   ';
                         ?>
@@ -96,12 +196,12 @@
                 </div>
                 <?php
             } else {
-                echo "<script>alert('Nenhuma disciplina foi encontrada com o nome $pesquisaDisciplina')</script>";
-            }
-            ?>
-
-
+                 ?>
+                    <h3> Nenhuma disciplina foi encontrada com o nome <?=$pesquisaDisciplina?> </h3>
+    
+                    <a href=listar.php> <button class="btn-continuar button">Voltar para gerenciamento</button></a>   
             <?php
+            }
         }
         require_once '../rodape.php';
         ?>

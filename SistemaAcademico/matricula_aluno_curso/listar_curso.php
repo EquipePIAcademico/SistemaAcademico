@@ -28,7 +28,7 @@
                     <caption>Cursos Cadastrados</caption>
                     <br><br>
                     
-                    Curso:<select name="curso_id">
+                    Curso:<select name="curso_id" class="espacamento" style="width: 220px;">
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
                         ?>

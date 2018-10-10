@@ -5,6 +5,23 @@
         <title>Cadastrar Curso</title>
         <link href="../css/estilo.css" rel="stylesheet">
         <link href="../css/form.css" rel="stylesheet">
+         <style>
+    .button:hover {
+    background-color:green; /* Green */
+    color: white;
+    
+}
+.button{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+</style>
     </head>
 
     <body>
@@ -22,7 +39,7 @@
                 $retorno = mysqli_query($conexao, $sql);
                 ?>
 
-                <label>Tipo de curso:</label> <select name="tipo_id">
+                <label>Tipo de curso:</label> <select name="tipo_id" class="espacamento" style="width: 220px;">
 
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
@@ -45,14 +62,14 @@
                 <label>Ano de início: </label>
                 <input type="number" required="" name="anoInicio"><br>
                 <label>Semestre de início:</label> <select name="semestreInicio">
-                    <option value="01">01</option>
-                    <option value="02">02</option>
+                    <option value="01">1</option>
+                    <option value="02">2</option>
                 </select> <br>               
                 <label>Ano de término: </label>
                 <input type="number" required="" name="anoTermino"><br>
                 <label>Semestre de término:</label> <select name="semestreTermino">
-                    <option value="01">01</option>
-                    <option value="02">02</option>
+                    <option value="01">1</option>
+                    <option value="02">2</option>
                 </select> <br>
                 
                 <?php
@@ -61,7 +78,7 @@
                 $retorno = mysqli_query($conexao, $sql);
                 ?>
 
-                <label>Turno:</label> <select name="turno_id">
+                <label>Turno:</label> <select name="turno_id" style="width: 220px;">
 
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
@@ -75,7 +92,7 @@
 
                 </select> <br>
                 
-                <input class="btn" type="submit" value="Inserir">
+               <button class="button">Inserir</button>
             </form>
 
 

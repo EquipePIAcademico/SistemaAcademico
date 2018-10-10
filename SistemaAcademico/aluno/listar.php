@@ -20,15 +20,23 @@
 
 #customers tr:hover {background-color: #ddd;}
 
-
-
 #customers th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: center;
+    text-align: left;
     background-color: #4CAF50;
     color: white;
 }
+
+body{
+    background-color: #dddddd;
+    color: rgba(0,0,0,1);
+    font-family: arial;
+    font-size: 14px;
+}
+
+
+
 .btn-excluir{
     font-family: arial;
     font-size: 14px;
@@ -40,12 +48,6 @@
    
 }
 
-body{
-    background-color: #dddddd;
-    color: rgba(0,0,0,1);
-    font-family: sans-serif;
-    font-size: 14px;
-}
 div#interface{
     background-color: white;
     width: 1250px;
@@ -56,10 +58,53 @@ div#interface{
 
 .form-pesquisa{
     position: absolute;
-    left: 900px;
+    left: 950px;
    margin-bottom: 100px;
    
 }
+img {
+	margin: 0 auto;
+	text-align: center;
+}
+ .btn-insira:hover {
+    background-color:#F35548; /* Green */
+    color: white;
+    
+}
+button.btn-insira{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    
+}
+caption{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+             form{
+                 background-color: white;
+                 margin-top: -20px;
+                 margin-left: 20px;
+                 margin-right: 20px;
+             }
+input{
+                 border-radius: 10px;
+             }
+
+
+             td{
+                    text-align: center;
+                    
+             }
+
 
 
        </style>
@@ -89,7 +134,7 @@ div#interface{
 
                 <table id="customers">
                     <caption>Alunos Cadastrados</caption>
-                    <tr> <td class="cc">Selecionar</td><td class="cc">Nome</td><td class="cc">E-mail</td><td class="cc">Data de nascimento</td><td class="cc">Renda</td><td class="cc">Nacionalidade</td><td class="cc" colspan="5">Endereço</td><td class="ce">Excluir</td><td class="ca">Alterar</td>
+                    <tr> <td>Selecionar</td><td>Nome</td><td>E-mail</td><td>Data de nascimento</td><td>Renda</td><td>Nacionalidade</td><td colspan="5">Endereço</td><td>Excluir</td><td>Alterar</td>
                     </tr>
                     <?php
                     while ($linha = mysqli_fetch_array($resultado)) {
@@ -118,7 +163,7 @@ div#interface{
                     ?>
 
                 </table>
-                <input class="btn-excluir" type="submit" value="Excluir">
+                   <button class="btn-insira">Excluir</button>
 
             </form>
         </div>

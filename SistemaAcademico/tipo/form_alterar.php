@@ -5,6 +5,23 @@
         <meta charset="utf-8">
         <link href="../css/estilo.css" rel="stylesheet">
         <link href="../css/form.css" rel="stylesheet">
+                <style>
+    .button:hover {
+    background-color:blue; /* Green */
+    color: white;
+    
+}
+.button{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+</style>
     </head>
     <body>
         <div id="interface">
@@ -28,11 +45,11 @@
             <h3 id="cadastro">Alterar Cadastro</h3>
             <form method="post" action="alterar.php">
                 <input type="hidden" name="id" value="<?= $id ?>">
-                Nome:
-                <input type="text" required="" name="nome" value="<?= $linha['nome'] ?>" /><br>
-                Descrição:
+                <label class="espacamento"> Nome:</label>
+                <input type="text" required="" name="nome" class="espacamento" value="<?= $linha['nome'] ?>" /><br>
+               <label>Descrição:</label>
                 <input type="text" required="" name="descricao" value="<?= $linha['descricao'] ?>" /><br><br>
-                <input class="btn" type="submit" value="Alterar">
+               <button class="button">Alterar</button>
             </form>
 
         </div>

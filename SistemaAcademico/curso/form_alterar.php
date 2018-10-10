@@ -5,6 +5,23 @@
         <title>Alterar Cadastro</title>
         <link href="../css/estilo.css" rel="stylesheet">
         <link href="../css/form.css" rel="stylesheet">
+          <style>
+    .button:hover {
+    background-color:blue; /* Green */
+    color: white;
+    
+}
+.button{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+</style>
     </head>
     <body>
         <div id="interface">
@@ -34,7 +51,7 @@
                 $retorno_tipo = mysqli_query($conexao, $sql_tipo);
                 ?>
 
-                <label>Tipo de curso:</label> <select disabled="" name="tipo_id">
+                <label class="espacamento">Tipo de curso:</label> <select disabled="" name="tipo_id" class="espacamento" style="width: 220px;">
 
                     <?php
                     while ($linha_tipo = mysqli_fetch_array($retorno_tipo)) {
@@ -68,8 +85,8 @@
                     <?php
                     if ($linha_curso['semestreInicio'] == "01"){
                     ?>
-                    <option selected="" value="01">01</option>
-                    <option value="02">02</option>
+                    <option selected="" value="01">1</option>
+                    <option value="02">2</option>
                     <?php
                     } else {
                     ?>   
@@ -125,7 +142,7 @@
 
                 </select> <br>
 
-                <input class="btn" type="submit" value="Alterar">
+              <button class="button">Alterar</button>
             </form>
 
         </div>

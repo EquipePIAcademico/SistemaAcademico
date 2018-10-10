@@ -35,7 +35,7 @@
                 <fieldset> 
                     <legend>Turma</legend>
                 
-                <label>Disciplina:</label><select name="disciplina_id">
+                <label>Disciplina:</label><select name="disciplina_id" style="width: 220px;">
                     
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
@@ -54,7 +54,7 @@
                     $retorno_semestre = mysqli_query($conexao, $sql_semestre);
                     ?>
 
-                    <label>Semestre:</label> <select name="semestre_id">
+                    <label>Semestre:</label> <select name="semestre_id" style="width: 220px;">
 
                         <?php
                         while ($linha_semestre = mysqli_fetch_array($retorno_semestre)) {

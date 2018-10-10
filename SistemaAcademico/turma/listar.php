@@ -41,6 +41,50 @@ div#interface{
     box-shadow: 0px 0px 10px;
     padding: 0px 30px 50px 30px;
 }
+.form-pesquisa{
+    position: absolute;
+    left: 900px;
+
+   
+}
+ img {
+	margin: 0 auto;
+	text-align: center;
+}
+  .btn-insira:hover {
+    background-color:#F35548; /* Green */
+    color: white;
+    
+}
+button.btn-insira{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    
+}   
+
+caption{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+             form{
+                 background-color: white;
+                 margin-top: -20px;
+                 margin-left: 20px;
+                 margin-right: 20px;
+             }
+
+             td{
+                 text-align: center;
+             }
        </style>
     </head>
     <body>
@@ -73,22 +117,22 @@ div#interface{
                 <table id="customers">
                     <caption>Turmas Cadastradas</caption>
                     <tr>
-                        <td align="center" valign="top">Selecionar</td><td align="center" valign="top">Número de vagas</td><td align="center" valign="top">Disciplina</td><td align="center" valign="top">Semestre</td><td align="center" valign="top">Professor(a)</td><td align="center" valign="top">Excluir</td><td align="center" valign="top">Alterar</td>
+                        <td>Selecionar</td><td>Número de vagas</td><td>Disciplina</td><td>Semestre</td><td>Professor(a)</td><td>Excluir</td><td>Alterar</td>
                     </tr>
                     <?php
                     while ($linha = mysqli_fetch_array($resultado)) {
                         ?>
                         <tr>
-                            <td align="center" valign="top"><input type="checkbox" name="id[]" value="<?= $linha['id'] ?>"</td>
-                            <td align="center" valign="top"><?= $linha['nVagas'] ?></td>
-                            <td align="center" valign="top"><a href="../disciplina/listar.php"><?= $linha['disc_nome'] ?></a></td>
-                            <td align="center" valign="top"><?= $linha['semestre_valor'] ?></td>
-                            <td align="center" valign="top"><?= $linha['professor_nome'] ?></td>
+                            <td><input type="checkbox" name="id[]" value="<?= $linha['id'] ?>"</td>
+                            <td><?= $linha['nVagas'] ?></td>
+                            <td><a href="../disciplina/listar.php"><?= $linha['disc_nome'] ?></a></td>
+                            <td><?= $linha['semestre_valor'] ?></td>
+                            <td><?= $linha['professor_nome'] ?></td>
                             
-                            <td align="center" valign="top"><a href="excluir.php?id=<?= $linha['id'] ?>">
+                            <td><a href="excluir.php?id=<?= $linha['id'] ?>">
                                     <img src="../img/excluir2.png" height="30" width="30"/></a></td>
 
-                            <td align="center" valign="top"><a href="form_alterar.php?id=<?= $linha['id'] ?>">
+                            <td><a href="form_alterar.php?id=<?= $linha['id'] ?>">
                                     <img src="../img/alterar2.png" height="30" width="30"/></a></td>
                         </tr>
                         <?php
@@ -96,7 +140,7 @@ div#interface{
                     ?>
 
                 </table>
-                <input class="btn" type="submit" value="Excluir">
+               <button class="btn-insira">Excluir</button>
             </form>
         </div>
         <?php

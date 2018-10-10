@@ -43,7 +43,7 @@
                     $retorno_renda = mysqli_query($conexao, $sql_renda);
                     ?>
 
-                    <label>Renda familiar: :</label> <select required="" name="renda_id">
+                    <label>Renda familiar: </label> <select required="" name="renda_id">
 
                         <?php
                         while ($linha_renda = mysqli_fetch_array($retorno_renda)) {

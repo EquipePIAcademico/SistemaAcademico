@@ -27,14 +27,114 @@
     background-color: #4CAF50;
     color: white;
 }
-.btn{
+.btn-excluir{
     font-family: arial;
     font-size: 14px;
-    border: none;
+    border-radius: 10px;
     padding: 10px;
     cursor: pointer;
-    background-color:green;
+    background-color:red;
     margin-top: 10px;
+   
+}
+
+body{
+    background-color: #dddddd;
+    color: rgba(0,0,0,1);
+    font-family: arial;
+    font-size: 14px;
+}
+div#interface{
+    background-color: white;
+    width: 1250px;
+    margin: 0px auto 10px auto;
+    box-shadow: 0px 0px 10px;
+    padding: 0px 30px 50px 30px;
+}
+
+.form-pesquisa{
+    position: absolute;
+    left: 900px;
+   margin-bottom: 100px;
+   
+}
+ .btn-insira:hover {
+    background-color:#FE2E2E; /* Green */
+    color: white;
+    
+    
+}
+button.btn-insira{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+caption{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+             form{
+                 background-color: white;
+                 margin-top: -20px;
+                 margin-left: 20px;
+                 margin-right: 20px;
+             }
+                h3{
+            display: flex;
+            justify-content: center;
+              
+          }
+         .btn-continuar:hover {
+    background-color:green; /* Green */
+    color: white;
+    
+}
+.button{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    
+}
+          
+          .btn-continuar{
+              position: absolute;
+              left: 590px;
+             
+          }
+
+.btn-insira:hover {
+    background-color:#FE2E2E; /* Green */
+    color: white;
+    
+}
+button.btn-insira{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 15px;
+    margin-left: 610px;
+    margin-bottom: 20px;
+    
+}
+td{
+    text-align: center;
 }
 
        </style>
@@ -64,7 +164,7 @@
                         <table id="customers">
 
                             <tr>
-                                <td class="cc">Selecionar</td><td class="cc">Nome</td><td class="cc">Descrição</td><td class="ce">Excluir</td><td class="ca">Alterar</td>
+                                <td>Selecionar</td><td>Nome</td><td>Descrição</td><td>Excluir</td><td>Alterar</td>
                             </tr>
                             <?php
                             while ($linha = mysqli_fetch_array($resultado)) {
@@ -83,7 +183,7 @@
                             }
                             ?>
                         </table>                       
-                        <input class = "btn" type = "submit" value = "Excluir">
+                        <button class="btn-insira button">Excluir</button>
                         <?php
                          echo '<br> <a href=listar.php>Voltar para gerenciamento</a>   ';
                          ?>
@@ -91,13 +191,14 @@
                 </div>
                 <?php
             } else {
-                echo "<script>alert('Nenhum tipo de curso foi encontrado com o nome $pesquisaTipo')</script> ";
-                echo "<a href=listar.php>Ir para gerenciamento</a>";
-            }
-            ?>
-
-
+               ?>
+                    <h3> Nenhum tipo de curso foi encontrado com o nome <?=$pesquisaTipo?> </h3>
+    
+                    <a href=listar.php> <button class="btn-continuar button">Voltar para gerenciamento</button></a>   
             <?php
+                
+            }
+           
         }
         require_once '../rodape.php';
         ?>

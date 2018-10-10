@@ -1,5 +1,9 @@
 @charset "UTF-8";
-
+label{
+    position: absolute;
+    right: 810px;
+    
+}
 form{
     width: 800px;
     margin: auto;
@@ -30,6 +34,6 @@ select{
 
 label{
     position: absolute;
-    right:1050px;
+    right:780px;
     
 }

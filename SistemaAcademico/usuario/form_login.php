@@ -5,6 +5,15 @@
         <meta charset="utf-8">
         <link href="../css/estilo.css" rel="stylesheet">
         <link href="../css/form.css" rel="stylesheet">
+          <style> 
+               p{
+                    border-bottom: 2px #dddddd double;
+                     height: 100px;
+                     margin-top: 50px;
+               }
+               
+               
+        </style> 
     </head>
     <body>
         <div id="interface">
@@ -15,7 +24,7 @@
             <h3 id="cadastro">Acesso</h3>
             <form method="post" action="logar.php">
                 <label> Perfil de acesso:</label> 
-                <select name="perfil_acesso">
+                <select name="perfil_acesso" style="width: 220px;">
                     <option value="secretario(a)">Secretário(a)</option>
                     <option value="professor(a)">Professor(a)</option>
                 </select><br>

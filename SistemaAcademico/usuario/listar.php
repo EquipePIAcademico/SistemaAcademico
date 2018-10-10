@@ -4,8 +4,8 @@
         <title>Usuários Cadastrados</title>
         <meta charset="utf-8">
        <!-- <link href="../css/estilo.css" rel="stylesheet">-->
-        <script>
-        #customers {
+       <style>
+                #customers {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -31,18 +31,71 @@
 body{
     background-color: #dddddd;
     color: rgba(0,0,0,1);
-    font-family: sans-serif;
+    font-family: arial;
     font-size: 14px;
 }
 div#interface{
-    background-color: white;
-    width: 1300px;
+     background-color: white;
+    width: 1250px;
     margin: 0px auto 10px auto;
     box-shadow: 0px 0px 10px;
-    padding: 0px 0px 50px 30px;
+    padding: 0px 30px 50px 30px;
 }
-    </script>
+.form-pesquisa{
+    position: absolute;
+    left: 900px;
+
+   
+}
+ img {
+	margin: 0 auto;
+	text-align: center;
+}
+   .btn-insira:hover {
+    background-color:#F35548; /* Green */
+    color: white;
+    
+}
+button.btn-insira{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    
+}   
+
+caption{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+           .form-pesquisa{
+    position: absolute;
+    left: 900px;
+
+   
+}
+             form{
+                 background-color: white;
+                 margin-top: -20px;
+                 margin-left: 20px;
+                 margin-right: 20px;
+             }
+             input{
+                 border-radius: 10px;
+             }
+             td{
+                 text-align: center;
+             }
+    </style>
         
+ 
     </head>
     <body>
         <div id="interface">
@@ -54,7 +107,7 @@ div#interface{
             ?>
 
             <form method="post" action="pesquisa.php?a=buscar">
-                Pesquisar usuários: <input type="search" placeholder="Por nome" name="pesquisaUsuario">
+                <label> Pesquisar usuários:</label> <input type="search" placeholder="Por nome" class="pesquisa" name="pesquisaUsuario">
                 <input class="btn" type="submit" value="Buscar">
             </form>
 
@@ -68,7 +121,7 @@ div#interface{
                 <table id="customers">
                     <caption>Usuários Cadastrados</caption>
                     <tr>
-                        <td class="cc">Selecionar</td><td class="cc">Nome</td><td class="cc">E-mail</td><td class="cc">Data de nascimento</td><td class="cc">Perfil de acesso</td><td class="cc">Username</td><td class="ce">Excluir</td><td class="ca">Alterar</td>
+                        <td>Selecionar</td><td>Nome</td><td>E-mail</td><td>Data de nascimento</td><td>Perfil de acesso</td><td>Username</td><td>Excluir</td><td>Alterar</td>
                     </tr>
                     <?php
                     while ($linha = mysqli_fetch_array($resultado)) {
@@ -93,7 +146,7 @@ div#interface{
                     ?>
 
                 </table>
-                <input class="btn" type="submit" value="Excluir">
+                 <button class="btn-insira">Excluir</button>
 
             </form>
 

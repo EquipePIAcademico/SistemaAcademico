@@ -41,6 +41,50 @@ div#interface{
     box-shadow: 0px 0px 10px;
     padding: 0px 0px 50px 30px;
 }
+.form-pesquisa{
+    position: absolute;
+    left: 900px;
+
+   
+}
+ img {
+	margin: 0 auto;
+	text-align: center;
+}
+   .btn-insira:hover {
+    background-color:#F35548; /* Green */
+    color: white;
+    
+}
+button.btn-insira{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 110px;
+    margin-bottom: 20px;
+    
+}   
+
+caption{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+             form{
+                 background-color: white;
+                 margin-top: -20px;
+                 margin-left: 20px;
+                 margin-right: 20px;
+             }
+
+             td{
+                 text-align: center;
+             }
        </style>
     </head>
     <body>
@@ -67,12 +111,13 @@ div#interface{
                 <table id="customers">
                      <caption>Alunos Matriculados</caption>
                     <tr>
-                        <td class="cc">Matricula</td><td class="cc">Nome do aluno</td><td class="cc">Excluir</td><td class="cc">Alterar</td>
+                        <td>Matricula</td><td>Nome do aluno</td><td>Excluir</td><td>Alterar</td>
                     </tr>
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
                         ?>
                         <tr>
+                             <td><input type="checkbox" name="id[]" value="<?= $linha['id'] ?>"</td>
                             <td><?= $linha['matricula'] ?></td>
                             <td><?= $linha['nome'] ?></td>
                             <td><a href="excluir.php?id=<?= $linha['id'] ?>">
@@ -86,7 +131,7 @@ div#interface{
                     ?>
 
                 </table><br>
-                <input class="btn" type="submit" value="Excluir">
+             <button class="btn-insira">Excluir</button>
             </form>
 
        

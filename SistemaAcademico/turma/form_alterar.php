@@ -5,6 +5,23 @@
         <meta charset="utf-8">
         <link href="../css/estilo.css" rel="stylesheet">
         <link href="../css/form.css" rel="stylesheet">
+          <style>
+    .button:hover {
+    background-color:blue; /* Green */
+    color: white;
+    
+}
+.button{
+      background-color: ;
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+</style>
     </head>
     <body>
         <div id="interface">
@@ -30,8 +47,8 @@
             <form method="post" action="alterar.php">
                 <input type="hidden" name="id" value="<?= $id ?>">
 
-                <label>Número de vagas:</label> 
-                <input type="number" required="" name="nVagas" value="<?= $linha['nVagas'] ?>"><br>
+                <label class="espacamento">Número de vagas:</label> 
+                <input type="number" required="" name="nVagas" class="espacamento" value="<?= $linha['nVagas'] ?>"><br>
 
                 <?php
                 $sql_disciplina = "select disciplina.id, disciplina.nome as disc_nome, curso.nome as curso_nome from disciplina join curso on curso.id=disciplina.curso_id order by curso_nome";
@@ -39,7 +56,7 @@
                 $retorno_disciplina = mysqli_query($conexao, $sql_disciplina);
                 ?>
 
-                <label>Disciplina da turma:</label> <select name="disciplina_id">
+                <label>Disciplina da turma:</label> <select name="disciplina_id" style="width: 220px;">
 
                     <?php
                     while ($linha_disciplina = mysqli_fetch_array($retorno_disciplina)) {
@@ -65,7 +82,7 @@
                 $retorno_semestre = mysqli_query($conexao, $sql_semestre);
                 ?>
 
-                <label>Semestre:</label> <select name="semestre_id">
+                <label>Semestre:</label> <select name="semestre_id" style="width: 220px;">
 
                     <?php
                     while ($linha_semestre = mysqli_fetch_array($retorno_semestre)) {
@@ -91,7 +108,7 @@
                 $retorno_professor = mysqli_query($conexao, $sql_professor);
                 ?>
 
-                <label>Professor:</label> <select name="professor_id">
+                <label>Professor:</label> <select name="professor_id" style="width: 220px;">
 
                     <?php
                     while ($linha_professor = mysqli_fetch_array($retorno_professor)) {
@@ -111,7 +128,7 @@
 
                 </select> <br>
 
-                <input class="btn" type="submit" value="Alterar">
+                 <button class="button">Alterar</button>
             </form>
         </div>
         <?php
