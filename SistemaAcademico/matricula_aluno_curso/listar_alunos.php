@@ -6,7 +6,7 @@
        <!-- <link href="../css/estilo.css" rel="stylesheet">-->
         <style>
           #customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-family: Arial;
     border-collapse: collapse;
     width: 100%;
 }
@@ -110,7 +110,7 @@ caption{
                 <table id="customers">
                      <caption>Alunos Matriculados</caption>
                     <tr>
-                        <td>Matricula</td><td>Nome do aluno</td><td>Excluir</td><td>Alterar</td>
+                    <td>Selecionar</td> <td>Matricula</td><td>Nome do aluno</td><td>Excluir</td><td>Alterar</td>
                     </tr>
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {

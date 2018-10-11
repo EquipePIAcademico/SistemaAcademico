@@ -60,13 +60,19 @@ ini_set("display_errors", true);
 //$usuario_id = mysqli_fetch_array($retorno_id);
 
 $aluno_curso_id = $_GET['aluno_curso_id'];
+
 $disciplina_id = $_GET['disciplina_id'];
+      
+
+$semestre_id = $_GET['semestre_id'];
+
 
 //$ano = $_POST['ano'];
 //$semestre = $_POST['semestre'];
 
 
-    $sql = "insert into aluno_turma (aluno_id, turma_id) values ($aluno_curso_id, $disciplina_id)";
+
+    $sql = "insert into aluno_turma (aluno_id, disciplina_id, semestre_id) values ($aluno_curso_id, $disciplina_id, $semestre_id)";
 
 if (@mysqli_query($conexao, $sql)) {
            ?>
@@ -80,7 +86,7 @@ if (@mysqli_query($conexao, $sql)) {
         }
 
 ?>
-
+//
 
 
 

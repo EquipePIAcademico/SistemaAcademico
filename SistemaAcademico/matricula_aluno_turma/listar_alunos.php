@@ -97,14 +97,27 @@ caption{
 
             ini_set("display_errors", true);
             
+            
+//            $aluno_curso_id = $_GET['aluno_curso_id'];
             $disciplina_id = $_GET['disciplina_id'];
+            $semestre_id = $_GET['semestre_id'];
             
          //  echo "O id é: $pegaid"; 
                     
-            $sql = "select aluno_turma.aluno_id, aluno_turma.turma_id, aluno.id, aluno.nome, aluno_curso.aluno_id, aluno_curso.matricula from aluno_turma "
-                    . "join aluno on aluno_turma.aluno_id=aluno.id join aluno_curso on aluno_curso.aluno_id=aluno.id where aluno_turma.turma_id=$disciplina_id order by nome";
+//            $sql = "select aluno_curso.aluno_id, aluno_turma.aluno_id from aluno_curso join aluno_turma on aluno_curso.aluno_id=aluno_turma.aluno_id";
+            
+            $sql = "select aluno_turma.aluno_id,
+                aluno.nome, aluno_turma.semestre_id, 
+                aluno_turma.disciplina_id, aluno_curso.matricula from aluno 
+                join aluno_turma on aluno.id=aluno_turma.aluno_id 
+                join disciplina on aluno_turma.disciplina_id=disciplina.id
+                where aluno_turma.semestre_id=$semestre_id and aluno_turma.disciplina_id = $disciplina_id;";
             
        $retorno = mysqli_query($conexao, $sql);
+       
+//       $sql = "select aluno_turma.semestre_id from aluno_turma where aluno_turma.semestre_id=$semestre_id";
+       
+      
        
        ?>
         <form action="excluir_lote.php" method="post">
@@ -133,8 +146,8 @@ caption{
                 </table><br>
              <button class="btn-insira">Excluir</button>
             </form>
-
-       
+<?php
+            
        
        
        

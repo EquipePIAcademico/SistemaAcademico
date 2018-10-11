@@ -4,11 +4,15 @@
         <title>Alunos</title>
         <meta charset="utf-8">
       <!-- <link href="../css/estilo.css" rel="stylesheet">-->
+       <link href="../css/form_buscar.css" rel="stylesheet">
        <style>
           #customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
+    font-family: arial;
+    border-collapse: separate;
+    border-spacing: 1px;
     width: 100%;
+    margin-top: 80px;
+    color:threeddarkshadow;
 }
 
 #customers td, #customers th {
@@ -18,7 +22,14 @@
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+#customers tr.estilo{
+    background-color: #ccc;
+    color: black;
+}
+
+#customers tr:hover {background-color: #ddd;
+       color:  black;
+}
 
 #customers th {
     padding-top: 12px;
@@ -56,12 +67,6 @@ div#interface{
     padding: 0px 30px 50px 30px;
 }
 
-.form-pesquisa{
-    position: absolute;
-    left: 950px;
-   margin-bottom: 100px;
-   
-}
 img {
 	margin: 0 auto;
 	text-align: center;
@@ -104,8 +109,7 @@ input{
                     
              }
 
-
-
+             
        </style>
     </head>
     <body>
@@ -118,9 +122,12 @@ input{
             ?>
 
             <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
-                Pesquisar alunos: <input required="" type="search" placeholder="Por nome" name="pesquisaAluno">
-                <input class="btn" type="submit" value="Buscar">
-            </form>
+                <div class="form_pesquisa">   
+<!--                Pesquisar alunos: <input required="" type="search" placeholder="Por nome" name="pesquisaAluno">-->
+                    <input required="" type="text" placeholder="   Pesquisar aluno..." name="pesquisaAluno" />
+                <button><?php include "../img/magnifying-glass.svg"; ?></button>
+                </div>
+                </form>
 
 
             <?php
@@ -133,7 +140,7 @@ input{
 
                 <table id="customers">
                     <caption>Alunos Cadastrados</caption>
-                    <tr> <td>Selecionar</td><td>Nome</td><td>E-mail</td><td>Data de nascimento</td><td>Renda</td><td>Nacionalidade</td><td colspan="5">Endereço</td><td>Excluir</td><td>Alterar</td>
+                    <tr class="estilo"> <td>Selecionar</td><td>Nome</td><td>E-mail</td><td>Data de nascimento</td><td>Renda</td><td>Nacionalidade</td><td colspan="5">Endereço</td><td>Excluir</td><td>Alterar</td>
                     </tr>
                     <?php
                     while ($linha = mysqli_fetch_array($resultado)) {

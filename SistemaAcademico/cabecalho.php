@@ -11,6 +11,18 @@
 
         <style>
             
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            a.disciplina{
+                text-decoration: none;
+                color: threeddarkshadow;
+ 
+            }
+            a.disciplina:hover{
+                color: #17a2b8;
+            }
             .dropbtn {
                 background-color: #80d695;
                 color: white;
@@ -18,8 +30,23 @@
                 font-size: 16px;
                 border: none;
                 cursor: pointer;
+                
             }
-
+            .admin{
+                background-color: #80d695;
+                color: white;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                  position: relative;
+                display: inline-block;
+                text-decoration: none;
+                
+            }
+            .admin:hover{
+                background-color: #3e8e41;
+            }
             .dropdown {
                 position: relative;
                 display: inline-block;
@@ -121,13 +148,17 @@
                 if (estaLogado()) {
                     if (exibirUsername() == 'administrador') {
                        // echo '<h3 class="nome">Olá ' . exibirUsername() . '  </h3> ';
-                        
-                        echo "<a href='http://localhost/SistemaAcademico/usuario/form_inserir.php'>Cadastrar usuários </a>";
-                      
+                        ?><div class="admin"><?php
+                        echo "<a href=//localhost/SistemaAcademico/index.php>Home</a>";
+                        ?></div><div class="admin"><?php
+                        echo "<a href='http://localhost/SistemaAcademico/usuario/form_inserir.php'>Cadastrar usuários</a>";
+                      ?></div><div class="admin"><?php
                        echo "<a href='http://localhost/SistemaAcademico/usuario/listar.php'>Gerenciamento de usuários</a>";
-                   
+                       ?></div><div class="admin">
+            <?php
                        echo "<a href='http://localhost/SistemaAcademico/usuario/listar_perfil.php'>Meu perfil </a>";
-                      
+                       
+                       ?></div></div><?php
                     } else if (exibirPerfilAcesso() == 'secretario(a)') {
                       //  echo '<h3 class="nome">Olá ' . exibirUsername() . '  </h3> ';
                      
