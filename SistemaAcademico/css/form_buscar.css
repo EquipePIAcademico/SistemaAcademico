@@ -1,0 +1,45 @@
+  .form_pesquisa{
+                 float: right;
+                 width: 25%;
+                 height: 30px;
+                 border: 2px solid #ddd;
+                 border-radius: 30px;
+                 margin-top: 30px;
+                
+                
+             }
+    
+             .form_pesquisa input[
+                type='text'
+                ]{
+                    float: left;
+                    width: 85%;
+                    height: 100%;
+                     border: none;
+                    background: transparent;
+                }
+             .form_pesquisa button{
+                    float: left;
+                    width: 15%;
+                    height: 100%;
+                    border: none;
+/*                    background-image: url(../img/magnifying-glass.svg);*/
+                    background-size: contain;
+                    background-repeat: no-repeat; 
+                    background-color: transparent;
+                    cursor: pointer;
+                }
+                .form-pesquisa svg{
+                   width: 90%;
+                   height: 90%;
+                   fill: #999;
+                  
+                }
+                .form-pesquisa button:hover svg{
+                    fill:#666;
+                }
+                input::-webkit-input-placeholder {
+                 font-size: 15px;
+                 color: #999;
+                 }
+           

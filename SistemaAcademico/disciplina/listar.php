@@ -5,22 +5,30 @@
         <meta charset="utf-8">
         <!--  <link href="../css/estilo.css" rel="stylesheet">
           <link href="../css/form.css" rel="stylesheet">-->
+        <link href="../css/form_buscar.css" rel="stylesheet">
         <style>
             #customers {
-                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-                border-collapse: collapse;
+                font-family: Arial;
+                border-collapse: separate;
                 width: 100%;
+                 color:threeddarkshadow;
             }
 
             #customers td, #customers th {
                 border: 1px solid #ddd;
-                padding: 8px;
+                padding: 2.5px;
             }
 
             #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-            #customers tr:hover {background-color: #ddd;}
+            #customers tr:hover {background-color: #ddd; color: black}
 
+            #customers tr.estilo{
+    background-color: #ccc;
+    color: black;
+
+}
+            
             #customers th {
                 padding-top: 12px;
                 padding-bottom: 12px;
@@ -32,7 +40,7 @@
             body{
                 background-color: #dddddd;
                 color: rgba(0,0,0,1);
-                font-family: sans-serif;
+                font-family: arial;
                 font-size: 14px;
             }
             div#interface{
@@ -42,12 +50,7 @@
                 box-shadow: 0px 0px 10px;
                 padding: 0px 30px 50px 30px;
             }
-            .form-pesquisa{
-    position: absolute;
-    left: 900px;
-
-   
-}
+ 
  img {
 	margin: 0 auto;
 	text-align: center;
@@ -75,16 +78,10 @@ caption{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-             form{
-                 background-color: white;
-                 margin-top: -20px;
-                 margin-left: 20px;
-                 margin-right: 20px;
-             }
-
-             td{
+td{
                  text-align:center;
              }
+             
         </style>
     </head>
     <body>
@@ -96,12 +93,15 @@ caption{
 
             include '../bd/conectar.php';
             ?>
-
             <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
-                Pesquisar disciplinas: <input type="search" placeholder="Por nome" name="pesquisaDisciplina" >
-                <input class="btn" type="submit" value="Buscar">
-            </form>
-
+            <div class="form_pesquisa">
+<!--                    Pesquisar disciplinas: <input type="search" placeholder="Por nome" name="pesquisaDisciplina" >-->
+                <input required="" type="text" placeholder="    Pesquisar disciplina..." name="pesquisaDisciplina" />
+                <button><?php include "../img/magnifying-glass.svg"; ?></button>
+<!--                <input class="btn" type="submit" value="Buscar">-->
+           
+            </div>
+         </form>
             <?php
             ini_set("display_errors", true);
 
@@ -113,7 +113,7 @@ caption{
             <form action="excluir_lote.php" method="post">
                 <table id="customers">
                     <caption>Disciplinas Cadastradas</caption>
-                    <tr>
+                    <tr class="estilo">
                         <td>Selecionar</td><td >Curso da disciplina</td><td>Nome</td><td>Descrição</td><td>Carga horária</td><td>Excluir</td><td>Alterar</td>
                     </tr>
                     <?php

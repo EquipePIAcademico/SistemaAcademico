@@ -36,26 +36,8 @@
                 <?php
                 include '../bd/conectar.php';
                 
-               // $curso_id = $_GET[''];
-
-                $sql_aluno = "select distinct aluno_curso.aluno_id, aluno.nome from aluno_curso join aluno on aluno.id=aluno_curso.aluno_id order by nome";
-                $retorno = mysqli_query($conexao, $sql_aluno);
-                ?>
-
-                <label class="espacamento">Aluno:</label> <select name="aluno_curso_id" class="espacamento" style="width: 220px;">
-
-                    <?php
-                    while ($linha = mysqli_fetch_array($retorno)) {
-                        ?>
-
-                        <option value="<?= $linha['aluno_id'] ?>"><?= $linha['nome'] ?></option>
-
-                        <?php
-                    }
-                    ?>
-
-                </select> <br>
-                <?php
+                $aluno_curso_id = $_GET['aluno_curso_id'];
+                
                 $sql_disciplina = "select distinct disciplina.id, disciplina.nome, turma.disciplina_id from disciplina join turma on disciplina.id=turma.disciplina_id join
                         curso on disciplina.curso_id=curso.id join aluno_curso on aluno_curso.curso_id=curso.id";
                         
@@ -103,7 +85,7 @@
                 <br>
             
 
-                 <button class="button">Inserir</button>
+                 <button class="button">Inserir em turma</button>
             </form>
 
 

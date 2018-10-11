@@ -4,21 +4,29 @@
         <title>Usuários Cadastrados</title>
         <meta charset="utf-8">
        <!-- <link href="../css/estilo.css" rel="stylesheet">-->
+       <link href="../css/form_buscar.css" rel="stylesheet"/>
        <style>
                 #customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
+    font-family: Arial;
+    border-collapse: separate;
     width: 100%;
+    color: threeddarkshadow;
 }
 
 #customers td, #customers th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 2.5px;
 }
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+#customers tr:hover {background-color: #ddd; color: black}
+
+#customers tr.estilo{
+    background-color: #ccc;
+    color: black;
+
+}
 
 #customers th {
     padding-top: 12px;
@@ -41,12 +49,7 @@ div#interface{
     box-shadow: 0px 0px 10px;
     padding: 0px 30px 50px 30px;
 }
-.form-pesquisa{
-    position: absolute;
-    left: 900px;
 
-   
-}
  img {
 	margin: 0 auto;
 	text-align: center;
@@ -75,12 +78,7 @@ caption{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-           .form-pesquisa{
-    position: absolute;
-    left: 900px;
-
-   
-}
+ 
              form{
                  background-color: white;
                  margin-top: -20px;
@@ -105,11 +103,18 @@ caption{
             include '../cabecalho.php';
             include '../bd/conectar.php';
             ?>
-
+<!--
             <form method="post" action="pesquisa.php?a=buscar">
                 <label> Pesquisar usuários:</label> <input type="search" placeholder="Por nome" class="pesquisa" name="pesquisaUsuario">
                 <input class="btn" type="submit" value="Buscar">
-            </form>
+            </form>-->
+              <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
+                <div class="form_pesquisa">   
+<!--                Pesquisar alunos: <input required="" type="search" placeholder="Por nome" name="pesquisaAluno">-->
+                    <input required="" type="text" placeholder="   Pesquisar usuário..." name="pesquisaUsuario" />
+                <button><?php include "../img/magnifying-glass.svg"; ?></button>
+                </div>
+                </form>
 
             <?php
             $sql_pessoa = "select id, nome, email, date_format(dataN, '%d/%m/%Y') as dataNformatada, perfil_acesso, username from usuario where username != '$_SESSION[username]'";
@@ -120,13 +125,13 @@ caption{
             <form action="excluir_lote.php" method="post">
                 <table id="customers">
                     <caption>Usuários Cadastrados</caption>
-                    <tr>
+                    <tr  class="estilo">
                         <td>Selecionar</td><td>Nome</td><td>E-mail</td><td>Data de nascimento</td><td>Perfil de acesso</td><td>Username</td><td>Excluir</td><td>Alterar</td>
                     </tr>
                     <?php
                     while ($linha = mysqli_fetch_array($resultado)) {
                         ?>
-                        <tr>
+                    <tr>
                             <td><input type="checkbox" name="id[]" value="<?= $linha['id'] ?>"</td>
 
                             <td><?= $linha['nome'] ?></td>

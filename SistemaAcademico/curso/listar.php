@@ -4,21 +4,30 @@
         <title>Cursos</title>
         <meta charset="utf-8">
      <!--   <link href="../css/estilo.css" rel="stylesheet">-->
+     <link href="../css/form_buscar.css" rel="stylesheet">
          <style>
           #customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
+    font-family: Arial;
+    border-collapse: separate;
     width: 100%;
+     color:threeddarkshadow;
 }
 
 #customers td, #customers th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 2.5px;
 }
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+#customers tr:hover {background-color: #ddd; color: black}
+
+#customers tr.estilo{
+    background-color: #ccc;
+    color: black;
+
+}
+
 
 #customers th {
     padding-top: 12px;
@@ -42,12 +51,8 @@ div#interface{
     padding: 0px 30px 50px 30px;
     
 }
-.form-pesquisa{
-    position: absolute;
-    left: 900px;
-
    
-}
+
 img {
 	margin: 0 auto;
 	text-align: center;
@@ -76,15 +81,6 @@ caption{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-             form{
-                 background-color: white;
-                 margin-top: -20px;
-                 margin-left: 20px;
-                 margin-right: 20px;
-             }
-             input{
-                 border-radius: 10px;
-             }
              td{
                  text-align: center;
              }
@@ -100,9 +96,12 @@ caption{
             ?>
 
             <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
-                Pesquisar cursos: <input type="search" placeholder="Por nome" name="pesquisaCurso">
-                <input class="btn" type="submit" value="Buscar">
-            </form>
+                <div class="form_pesquisa">   
+<!--                Pesquisar alunos: <input required="" type="search" placeholder="Por nome" name="pesquisaAluno">-->
+                    <input required="" type="text" placeholder="   Pesquisar curso..." name="pesquisaTurma" />
+                <button><?php include "../img/magnifying-glass.svg"; ?></button>
+                </div>
+                </form>
 
             <?php
             ini_set("display_errors", true);
@@ -117,7 +116,7 @@ caption{
 
                 <table id="customers">
                     <caption>Cursos Cadastrados</caption>
-                    <tr>
+                    <tr class="estilo">
                         <td>Selecionar</td><td>Tipo</td><td>Nome</td><td>Descrição</td><td>Carga horária</td><td>Ano de início</td><td>Semestre de início</td><td>Ano de término</td><td>Semestre de término</td><td>Turno</td><td>Excluir</td><td>Alterar</td>
                     </tr>
                     <?php
