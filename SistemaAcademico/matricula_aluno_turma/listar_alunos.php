@@ -6,7 +6,7 @@
 <!--        <link href="../css/estilo.css" rel="stylesheet">-->
         <style>
           #customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-family: arial;
     border-collapse: collapse;
     width: 100%;
 }
@@ -104,14 +104,15 @@ caption{
             
          //  echo "O id é: $pegaid"; 
                     
-//            $sql = "select aluno_curso.aluno_id, aluno_turma.aluno_id from aluno_curso join aluno_turma on aluno_curso.aluno_id=aluno_turma.aluno_id";
+//             $sql = "select aluno_curso.aluno_id, aluno_turma.aluno_id from aluno_curso join aluno_turma on aluno_curso.aluno_id=aluno_turma.aluno_id";
             
-            $sql = "select aluno_turma.aluno_id,
-                aluno.nome, aluno_turma.semestre_id, 
-                aluno_turma.disciplina_id, aluno_curso.matricula from aluno 
-                join aluno_turma on aluno.id=aluno_turma.aluno_id 
-                join disciplina on aluno_turma.disciplina_id=disciplina.id
-                where aluno_turma.semestre_id=$semestre_id and aluno_turma.disciplina_id = $disciplina_id;";
+            $sql = "select aluno_turma.aluno_id, "
+                . "aluno.nome, aluno_turma.semestre_id, "
+                . "aluno_turma.disciplina_id, aluno_curso.matricula from aluno_curso "
+                . "join aluno on aluno.id=aluno_curso.aluno_id "
+                . "join aluno_turma on aluno.id=aluno_turma.aluno_id "
+                . "join disciplina on aluno_turma.disciplina_id=disciplina.id "
+                . "where aluno_turma.semestre_id=$semestre_id and aluno_turma.disciplina_id = $disciplina_id";
             
        $retorno = mysqli_query($conexao, $sql);
        

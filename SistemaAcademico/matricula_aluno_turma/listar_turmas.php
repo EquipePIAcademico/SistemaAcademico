@@ -21,17 +21,12 @@
 //            $retorno = mysqli_query($conexao, $sql);
 //            
             
+              
+              
                 $sql_disciplina = "select disciplina.id, disciplina.nome, turma.disciplina_id from disciplina join turma on turma.disciplina_id=disciplina.id";
                 $retorno = mysqli_query($conexao, $sql_disciplina);
                 ?>
-            
-            
-            
-
-            <form action="listar_alunos.php" method="get">   
-
-                 
-                
+            <form action="listar_alunos.php" method="get"> 
                 <fieldset> 
                     <legend>Turma</legend>
                 
