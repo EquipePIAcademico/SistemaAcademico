@@ -58,7 +58,6 @@ img {
     
 }
 button.btn-insira{
-      background-color: ;
     color: #2E2E2E;
     border: 2px solid #A4A4A4;
     cursor: pointer;
