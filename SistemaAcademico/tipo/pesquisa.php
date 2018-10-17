@@ -188,6 +188,7 @@ td{
                          echo '<br> <a href=listar.php>Voltar para gerenciamento</a>   ';
                          ?>
                     </form>
+            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
                 </div>
                 <?php
             } else {
@@ -195,6 +196,7 @@ td{
                     <h3> Nenhum tipo de curso foi encontrado com o nome <?=$pesquisaTipo?> </h3>
     
                     <a href=listar.php> <button class="btn-continuar button">Voltar para gerenciamento</button></a>   
+                    <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
             <?php
                 
             }

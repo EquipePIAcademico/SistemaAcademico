@@ -8,7 +8,7 @@
          <style>
           #customers {
     font-family: Arial;
-    border-collapse: collapse;
+    border-collapse: separate;
     width: 100%;
      color:threeddarkshadow;
 }
@@ -17,6 +17,7 @@
     border: 1px solid #ddd;
     padding: 2.5px;
 }
+
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
 
@@ -89,6 +90,10 @@ caption{
              td{
                  text-align: center;
              }
+               .voltar{
+                 background: white;
+                 cursor: pointer;
+             }
        </style>
     </head>
     <body>
@@ -159,6 +164,7 @@ caption{
                 </table>
                <button class="btn-insira">Excluir</button>
             </form>
+            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
         </div>
         <?php
         require_once '../rodape.php';

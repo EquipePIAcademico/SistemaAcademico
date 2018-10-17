@@ -10,6 +10,7 @@ session_start();
         <meta charset="utf-8">
       <!-- <link href="../css/estilo.css" rel="stylesheet">-->
       <style>
+          
           h3{
             display: flex;
             justify-content: center;

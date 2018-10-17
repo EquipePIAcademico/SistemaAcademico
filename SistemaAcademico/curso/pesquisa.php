@@ -6,8 +6,8 @@
 <!--        <link href="../css/estilo.css" rel="stylesheet">-->
        <style>
           #customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
+    font-family: arial;
+    border-collapse: separate;
     width: 100%;
 }
 

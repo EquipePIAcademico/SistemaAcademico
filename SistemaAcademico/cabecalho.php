@@ -182,7 +182,7 @@
                         <div class="dropdown-matricula"><?php
                         echo "<a href='http://localhost/SistemaAcademico/matricula_aluno_curso/form_inserir.php'>Matricular aluno em curso</a>";
                       
-                        echo "<a href='http://localhost/SistemaAcademico/matricula_aluno_turma/form_inserir.php'>Matricular aluno em turma</a>";
+                        echo "<a href='http://localhost/SistemaAcademico/matricula_aluno_turma/form_inserir_aluno_1.php'>Matricular aluno em turma</a>";
                        
                         ?></div>
                     </div>
@@ -190,7 +190,7 @@
                             <?php echo "<button class='dropbtn'>Gerenciamento</button>"; ?>
                         <div class="dropdown-gerenciamento"><?php
                   echo "<a href='http://localhost/SistemaAcademico/matricula_aluno_curso/listar_cursos.php'>Alunos Matriculados em Curso</a>";
-                       echo "<a href='http://localhost/SistemaAcademico/matricula_aluno_turma/listar_turmas.php'>Alunos Matriculados em turma</a>";
+                       echo "<a href='http://localhost/SistemaAcademico/matricula_aluno_turma/listar_turmas_1.php'>Alunos Matriculados em turma</a>";
                         echo "<a href='http://localhost/SistemaAcademico/aluno/listar.php'>Gerenciamento de alunos   </a>";
                     echo "<a href='http://localhost/SistemaAcademico/tipo/listar.php'>Gerenciamento de tipos de curso   </a>";
                     echo "<a href='http://localhost/SistemaAcademico/curso/listar.php'>Gerenciamento de cursos   </a>";

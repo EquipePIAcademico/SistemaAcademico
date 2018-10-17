@@ -63,9 +63,12 @@ $nVagas = $_POST['nVagas'];
 $disciplina_id = $_POST['disciplina_id'];
 $semestre_id = $_POST['semestre_id'];
 $professor_id = $_POST['professor_id'];
+$curso_id = $_POST['curso_id'];
 
-$sql = "insert into turma (nVagas, disciplina_id, semestre_id, professor_id, usuario_id) values "
-        . "($nVagas, $disciplina_id, $semestre_id, $professor_id, $usuario_id[0])";
+
+
+$sql = "insert into turma (nVagas, disciplina_id, semestre_id, professor_id, usuario_id, curso_id) values "
+        . "($nVagas, $disciplina_id, $semestre_id, $professor_id, $usuario_id[0], $curso_id)";
 
 if (@mysqli_query($conexao, $sql)){
     ?>

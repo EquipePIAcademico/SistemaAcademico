@@ -83,6 +83,10 @@ caption{
              td{
                  text-align: center;
              }
+               .voltar{
+                 background: white;
+                 cursor: pointer;
+             }
        </style>
 
 

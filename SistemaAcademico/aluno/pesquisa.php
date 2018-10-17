@@ -191,8 +191,9 @@ button.btn-insira{
                         </table>                      
                      
                           <button class="btn-insira button">Excluir</button>
-                       
+                        
                     </form>
+            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
                 </div>
                 <?php
             } else {
@@ -200,7 +201,7 @@ button.btn-insira{
                     <h3> Nenhum aluno foi encontrado com o nome <?=$pesquisaAluno?> </h3>
     
                     <a href=listar.php> <button class="btn-continuar button">Voltar para gerenciamento</button></a>   
-                    
+                     <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
             <?php
         }
             }

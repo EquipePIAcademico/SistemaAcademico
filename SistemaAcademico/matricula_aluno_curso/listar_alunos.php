@@ -5,20 +5,28 @@
         <meta charset="utf-8">
        <!-- <link href="../css/estilo.css" rel="stylesheet">-->
         <style>
-          #customers {
+                    #customers {
     font-family: Arial;
-    border-collapse: collapse;
+    border-collapse: separate;
     width: 100%;
+     color:threeddarkshadow;
 }
 
 #customers td, #customers th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 2.5px;
 }
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+#customers tr:hover {background-color: #ddd; color: black}
+
+#customers tr.estilo{
+    background-color: #ccc;
+    color: black;
+
+}
+
 
 #customers th {
     padding-top: 12px;
@@ -31,32 +39,28 @@
 body{
     background-color: #dddddd;
     color: rgba(0,0,0,1);
-    font-family: sans-serif;
+    font-family: arial;
     font-size: 14px;
 }
 div#interface{
-    background-color: white;
-    width: 1300px;
+  background-color: white;
+    width: 1250px;
     margin: 0px auto 10px auto;
     box-shadow: 0px 0px 10px;
-    padding: 0px 0px 50px 30px;
+    padding: 0px 30px 50px 30px;
 }
-.form-pesquisa{
-    position: absolute;
-    left: 900px;
 
-   
-}
  img {
 	margin: 0 auto;
 	text-align: center;
 }
-   .btn-insira:hover {
+  .btn-insira:hover {
     background-color:#F35548; /* Green */
     color: white;
     
 }
 button.btn-insira{
+      
     color: #2E2E2E;
     border: 2px solid #A4A4A4;
     cursor: pointer;
@@ -64,7 +68,7 @@ button.btn-insira{
     padding: 10px;
     font-size: 15px;
     margin-top: 10px;
-    margin-left: 110px;
+    margin-left: 50px;
     margin-bottom: 20px;
     
 }   
@@ -83,6 +87,10 @@ caption{
 
              td{
                  text-align: center;
+             }
+               .voltar{
+                 background: white;
+                 cursor: pointer;
              }
        </style>
     </head>
@@ -109,7 +117,7 @@ caption{
         <form action="excluir_lote.php" method="post">
                 <table id="customers">
                      <caption>Alunos Matriculados</caption>
-                    <tr>
+                     <tr class="estilo">
                     <td>Selecionar</td> <td>Matricula</td><td>Nome do aluno</td><td>Excluir</td><td>Alterar</td>
                     </tr>
                     <?php
@@ -132,7 +140,7 @@ caption{
                 </table><br>
              <button class="btn-insira">Excluir</button>
             </form>
-
+            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
        
        
        

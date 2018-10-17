@@ -83,6 +83,10 @@ caption{
              td{
                  text-align: center;
              }
+               .voltar{
+                 background: white;
+                 cursor: pointer;
+             }
        </style>
     </head>
     <body>
@@ -147,6 +151,7 @@ caption{
                 <button class="btn-insira">Excluir</button>
 
             </form>
+            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
         </div>
         <?php
         require_once '../rodape.php';

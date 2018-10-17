@@ -101,9 +101,13 @@ caption{
              }
 input{
                  border-radius: 10px;
+                 
              }
 
-
+             .voltar{
+                 background: white;
+                 cursor: pointer;
+             }         
              td{
                     text-align: center;
                     
@@ -167,13 +171,15 @@ input{
                         <?php
                     }
                     ?>
-
+                        
                 </table>
                    <button class="btn-insira">Excluir</button>
+                  
 
-            </form>
+            </form><br><br>
+           
         </div>
-
+         
         <?php
         require_once '../rodape.php';
         ?>
