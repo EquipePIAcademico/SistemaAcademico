@@ -101,7 +101,7 @@ caption{
             <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
                 <div class="form_pesquisa">   
 <!--                Pesquisar alunos: <input required="" type="search" placeholder="Por nome" name="pesquisaAluno">-->
-                    <input required="" type="text" placeholder="   Pesquisar curso..." name="pesquisaTurma" />
+                    <input required="" type="text" placeholder="   Pesquisar curso..." name="pesquisaCurso" />
                 <button><?php include "../img/magnifying-glass.svg"; ?></button>
                 </div>
                 </form>

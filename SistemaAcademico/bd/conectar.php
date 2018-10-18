@@ -1,2 +1,2 @@
 <?php
-$conexao = mysqli_connect("localhost", "root", "", "bancoSistema");
+$conexao = mysqli_connect("localhost", "root", "ifsc", "bancoSistema");
