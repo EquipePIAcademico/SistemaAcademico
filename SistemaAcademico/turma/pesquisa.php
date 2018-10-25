@@ -6,14 +6,14 @@
         <!--        <link href="../css/estilo.css" rel="stylesheet">-->
         <style>
             #customers {
-                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-                border-collapse: collapse;
+                font-family: Arial;
+                border-collapse: separate;
                 width: 100%;
             }
 
             #customers td, #customers th {
                 border: 1px solid #ddd;
-                padding: 8px;
+                padding: 2.5px;
             }
 
             #customers tr:nth-child(even){background-color: #f2f2f2;}
@@ -36,6 +36,20 @@
                 background-color:green;
                 margin-top: 10px;
             }
+            button.btn-insira{
+      
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    
+}   
+
 
         </style>
 
@@ -89,11 +103,12 @@
                             }
                             ?>
                         </table>
-                        <input class = "btn" type = "submit" value = "Excluir">
+                       <button class="btn-insira">Excluir</button>
                         <?php
                          echo '<br> <a href=listar.php>Voltar para gerenciamento</a>   ';
                          ?>
                     </form>
+                <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
                 </div>
                 <?php
             } else {

@@ -20,7 +20,6 @@
     padding: 10px;
     font-size: 15px;
     margin-bottom: 20px;
-    margin-top: 20px;
 }
 </style>
     </head>
@@ -28,26 +27,31 @@
         <div id="interface">
 
             <?php
+            
+            $curso_id = $_POST['curso_id'];
+            
             include '../cabecalho.php';
             ?>  
             <h3 id="cadastro">Cadastrar Turma</h3>
-            <form method="post" action="form_inserir_disciplina.php">
+            <form method="post" action="inserir.php">
+                <input type="hidden"  name="curso_id" value="<?=$curso_id?>" />
+                <label class="espacamento">Número de vagas: </label>
+                <input type="number" required="" name="nVagas" class="espacamento"><br>
 
                 <?php
                 include '../bd/conectar.php';
-
-                $sql_curso = "select id, nome from curso";
-                $retorno_disciplina = mysqli_query($conexao, $sql_curso);
+                $sql_disciplina = "select disciplina.id, disciplina.nome as disc_nome, curso.nome as curso_nome from disciplina join curso on curso.id=disciplina.curso_id order by disc_nome";
+                $retorno_disciplina = mysqli_query($conexao, $sql_disciplina);
                 ?>
 
-                <label class="curso">Curso: </label>
-                <select name="curso_id" style="width: 350px; position: absolute; right: 463px;">
+                <label>Disciplina da turma: </label>
+                <select name="disciplina_id" style="width: 220px;">
 
                     <?php
                     while ($linha_disciplina = mysqli_fetch_array($retorno_disciplina)) {
                         ?>
 
-                        <option value="<?= $linha_disciplina['id'] ?>"><?= $linha_disciplina['nome'] ?></option>
+                        <option value="<?= $linha_disciplina['id'] ?>"><?= $linha_disciplina['disc_nome'] ?> - <?= $linha_disciplina['curso_nome'] ?></option>
 
                         <?php
                     }
@@ -55,12 +59,12 @@
 
                 </select> <br>
 
-<!--                <?php
+                <?php
                 $sql_semestre = "select semestre.id, semestre.valor from semestre order by id";
                 $retorno_semestre = mysqli_query($conexao, $sql_semestre);
                 ?>
 
-                <label>Semestre:</label> <select name="semestre_id" style="width: 220px;">
+                <label>Semestre:</label> <select name="semestre_id" style="width: 80px; text-align-last: center;">
 
                     <?php
                     while ($linha_semestre = mysqli_fetch_array($retorno_semestre)) {
@@ -91,32 +95,10 @@
                             <?php
                         }
                     }
-                    
-                    
                     ?>
 
                 </select> <br>
-
-                <?php
-//                $sql_curso = "select curso.id from disciplina join curso on disciplina.curso_id = curso.id";
-//                echo $sql_curso;
-//                
-//                 $retorno_curso = mysqli_query($conexao, $sql_curso);
-//                ?>
-                <select name="curso_id" style="width: 220px;" hidden="">
-
-                    //<?php
-//                    while ($linha_curso = mysqli_fetch_array($retorno_curso)) {
-//                            ?>
-
-                            <option value="//<?= $linha_curso['id'] ?>"><?= $linha_curso['id'] ?></option>
-
-                            //<?php
-//                        }
-//                    
-//                    ?>
-                </select>-->
-                <button class="button">Inserir</button>
+              <button class="button">Inserir</button>
             </form>
         </div>
         <?php

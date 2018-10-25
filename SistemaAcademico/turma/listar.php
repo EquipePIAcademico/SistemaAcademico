@@ -70,7 +70,7 @@ button.btn-insira{
     padding: 10px;
     font-size: 15px;
     margin-top: 10px;
-    margin-left: 50px;
+    margin-left: 40px;
     margin-bottom: 20px;
     
 }   
@@ -110,7 +110,17 @@ caption{
 
            
           
-            <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
+               
+            <?php
+            ini_set("display_errors", true);
+
+            $sql = "select turma.id, turma.nVagas, disciplina.nome as disc_nome, semestre.valor as semestre_valor, usuario.nome as professor_nome from "
+                    . "usuario join turma on turma.professor_id=usuario.id join disciplina on disciplina.id=turma.disciplina_id join semestre on semestre.id=turma.semestre_id where perfil_acesso='professor(a)'";
+
+            $resultado = mysqli_query($conexao, $sql);
+            ?> 
+            <form action="excluir_lote.php" method="post">
+                <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
             
                  
               <div class="form_pesquisa">
@@ -126,16 +136,7 @@ caption{
             </div>
                 </form>
             
-               
-            <?php
-            ini_set("display_errors", true);
-
-            $sql = "select turma.id, turma.nVagas, disciplina.nome as disc_nome, semestre.valor as semestre_valor, usuario.nome as professor_nome from "
-                    . "usuario join turma on turma.professor_id=usuario.id join disciplina on disciplina.id=turma.disciplina_id join semestre on semestre.id=turma.semestre_id where perfil_acesso='professor(a)'";
-
-            $resultado = mysqli_query($conexao, $sql);
-            ?> 
-            <form action="excluir_lote.php" method="post">
+            
                 <table id="customers">
                     <caption>Turmas Cadastradas</caption>
                     <tr class="estilo">
@@ -164,7 +165,7 @@ caption{
                 </table>
                <button class="btn-insira">Excluir</button>
             </form>
-            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
+<!--            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">-->
         </div>
         <?php
         require_once '../rodape.php';

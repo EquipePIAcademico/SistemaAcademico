@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Tipo de curso</title>
+        <title>Turma</title>
         <meta charset="utf-8">
       <!-- <link href="../css/estilo.css" rel="stylesheet">-->
       <style>
@@ -42,6 +42,10 @@ session_start();
           .btn-gerenciamento{
               position: absolute;
               left: 690px;
+          }
+          body{
+               font-family: sans-serif;
+    font-size: 14px;
           }
       </style>
 
