@@ -1,5 +1,16 @@
 create database bancoSistema;
 
+create table frequencia(
+    id integer primary key auto_increment,
+    frequencia varchar(10),
+    aluno_id integer,
+    turma_id integer, 
+    data date
+);
+
+
+
+
 create table renda(
     id integer primary key auto_increment,
     valor varchar(30)
