@@ -68,7 +68,7 @@ button.btn-insira{
     padding: 10px;
     font-size: 15px;
     margin-top: 10px;
-    margin-left: 30px;
+    margin-left: 20px;
     margin-bottom: 20px;
     
 }   

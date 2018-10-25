@@ -71,7 +71,7 @@ if ($resultado == null) {
             
  <?php
 } else {
-    logar($resultado['perfil_acesso'], $resultado['username']);
+    logar($resultado['perfil_acesso'], $resultado['username'], $resultado['id']);
 
     header('Location: ../index.php');
 }

@@ -9,7 +9,7 @@
                p{
                     border-bottom: 2px #dddddd double;
                      height: 100px;
-                     margin-top: 50px;
+                     margin-top: 0px;
                }
                
                
@@ -19,6 +19,7 @@
         <div id="interface">
             <?php
             //include '../cabecalho.php';
+         ?><br><br><?php
             echo '<p>Seja Bem-Vindo(a)</p>';
             ?>        
             <h3 id="cadastro">Acesso</h3>

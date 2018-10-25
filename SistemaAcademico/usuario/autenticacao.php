@@ -2,7 +2,8 @@
 
 session_start();
 
-function logar($perfil_acesso, $username) {
+function logar($perfil_acesso, $username, $id) {
+    $_SESSION['id'] = $id;
     $_SESSION['perfil_acesso'] = $perfil_acesso;
     $_SESSION['username'] = $username;
     iniciarTempoSessao();

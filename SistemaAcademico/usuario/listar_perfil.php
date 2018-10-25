@@ -93,7 +93,7 @@ caption{
             ?>
 
             <table id="customers">
-                 <caption>Dados do Usuário</caption>
+                 <caption>Dados do Administrador</caption>
                  <tr class="estilo">
                     <td>Nome</td><td>E-mail</td><td>Data de nascimento</td><td>Perfil de acesso</td><td>Username</td><td>Alterar</td>
                 </tr>
