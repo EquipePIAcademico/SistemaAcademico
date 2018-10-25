@@ -13,7 +13,7 @@
             
             a{
                 text-decoration: none;
-                color: white;
+                color: black;
             }
             a.disciplina{
                 text-decoration: none;
@@ -190,7 +190,7 @@
                             <?php echo "<button class='dropbtn'>Gerenciamento</button>"; ?>
                         <div class="dropdown-gerenciamento"><?php
                   echo "<a href='http://localhost/SistemaAcademico/matricula_aluno_curso/listar_cursos.php'>Alunos Matriculados em Curso</a>";
-                       echo "<a href='http://localhost/SistemaAcademico/matricula_aluno_turma/listar_turmas_1.php'>Alunos Matriculados em turma</a>";
+                       echo "<a href='http://localhost/SistemaAcademico/matricula_aluno_turma/listar_curso.php'>Alunos Matriculados em turma</a>";
                         echo "<a href='http://localhost/SistemaAcademico/aluno/listar.php'>Gerenciamento de alunos   </a>";
                     echo "<a href='http://localhost/SistemaAcademico/tipo/listar.php'>Gerenciamento de tipos de curso   </a>";
                     echo "<a href='http://localhost/SistemaAcademico/curso/listar.php'>Gerenciamento de cursos   </a>";
@@ -205,20 +205,27 @@
 
                             <?php
                         } else {
-                            echo 'Olá ' . exibirUsername() . '   ';
-                            echo "<li><a href='#'>Registrar notas   </a></li>";
-                            echo "<li><a href='http://localhost/SistemaAcademico/registro_frequencia/listar_turmas.php'>Registrar frequência   </a></li>";
-                        }
+                            //echo 'Olá ' . exibirUsername() . '   ';?>
+                                 <div class="dropdown">   
+        <?php echo "<button class='dropbtn'>Registros</button>"; ?>
+                     <div class="dropdown-matricula"><?php
+                            echo "<a href='#'>Registrar notas</a>";
+                            echo "<a href='http://localhost/SistemaAcademico/registro_frequencia/listar_cursos_professores.php'>Registrar frequência</a>";
+                            ?></div></div><?php
+                            }
                         ?>
-                <div class="dropdown">
+              
                 <?php
               echo "<a href='http://localhost/SistemaAcademico/usuario/logout.php'><button class='dropbtn'>Logout</button></a>";
-                }else{
+               
+              }else{
                   echo '<p>Seja Bem-Vindo(a)</p>';
                   ?>
                   <div class="dropdown login">
                     <?php
                   echo "<a href='http://localhost/SistemaAcademico/usuario/form_login.php'><button class='dropbtn'>Login</button></a>";
+              ?>  </div>
+                <?php  
                 }
                 ?>
                     </header>
