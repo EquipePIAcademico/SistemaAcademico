@@ -214,10 +214,9 @@
                             ?></div></div><?php
                             }
                         ?>
-              
-                <?php
+                <div class="dropdown"><?php
               echo "<a href='http://localhost/SistemaAcademico/usuario/logout.php'><button class='dropbtn'>Logout</button></a>";
-               
+              ?></div><?php
               }else{
                   echo '<p>Seja Bem-Vindo(a)</p>';
                   ?>

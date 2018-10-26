@@ -6,7 +6,7 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Tipo de curso</title>
+        <title>Matricular Aluno em Turma</title>
         <meta charset="utf-8">
       <!-- <link href="../css/estilo.css" rel="stylesheet">-->
       <style>
@@ -43,6 +43,10 @@ session_start();
           .btn-gerenciamento{
               position: absolute;
               left: 690px;
+          }
+          body{
+               font-family: sans-serif;
+    font-size: 14px;
           }
       </style>
 <?php
@@ -96,13 +100,14 @@ if ($resultado == null) {
    
    <h3> Aluno matriculado com sucesso!  </h3>
     
-   <a href=form_inserir.php> <button class="btn-continuar button">Continuar matriculando </button></a>   <a href=listar_turmas_1.php><button class="btn-gerenciamento button"> Ir para gerenciamento</button></a>
+   <a href=form_inserir.php> <button class="btn-continuar button">Continuar matriculando </button></a>   <a href=listar_curso.php><button class="btn-gerenciamento button"> Ir para gerenciamento</button></a>
 <?php
       }   
     
 } else {
     ?>
    <h3>Aluno já matriculado</h3>
+   <a href=form_inserir_aluno_1.php> <button class="btn-continuar button">Tentar novamente </button></a> 
    <?php
 }
 

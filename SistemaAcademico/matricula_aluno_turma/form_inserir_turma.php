@@ -12,6 +12,7 @@
 
             }
             .button{
+                background-color: ;
                 color: #2E2E2E;
                 border: 2px solid #A4A4A4;
                 cursor: pointer;
@@ -62,9 +63,10 @@
                 ?>
                 
                 <input type="hidden"  name="aluno" value="<?=$aluno_curso_id?>" />
-            
-                <select name="turma_id">
-                   
+               
+                <label>Disciplina:</label> 
+                <select name="turma_id" style="width: 220px;">
+                  
                       <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
                         ?>
@@ -75,7 +77,7 @@
                         <?php
                     }
                     ?>
-                </select>
+                </select><br>
                
                <?php 
 //              $sql_disciplina = "SELECT disciplina.nome, "
@@ -121,7 +123,7 @@
                     $retorno_semestre = mysqli_query($conexao, $sql_semestre);
                     ?>
 
-                    <label>Semestre:</label> <select name="semestre_id" style="width: 220px;">
+                    <label>Semestre:</label> <select name="semestre_id" style="width: 80px;">
 
                         <?php
                         while ($linha_semestre = mysqli_fetch_array($retorno_semestre)) {
@@ -135,10 +137,7 @@
 
                     </select> <br>
 
-                    <br>
-                </fieldset>
-                <br>
-            
+                 
 
                  <button class="button">Inserir</button>
             </form>

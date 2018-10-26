@@ -8,8 +8,10 @@ create table frequencia(
     data date
 );
 
+select * from aluno_curso where curso_id=10;
 
 
+select count(*) aluno_id from frequencia where frequencia='falta' and aluno_id=7;
 
 create table renda(
     id integer primary key auto_increment,

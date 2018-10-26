@@ -37,7 +37,7 @@
                 <fieldset> 
                     <legend>Turma</legend>
                 
-                <label>Disciplina:</label><select name="curso_id" style="width: 220px;">
+                <label>Curso:</label><select name="curso_id" style="width: 220px;">
                     
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {

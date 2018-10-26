@@ -68,14 +68,14 @@ button.btn-insira{
     padding: 10px;
     font-size: 15px;
     margin-top: 10px;
-    margin-left: 50px;
+    margin-left: 80px;
     margin-bottom: 20px;
     
 }   
 
 caption{
     font-size: 20px;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 20px;
 }
              form{
@@ -193,7 +193,7 @@ caption{
                 </table><br>
              <button class="btn-insira">Excluir</button>
             </form>
-            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
+<!--            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">-->
 <?php
             
        

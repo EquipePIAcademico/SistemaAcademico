@@ -56,7 +56,7 @@
                     $retorno_semestre = mysqli_query($conexao, $sql_semestre);
                     ?>
 
-                    <label>Semestre:</label> <select name="semestre_id" style="width: 220px;">
+                    <label>Semestre:</label> <select name="semestre_id" style="width: 80px;">
 
                         <?php
                         while ($linha_semestre = mysqli_fetch_array($retorno_semestre)) {
