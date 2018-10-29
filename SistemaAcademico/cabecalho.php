@@ -209,11 +209,21 @@
                                  <div class="dropdown">   
         <?php echo "<button class='dropbtn'>Registros</button>"; ?>
                      <div class="dropdown-matricula"><?php
-                            echo "<a href='#'>Registrar notas</a>";
+                            echo "<a href='http://localhost/SistemaAcademico/registro_notas/listar_cursos_professores.php'>Registrar notas</a>";
                             echo "<a href='http://localhost/SistemaAcademico/registro_frequencia/listar_cursos_professores.php'>Registrar frequência</a>";
-                            ?></div></div><?php
-                            }
+                            ?></div></div>
+                           
+                             <div class="dropdown">   
+                            <?php echo "<button class='dropbtn'>Gerenciamento</button>"; ?>
+                        <div class="dropdown-gerenciamento"><?php
+                  echo "<a href='http://localhost/SistemaAcademico/registro_notas/listar_curso.php'>Gerenciamento de notas</a>";
+                      
+                            ?>  </div>
+                    </div>
+                         <?php   
+                        }
                         ?>
+                     
                 <div class="dropdown"><?php
               echo "<a href='http://localhost/SistemaAcademico/usuario/logout.php'><button class='dropbtn'>Logout</button></a>";
               ?></div><?php

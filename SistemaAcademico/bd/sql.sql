@@ -8,6 +8,15 @@ create table frequencia(
     data date
 );
 
+create table nota(
+    id integer primary key auto_increment,
+    dataAvaliacao date,
+    descricao varchar(100),
+    aluno_id integer, 
+    turma_id integer, 
+    nota float
+);
+
 select * from aluno_curso where curso_id=10;
 
 

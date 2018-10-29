@@ -11,11 +11,9 @@
             <?php
             //session_start();
             include '../cabecalho.php';
-            
-//            session_start();
-            
+
             include '../bd/conectar.php';
-  
+
             ini_set("display_errors", true);
             
             //$aluno_curso_id = $_GET['aluno_curso_id'];
@@ -26,14 +24,14 @@
 //            
             
               
-              $sql_curso = "select distinct curso.id, curso.nome from curso join disciplina on curso.id=disciplina.curso_id join turma on turma.disciplina_id=disciplina.id join usuario on usuario.perfil_acesso = 'professor(a)' where turma.professor_id=$_SESSION[id]";
+              $sql_disciplina = "select distinct curso.id, curso.nome from disciplina join curso on disciplina.curso_id=curso.id join turma on turma.disciplina_id=disciplina.id";
               
-              
+           
                 //$sql_disciplina = "select aluno_turma.disciplina_id, disciplina.nome from aluno_turma join disciplina on aluno_turma.disciplina_id=disciplina.id where aluno_id=$aluno_curso_id";
                // $sql_disciplina = "select disciplina.id, disciplina.nome, turma.disciplina_id from disciplina join turma on turma.disciplina_id=disciplina.id";
-            $retorno = mysqli_query($conexao, $sql_curso);
+            $retorno = mysqli_query($conexao, $sql_disciplina);
                 ?>
-            <form action="listar_turmas_1.php" method="get"> 
+            <form action="listar_turmas_2.php" method="get"> 
 
                 
                 <fieldset> 
@@ -52,10 +50,9 @@
 
                 </select>
                 <br>
-                
-
-                </fieldset>
               
+                </fieldset>
+               
                     
                     <br><input class="btn" type="submit" value="Listar turmas">
             </form>      

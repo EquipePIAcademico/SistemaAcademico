@@ -57,41 +57,32 @@ include '../cabecalho.php';
 
 ini_set("display_errors", true);
 
-$aluno_id = $_GET['aluno'];
+$dataAvaliacao = $_POST['dataAvaliacao'];
+$descricao = $_POST['descricao'];
+$aluno_id = $_POST['aluno_id'];
+$turma_id = $_POST['turma_id'];
+$nota = $_POST['nota'];
 
-$curso_id = $_GET['curso'];
+for ($i =0 ; $i < sizeof($dataAvaliacao) ; $i++) {
+for ($i =0 ; $i < sizeof($descricao) ; $i++){
+for ($i =0 ; $i < sizeof($aluno_id) ; $i++){
+for ($i =0 ; $i < sizeof($turma_id) ; $i++){
+for ($i =0 ; $i < sizeof($nota) ; $i++){
+ 
+$inserir = "insert into nota values (default, '$dataAvaliacao[$i]', '$descricao[$i]', '$aluno_id[$i]', '$turma_id[$i]', '$nota[$i]')";
 
-$semestre_id = $_GET['semestre_id'];
-
-$turma_id = $_GET['turma_id'];
-
-$sql = "select * from aluno_turma where (aluno_id = $aluno_id and turma_id = $turma_id) and semestre_id = $semestre_id";
-
-$retorno = mysqli_query($conexao, $sql);
-//
-$resultado = mysqli_fetch_array($retorno);
-
-if ($resultado == null) {
-   
-      $sql_insercao = "insert into aluno_turma (aluno_id, turma_id, semestre_id) values ($aluno_id, $turma_id, $semestre_id)";
-      if (@mysqli_query($conexao, $sql_insercao)) {
-   ?>
-   
-   <h3> Aluno matriculado com sucesso!  </h3>
-    
-   <a href=form_inserir.php> <button class="btn-continuar button">Continuar matriculando </button></a>   <a href=listar_curso.php><button class="btn-gerenciamento button"> Ir para gerenciamento</button></a>
-<?php
-      }   
-    
-} else {
-    ?>
-   <h3>Aluno já matriculado</h3>
-   <a href=form_inserir_aluno_1.php> <button class="btn-continuar button">Tentar novamente </button></a> 
-   <?php
+@mysqli_query($conexao, $inserir);
+ }
+ }
+ }
 }
-
-
+}
 ?>
+
+      <h3> Notas confirmadas! </h3>
+    
+      <a href=listar_alunos_1.php> <button class="btn-continuar button">Continuar inserindo </button></a>   <a href=listar_curso.php><button class="btn-gerenciamento button"> Ir para gerenciamento</button></a>
+
 </html>
 
 
