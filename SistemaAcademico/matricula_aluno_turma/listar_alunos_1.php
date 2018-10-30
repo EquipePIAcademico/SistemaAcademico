@@ -102,10 +102,7 @@ caption{
 
             include '../bd/conectar.php';
 
-            ini_set("display_errors", true);
-            
-           //$turma_id = $_GET['turma_id'];
-            
+            ini_set("display_errors", true);            
             
             $curso_id = $_GET['curso'];
             
@@ -159,7 +156,7 @@ caption{
 //            
             
 //            $sql_aluno = "select aluno.nome, aluno_curso.matricula from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id join turma on aluno_curso.curso_id=turma.curso_id where turma.id=$turma_id";
-    $sql_aluno = "select distinct aluno.nome, aluno_curso.matricula from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id join aluno_turma on aluno_turma.aluno_id=aluno_curso.aluno_id where aluno_curso.curso_id=$curso_id AND aluno_turma.turma_id=$turma_id"; 
+    $sql_aluno = "select distinct aluno.id, aluno.nome, aluno_curso.matricula from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id join aluno_turma on aluno_turma.aluno_id=aluno_curso.aluno_id where aluno_curso.curso_id=$curso_id AND aluno_turma.turma_id=$turma_id"; 
             $retorno = mysqli_query($conexao, $sql_aluno);
        
 //       $sql = "select aluno_turma.semestre_id from aluno_turma where aluno_turma.semestre_id=$semestre_id";

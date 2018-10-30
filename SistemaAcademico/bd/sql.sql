@@ -41,7 +41,7 @@ create table aluno(
         sexo char(9),
         dataN date,
         rg varchar(10) unique,
-        cpf varchar(11) unique,
+        cpf varchar(15) unique,
         nacionalidade varchar(50),
         bairro varchar(100),
         rua varchar(100),
@@ -58,7 +58,7 @@ create table usuario(
         nome varchar(100),
         email varchar(100) unique,
         dataN date,
-        cpf varchar(11) unique,
+        cpf varchar(15) unique,
         perfil_acesso varchar(15),
 	username varchar(100) unique,
 	password varchar(100)
@@ -154,3 +154,8 @@ create table aluno_turma(
     semestre_id integer references semestre(id),
     disciplina_id integer references disciplina(id)
 );
+
+select aluno.id, aluno.nome, aluno_curso.matricula, nota.nota from aluno join 
+                    aluno_curso on aluno.id=aluno_curso.aluno_id join nota on 
+                    nota.aluno_id = aluno_curso.aluno_id where aluno_curso.curso_id=$curso_id and  
+                    nota.descricao='$descricao';

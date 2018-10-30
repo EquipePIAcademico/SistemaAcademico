@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cursos</title>
+        <title>Notas</title>
         <meta charset="utf-8">
         <!--        <link href="../css/estilo.css" rel="stylesheet">-->
         <style>
@@ -106,67 +106,50 @@
 
             //$turma_id = $_GET['turma_id'];
 
-            $dataAvaliacao = $_POST['dataAvaliacao'];
-            $descricao = $_POST['descricao'];
+            $dataAvaliacao = $_GET['dataAvaliacao'];
+            $descricao = $_GET['descricao'];
+            $curso_id = $_GET['curso'];
             $turma_id = $_GET['turma_id'];
 
-            $sql = "select * from nota where (dataAvaliacao = $dataAvaliacao and descricao = $descricao) and turma_id = $turma_id";
+            $sql = "select aluno.id, aluno.nome, aluno_curso.matricula, nota.nota from aluno join 
+                    aluno_curso on aluno.id=aluno_curso.aluno_id join nota on 
+                    nota.aluno_id = aluno_curso.aluno_id where (aluno_curso.curso_id=$curso_id) and (nota.dataAvaliacao='$dataAvaliacao' and 
+                    nota.descricao='$descricao') order by aluno.nome";
 
             $retorno = mysqli_query($conexao, $sql);
+            ?>
+            <br>
+            <table id="customers">
+                <tr class="estilo">
+                    <td>Data da avaliação</td><td>Descrição</td>
+                </tr>
+                <tr>
+                    <td><?= $dataAvaliacao ?></td>
+                    <td><?= $descricao ?></td>
+                </tr>
+            </table>
 
-            $resultado = mysqli_fetch_array($retorno);
-
-            if ($resultado == null) {
-                echo 'ERRO';
-            } else {
-                ?>
-                <h3>Aluno já matriculado</h3>
-                <a href=form_inserir_aluno_1.php> <button class="btn-continuar button">Tentar novamente </button></a> 
+            <table id="customers">
+                <caption>Notas dos alunos</caption>
+                <tr class="estilo">
+                    <td>Matricula</td><td>Nome do aluno</td><td>Nota</td>
+                </tr>
                 <?php
-            }
-            ?>
-
-            ?>
-            <form action="inserir_notas.php" method="post">
-
-                <label>Data da avaliação: </label>
-                <input type="date" required="" name="dataAvaliacao"><br>
-
-                <label>Descrição: </label> <select name="descricao">
-                    <option value="prova">Prova</option>
-                    <option value="trabalho">Trabalho</option>
-                </select> <br>
-
-                <table id="customers">
-                    <caption>Alunos Matriculados</caption>
-                    <tr class="estilo">
-                        <td>Matricula</td><td>Nome do aluno</td><td>Nota</td>
-                    </tr>
-                    <?php
-                    while ($linha = mysqli_fetch_array($retorno)) {
-                        ?>
-                        <tr>
-
-                        <input type="hidden" name="aluno_id[]" value="<?= $linha['id'] ?>">
-                        <input type="hidden" name="turma_id[]" value="<?= $turma_id ?>">
-
+                while ($linha = mysqli_fetch_array($retorno)) {
+                    ?>
+                    <tr>
                         <td><?= $linha['matricula'] ?></td>
                         <td><?= $linha['nome'] ?></td>
-                        <td>
-                            <input type="number" name="nota[]">
+                        <td><?= $linha['nota'] ?></td>
+                    </tr>
+                    <?php
+                }
+                ?>
 
-                        </td>
+            </table><br>
 
 
-                        </tr>
-                        <?php
-                    }
-                    ?>
 
-                </table><br>
-
-                <input class="btn" type="submit" value="Inserir">
-            </form>
 
 
 

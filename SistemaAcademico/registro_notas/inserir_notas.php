@@ -63,25 +63,23 @@ $aluno_id = $_POST['aluno_id'];
 $turma_id = $_POST['turma_id'];
 $nota = $_POST['nota'];
 
-for ($i =0 ; $i < sizeof($dataAvaliacao) ; $i++) {
-for ($i =0 ; $i < sizeof($descricao) ; $i++){
 for ($i =0 ; $i < sizeof($aluno_id) ; $i++){
 for ($i =0 ; $i < sizeof($turma_id) ; $i++){
 for ($i =0 ; $i < sizeof($nota) ; $i++){
  
-$inserir = "insert into nota values (default, '$dataAvaliacao[$i]', '$descricao[$i]', '$aluno_id[$i]', '$turma_id[$i]', '$nota[$i]')";
+$inserir = "insert into nota values (default, '$dataAvaliacao', '$descricao', '$aluno_id[$i]', '$turma_id[$i]', '$nota[$i]')";
 
 @mysqli_query($conexao, $inserir);
  }
  }
  }
-}
-}
+
+
 ?>
 
       <h3> Notas confirmadas! </h3>
     
-      <a href=listar_alunos_1.php> <button class="btn-continuar button">Continuar inserindo </button></a>   <a href=listar_curso.php><button class="btn-gerenciamento button"> Ir para gerenciamento</button></a>
+      <a href=listar_curso.php><button class="btn-gerenciamento button"> Ir para gerenciamento</button></a>
 
 </html>
 

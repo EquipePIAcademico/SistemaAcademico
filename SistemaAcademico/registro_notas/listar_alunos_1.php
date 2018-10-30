@@ -140,7 +140,7 @@
                         <td><?= $linha['matricula'] ?></td>
                         <td><?= $linha['nome'] ?></td>
                         <td>
-                            <input type="number" name="nota[]">
+                            <input type="number" step="0.1" name="nota[]">
 
                         </td>
 
