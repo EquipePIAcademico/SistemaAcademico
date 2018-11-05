@@ -17,7 +17,7 @@ create table nota(
     nota float
 );
 
-select * from aluno_curso where curso_id=10;
+select * from usuario;
 
 
 select count(*) aluno_id from frequencia where frequencia='falta' and aluno_id=7;
@@ -155,7 +155,10 @@ create table aluno_turma(
     disciplina_id integer references disciplina(id)
 );
 
-select aluno.id, aluno.nome, aluno_curso.matricula, nota.nota from aluno join 
-                    aluno_curso on aluno.id=aluno_curso.aluno_id join nota on 
-                    nota.aluno_id = aluno_curso.aluno_id where aluno_curso.curso_id=$curso_id and  
-                    nota.descricao='$descricao';
+select aluno.nome, aluno_curso.matricula, curso.nome, curso.carga_horaria, curso.anoInicio, curso.semestreInicio, curso.anoTermino, 
+curso.semestreTermino, disciplina.nome, nota.nota, frequencia.aluno_id from frequencia join aluno on 
+aluno.id=frequencia.aluno_id join nota on nota.aluno_id=aluno.id join aluno_curso on aluno_curso.aluno_id=nota.aluno_id
+join curso on curso.id=aluno_curso.curso_id join disciplina on disciplina.curso_id=curso.id where aluno.id=1 and curso.id=2;
+
+select aluno.nome as nome_aluno, aluno_curso.matricula, curso.nome as nome_curso, curso.carga_horaria, curso.anoInicio, curso.semestreInicio, 
+curso.anoTermino, curso.semestreTermino from aluno join aluno_curso on aluno_curso.aluno_id=aluno.id join curso on curso.id=aluno_curso.curso_id where aluno.id=1 and curso.id=2;
