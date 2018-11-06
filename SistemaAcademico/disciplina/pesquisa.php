@@ -6,19 +6,27 @@
         <!--        <link href="../css/estilo.css" rel="stylesheet">-->
         <style>
             #customers {
-                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
+    font-family: arial;
+    border-collapse: separate;
+    border-spacing: 1px;
+    width: 100%;
+    margin-top: 80px;
+    color:threeddarkshadow;
+}
 
+#customers tr.estilo{
+    background-color: #ccc;
+    color: black;
+}
             #customers td, #customers th {
                 border: 1px solid #ddd;
-                padding: 8px;
+                padding: 2.5px;
             }
 
             #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-            #customers tr:hover {background-color: #ddd;}
+            #customers tr:hover {background-color: #ddd;
+            color: black;}
 
             #customers th {
                 padding-top: 12px;
@@ -161,7 +169,7 @@
                     <form action="excluir_lote.php" method="post">
                         <table id="customers">
                             <caption>Disciplinas Cadastradas</caption>
-                            <tr>
+                            <tr class="estilo">
                                 <td>Selecionar</td><td>Curso da disciplina</td><td>Nome</td><td>Descrição</td><td>Carga horária</td><td>Excluir</td><td>Alterar</td>
                             </tr>
                             <?php
@@ -202,4 +210,5 @@
         }
         require_once '../rodape.php';
         ?>
+    
     
