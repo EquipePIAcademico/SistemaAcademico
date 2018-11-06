@@ -17,7 +17,7 @@ create table nota(
     nota float
 );
 
-select * from usuario;
+select * from nota;
 
 
 select count(*) aluno_id from frequencia where frequencia='falta' and aluno_id=7;
