@@ -5,20 +5,28 @@
         <meta charset="utf-8">
        <!-- <link href="../css/estilo.css" rel="stylesheet">-->
               <style>
-          #customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
+ #customers {
+    font-family: arial;
+    border-collapse: separate;
+    border-spacing: 1px;
     width: 100%;
+    margin-top: 80px;
+    color:threeddarkshadow;
 }
 
+#customers tr.estilo{
+    background-color: #ccc;
+    color: black;
+}
 #customers td, #customers th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 2.5px;
 }
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+#customers tr:hover {background-color: #ddd;
+color: black;}
 
 #customers th {
     padding-top: 12px;
@@ -159,11 +167,11 @@ td{
                 if ($numRegistros != 0) {
                     ?>
                     <form action="excluir_lote.php" method="post">    
-
-                        <h3 id="cadastro">Tipos de Curso Cadastrados</h3>
+                        
                         <table id="customers">
+                            <caption>Tipos de Curso Cadastrados</caption>
 
-                            <tr>
+                            <tr class="estilo">
                                 <td>Selecionar</td><td>Nome</td><td>Descrição</td><td>Excluir</td><td>Alterar</td>
                             </tr>
                             <?php
@@ -204,4 +212,5 @@ td{
         }
         require_once '../rodape.php';
         ?>
+    
     
