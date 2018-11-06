@@ -40,7 +40,7 @@
 
                 <?php
                 include '../bd/conectar.php';
-                $sql_disciplina = "select disciplina.id, disciplina.nome as disc_nome, curso.nome as curso_nome from disciplina join curso on curso.id=disciplina.curso_id order by disc_nome";
+                $sql_disciplina = "select disciplina.id, disciplina.nome as disc_nome, curso.nome as curso_nome from disciplina join curso on curso.id=disciplina.curso_id where disciplina.curso_id=$curso_id order by disc_nome";
                 $retorno_disciplina = mysqli_query($conexao, $sql_disciplina);
                 ?>
 
@@ -103,4 +103,4 @@
         </div>
         <?php
         include '../rodape.php';
-        ?>  
+        ?>   
