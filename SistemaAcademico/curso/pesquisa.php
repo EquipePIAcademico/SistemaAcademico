@@ -8,8 +8,17 @@
           #customers {
     font-family: arial;
     border-collapse: separate;
+    border-spacing: 1px;
     width: 100%;
+    margin-top: 80px;
+    color:threeddarkshadow;
 }
+
+#customers tr.estilo{
+    background-color: #ccc;
+    color: black;
+}
+
 
 #customers td, #customers th {
     border: 1px solid #ddd;
@@ -18,7 +27,8 @@
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+#customers tr:hover {background-color: #ddd;
+ color:  black;}
 
 #customers th {
     padding-top: 12px;
@@ -160,7 +170,7 @@ td{
 
                         <table id="customers">
                             <caption>Cursos Cadastrados</caption>
-                            <tr>
+                            <tr class="estilo">
                                 <td class="cc">Selecionar</td><td class="cc">Tipo</td><td class="cc">Nome</td><td class="cc">Descrição</td><td class="cc">Carga horária</td><td class="cc">Ano de início</td><td class="cc">Semestre de início</td><td class="cc">Ano de término</td><td class="cc">Semestre de término</td><td class="cc">Turno</td><td class="ce">Excluir</td><td class="ca">Alterar</td>
                             </tr>
                             <?php
