@@ -6,9 +6,12 @@
        <!-- <link href="../css/estilo.css" rel="stylesheet">-->
               <style>
           #customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
+    font-family: arial;
+    border-collapse: separate;
+     border-spacing: 1px;
     width: 100%;
+    margin-top: 80px;
+    color:threeddarkshadow;
 }
 
 #customers td, #customers th {
@@ -16,9 +19,20 @@
     padding: 2.5px;
 }
 
+#customers tr.estilo{
+    background-color: #ccc;
+    color: black;
+}
+
+
+
 #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+
+
+#customers tr:hover {background-color: #ddd;
+ color:  black;
+}
 
 #customers th {
     padding-top: 12px;
@@ -151,7 +165,7 @@ button.btn-insira{
 
             if ($a == "buscar") {
                 $pesquisaAluno = trim($_POST['pesquisaAluno']);
-                $sql = "select aluno.id, aluno.nome, aluno.email, aluno.dataN, aluno.nacionalidade, aluno.bairro, aluno.rua, aluno.complemento, aluno.cep, "
+                $sql = "select aluno.id, aluno.nome, aluno.email, date_format(aluno.dataN, '%d/%m/%Y') as dataNformatada, aluno.nacionalidade, aluno.bairro, aluno.rua, aluno.complemento, aluno.cep, "
                     . "aluno.numero, renda.valor from aluno join renda on renda.id=aluno.renda_id where nome like '" . $pesquisaAluno . "%' order by nome";           
                 $resultado = mysqli_query($conexao, $sql);
                 $numRegistros = mysqli_num_rows($resultado);
@@ -161,7 +175,7 @@ button.btn-insira{
 
                         <table id="customers">
                             <caption>Alunos Cadastrados</caption>
-                            <tr> <td class="cc">Selecionar</td><td class="cc">Nome</td><td class="cc">E-mail</td><td class="cc">Data de nascimento</td><td class="cc">Renda</td><td class="cc">Nacionalidade</td><td class="cc" colspan="5">Endereço</td><td class="ce">Excluir</td><td class="ca">Alterar</td>
+                            <tr class="estilo"> <td class="cc">Selecionar</td><td class="cc">Nome</td><td class="cc">E-mail</td><td class="cc">Data de nascimento</td><td class="cc">Renda</td><td class="cc">Nacionalidade</td><td class="cc" colspan="5">Endereço</td><td class="ce">Excluir</td><td class="ca">Alterar</td>
                             </tr>
                             <?php
                             while ($linha = mysqli_fetch_array($resultado)) {
@@ -170,7 +184,7 @@ button.btn-insira{
 
                                 <td><?= $linha['nome'] ?></td>
                                 <td><?= $linha['email'] ?></td>
-                                <td><?= $linha['dataN'] ?></td>
+                                <td><?= $linha['dataNformatada'] ?></td>
                                 <td><?= $linha['valor'] ?></td>
                                 <td><?= $linha['nacionalidade'] ?></td>
                                 <td>Bairro: <?= $linha['bairro'] ?></td>
