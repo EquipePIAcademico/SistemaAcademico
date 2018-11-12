@@ -143,7 +143,7 @@ td{
                 </table><br>
                <button class="btn-insira">Excluir</button>
             </form>
-            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
+            
             <?php
             require_once '../rodape.php';
             ?>

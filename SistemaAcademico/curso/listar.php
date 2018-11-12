@@ -151,7 +151,7 @@ caption{
                 <button class="btn-insira">Excluir</button>
 
             </form>
-            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
+            
         </div>
         <?php
         require_once '../rodape.php';

@@ -149,7 +149,7 @@
                 <tr>
                     <td><input type="checkbox" name="id[]" value="<?= $linha['id'] ?>"</td>
                     <td><?= $linha['nome'] ?></td>
-                    <td><?= $linha['descricao'] ?></td>
+                    <td><?= ($linha['nPresencas']/$linha['qtdChmadas']) * 100 ?></td>
                     <td><a href="excluir.php?id=<?= $linha['id'] ?>">
                             <img src="../img/excluir2.png" height="30" width="30"/></a></td>
 

@@ -1,5 +1,5 @@
 create database bancoSistema;
-
+drop database bancoSistema;
 create table frequencia(
     id integer primary key auto_increment,
     frequencia varchar(10),
@@ -16,7 +16,7 @@ create table nota(
     turma_id integer, 
     nota float
 );
-
+select * from tipo order by nome;
 select * from nota;
 
 
@@ -155,10 +155,13 @@ create table aluno_turma(
     disciplina_id integer references disciplina(id)
 );
 
-select aluno.nome, aluno_curso.matricula, curso.nome, curso.carga_horaria, curso.anoInicio, curso.semestreInicio, curso.anoTermino, 
-curso.semestreTermino, disciplina.nome, nota.nota, frequencia.aluno_id from frequencia join aluno on 
+select disciplina.nome, nota.nota, count(frequencia.frequencia) from frequencia join aluno on 
 aluno.id=frequencia.aluno_id join nota on nota.aluno_id=aluno.id join aluno_curso on aluno_curso.aluno_id=nota.aluno_id
-join curso on curso.id=aluno_curso.curso_id join disciplina on disciplina.curso_id=curso.id where aluno.id=1 and curso.id=2;
+join curso on curso.id=aluno_curso.curso_id join disciplina on disciplina.curso_id=curso.id join turma on turma.disciplina_id=disciplina.id where aluno.id=1 and curso.id=2 group by disciplina.nome;
 
 select aluno.nome as nome_aluno, aluno_curso.matricula, curso.nome as nome_curso, curso.carga_horaria, curso.anoInicio, curso.semestreInicio, 
 curso.anoTermino, curso.semestreTermino from aluno join aluno_curso on aluno_curso.aluno_id=aluno.id join curso on curso.id=aluno_curso.curso_id where aluno.id=1 and curso.id=2;
+
+select disciplina.nome, nota.nota, count(frequencia.frequencia) from frequencia ;
+
+select count(frequencia.frequencia) from frequencia where frequencia.frequencia='presenca';

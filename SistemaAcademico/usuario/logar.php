@@ -55,7 +55,7 @@ $perfil_acesso = $_POST['perfil_acesso'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-include '../bd/conectar.php';
+include_once '../bd/conectar.php';
 
 $sql = "select * from usuario where (perfil_acesso = '$perfil_acesso' and username = '$username') and password = '$password'";
 

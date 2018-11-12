@@ -87,8 +87,8 @@ caption{
     <div id="interface">
           <?php
         // session_start ();
-        include  '../cabecalho.php ' ;
-        include  '../bd/conectar.php ' ;
+        include  '../cabecalho.php' ;
+        include  '../bd/conectar.php' ;
         ?>
 
             <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
