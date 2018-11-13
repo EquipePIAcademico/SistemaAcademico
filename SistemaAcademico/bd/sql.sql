@@ -1,5 +1,5 @@
 create database bancoSistema;
-drop database bancoSistema;
+
 create table frequencia(
     id integer primary key auto_increment,
     frequencia varchar(10),
@@ -16,11 +16,6 @@ create table nota(
     turma_id integer, 
     nota float
 );
-select * from tipo order by nome;
-select * from nota;
-
-
-select count(*) aluno_id from frequencia where frequencia='falta' and aluno_id=7;
 
 create table renda(
     id integer primary key auto_increment,
@@ -66,7 +61,6 @@ create table usuario(
 );
 
 insert into usuario (nome, email, dataN, cpf, perfil_acesso, username, password) values ('Carlos Nascimento da Silva', 'carlos@carlos',  "1960-03-03", '11122233344', 'secretario(a)', 'administrador', '123');
-
 
 create table tipo(
         id integer primary key auto_increment,
@@ -155,13 +149,15 @@ create table aluno_turma(
     disciplina_id integer references disciplina(id)
 );
 
-select disciplina.nome, nota.nota, count(frequencia.frequencia) from frequencia join aluno on 
-aluno.id=frequencia.aluno_id join nota on nota.aluno_id=aluno.id join aluno_curso on aluno_curso.aluno_id=nota.aluno_id
-join curso on curso.id=aluno_curso.curso_id join disciplina on disciplina.curso_id=curso.id join turma on turma.disciplina_id=disciplina.id where aluno.id=1 and curso.id=2 group by disciplina.nome;
+select disciplina.nome, nota.nota from nota join turma on turma.id=nota.turma_id join disciplina on 
+disciplina.id=turma.disciplina_id where nota.aluno_id=1 and turma.curso_id=6 group by disciplina.nome;
 
-select aluno.nome as nome_aluno, aluno_curso.matricula, curso.nome as nome_curso, curso.carga_horaria, curso.anoInicio, curso.semestreInicio, 
-curso.anoTermino, curso.semestreTermino from aluno join aluno_curso on aluno_curso.aluno_id=aluno.id join curso on curso.id=aluno_curso.curso_id where aluno.id=1 and curso.id=2;
+select disciplina.nome, sum(nota.nota), count(nota.nota) from nota join turma on turma.id=nota.turma_id join disciplina on 
+disciplina.id=turma.disciplina_id where (nota.aluno_id=1 and turma.curso_id=6) and disciplina.nome='Empreendedorismo';
 
-select disciplina.nome, nota.nota, count(frequencia.frequencia) from frequencia ;
+select disciplina.nome, count(frequencia.frequencia) from frequencia join turma on turma.id=frequencia.turma_id 
+join disciplina on disciplina.id=turma.disciplina_id where frequencia.aluno_id=1 and disciplina.nome='Empreendedorismo';
 
-select count(frequencia.frequencia) from frequencia where frequencia.frequencia='presenca';
+select disciplina.nome, count(frequencia.frequencia) from frequencia join turma on turma.id=frequencia.turma_id 
+join disciplina on disciplina.id=turma.disciplina_id where (frequencia.aluno_id=1 and disciplina.nome='Empreendedorismo') and frequencia.frequencia='presenca';
+

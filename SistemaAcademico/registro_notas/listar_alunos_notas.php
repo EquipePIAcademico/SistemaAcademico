@@ -111,10 +111,10 @@
             $curso_id = $_GET['curso'];
             $turma_id = $_GET['turma_id'];
 
-            $sql = "select aluno.id, aluno.nome, aluno_curso.matricula, nota.nota from aluno join 
-                    aluno_curso on aluno.id=aluno_curso.aluno_id join nota on 
-                    nota.aluno_id = aluno_curso.aluno_id where (aluno_curso.curso_id=$curso_id) and (nota.dataAvaliacao='$dataAvaliacao' and 
-                    nota.descricao='$descricao') order by aluno.nome";
+            $sql = "select aluno.id, aluno.nome, aluno_curso.matricula, nota.nota from aluno join "
+                    . "aluno_curso on aluno.id=aluno_curso.aluno_id join nota on nota.aluno_id = aluno_curso.aluno_id join "
+                    . "turma on turma.id=nota.turma_id where (aluno_curso.curso_id=$curso_id and nota.turma_id=$turma_id) and "
+                    . "(nota.dataAvaliacao='$dataAvaliacao' and nota.descricao='$descricao') order by aluno.nome";
 
             $retorno = mysqli_query($conexao, $sql);
             ?>

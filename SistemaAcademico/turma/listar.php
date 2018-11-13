@@ -136,7 +136,7 @@ caption{
             </div>
                 </form>
             
-            
+            <form action="excluir_lote.php" method="post">   
                 <table id="customers">
                     <caption>Turmas Cadastradas</caption>
                     <tr class="estilo">

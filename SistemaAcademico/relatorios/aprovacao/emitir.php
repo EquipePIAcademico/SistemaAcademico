@@ -105,64 +105,109 @@
         $aluno_id = $_GET['aluno_id'];
         $curso_id = $_GET['curso_id'];
 
-        $sql = "select aluno.nome as nome_aluno, aluno_curso.matricula, curso.nome as nome_curso, curso.carga_horaria, "
-                . "curso.anoInicio, curso.semestreInicio, curso.anoTermino, curso.semestreTermino from aluno join aluno_curso "
-                . "on aluno_curso.aluno_id=aluno.id join curso on curso.id=aluno_curso.curso_id where aluno.id=$aluno_id and curso.id=$curso_id";
+        $sql_valid = "select aluno.nome, curso.nome from curso join disciplina on disciplina.curso_id=curso.id "
+                . "join turma on turma.disciplina_id=disciplina.id join aluno_turma on aluno_turma.turma_id=turma.id "
+                . "join aluno on aluno.id=aluno_turma.aluno_id where curso.id=$curso_id and aluno.id=$aluno_id";
 
-        $resultado = mysqli_query($conexao, $sql);
-        
-        $linha = mysqli_fetch_array($resultado);
-        ?>
+        $retorno_valid = mysqli_query($conexao, $sql_valid);
+//
+        $resultado_valid = mysqli_fetch_array($retorno_valid);
 
-        <h3>Dados do aluno</h3>
-        <?php
-        echo "Nome: " . $linha['nome_aluno'] . "<br>";
-        echo "Matrícula: " . $linha['matricula'] . "<br>";
-        ?>
-        
-        <h3>Dados do curso</h3>
-        <?php
-        echo "Nome: " . $linha['nome_curso'] . "<br>";
-        echo "Carga horária: " . $linha['carga_horaria'] . "h <br>";
-        echo "Ano de início: " . $linha['anoInicio'] . "<br>";
-        echo "Semestre de início: " . $linha['semestreInicio'] . "<br>";
-        echo "Ano de término: " . $linha['anoTermino'] . "<br>";
-        echo "Semestre de término: " . $linha['semestreTermino'] . "<br>";
-        
-//        Daqui para cima ta certo, para baixo tem q fazer ainda
-        
-        $sql = "select aluno.nome as nome_aluno, aluno_curso.matricula, curso.nome as nome_curso, curso.carga_horaria, "
-                . "curso.anoInicio, curso.semestreInicio, curso.anoTermino, curso.semestreTermino from aluno join aluno_curso "
-                . "on aluno_curso.aluno_id=aluno.id join curso on curso.id=aluno_curso.curso_id where aluno.id=$aluno_id and curso.id=$curso_id";
-
-        $resultado = mysqli_query($conexao, $sql);
-        ?>
-        
-        <table id="customers">
-
-            <tr class="estilo">
-                <td>Selecionar</td><td>Nome</td><td>Descrição</td><td>Excluir</td><td>Alterar</td>
-            </tr>
+        if ($resultado_valid == null) {
+            echo 'Erro! Aluno não está matriculado neste curso!';
+            ?>
+            <a href=form.php>Tentar novamente</a>
             <?php
-            while ($linha = mysqli_fetch_array($resultado)) {
-                ?>
-                <tr>
-                    <td><input type="checkbox" name="id[]" value="<?= $linha['id'] ?>"</td>
-                    <td><?= $linha['nome'] ?></td>
-                    <td><?= ($linha['nPresencas']/$linha['qtdChmadas']) * 100 ?></td>
-                    <td><a href="excluir.php?id=<?= $linha['id'] ?>">
-                            <img src="../img/excluir2.png" height="30" width="30"/></a></td>
+        } else {
+            $sql = "select aluno.nome as nome_aluno, aluno_curso.matricula, curso.nome as nome_curso, curso.carga_horaria, "
+                    . "curso.anoInicio, curso.semestreInicio, curso.anoTermino, curso.semestreTermino from aluno join aluno_curso "
+                    . "on aluno_curso.aluno_id=aluno.id join curso on curso.id=aluno_curso.curso_id where aluno.id=$aluno_id and curso.id=$curso_id";
 
-                    <td><a href="form_alterar.php?id=<?= $linha['id'] ?>">
-                            <img src="../img/alterar2.png" height="30" width="30"/></a></td>
-                </tr>
-                <?php
-            }
+            $resultado = mysqli_query($conexao, $sql);
+
+            $linha = mysqli_fetch_array($resultado);
             ?>
 
-        </table>
-        <button class="btn-insira">Excluir</button>
+            <h3>Dados do aluno</h3>
+            <?php
+            echo "Nome: " . $linha['nome_aluno'] . "<br>";
+            echo "Matrícula: " . $linha['matricula'] . "<br>";
+            ?>
 
+            <h3>Dados do curso</h3>
+            <?php
+            echo "Nome: " . $linha['nome_curso'] . "<br>";
+            echo "Carga horária: " . $linha['carga_horaria'] . "h <br>";
+            echo "Ano de início: " . $linha['anoInicio'] . "<br>";
+            echo "Semestre de início: " . $linha['semestreInicio'] . "<br>";
+            echo "Ano de término: " . $linha['anoTermino'] . "<br>";
+            echo "Semestre de término: " . $linha['semestreTermino'] . "<br>";
+
+//        Daqui para cima ta certo, para baixo tem q fazer ainda
+
+            $sql = "select disciplina.nome, nota.nota from nota join turma on turma.id=nota.turma_id join "
+                    . "disciplina on disciplina.id=turma.disciplina_id where nota.aluno_id=$aluno_id and turma.curso_id=$curso_id group by disciplina.nome";
+
+            $resultado = mysqli_query($conexao, $sql);
+            ?>
+
+            <table id="customers">
+
+                <tr class="estilo">
+                    <td>Disciplinas cursadas</td><td>Notas</td><td>Frequência</td>
+                </tr>
+                <?php
+                while ($linha = mysqli_fetch_array($resultado)) {
+                    ?>
+                    <tr>
+
+                        <td><?= $linha['nome'] ?></td>
+
+                        <?php
+                        $sql_notas = "select disciplina.nome, sum(nota.nota) as somaNotas, count(nota.nota) as qtdNotas from nota join turma on "
+                                . "turma.id=nota.turma_id join disciplina on disciplina.id=turma.disciplina_id where (nota.aluno_id=$aluno_id and turma.curso_id=$curso_id) and disciplina.nome='$linha[nome]'";
+                        $resultado_notas = mysqli_query($conexao, $sql_notas);
+                        $linha_notas = mysqli_fetch_array($resultado_notas);
+                        $media = $linha_notas['somaNotas'] / $linha_notas['qtdNotas'];
+                        ?>                       
+                        <td><?= $media ?></td>
+
+                        <?php
+                        $sql_qtdChamadas = "select disciplina.nome, count(frequencia.frequencia) as qtdChamadas from frequencia join "
+                                . "turma on turma.id=frequencia.turma_id join disciplina on disciplina.id=turma.disciplina_id where "
+                                . "frequencia.aluno_id=$aluno_id and disciplina.nome='$linha[nome]'";
+                        $resultado_qtdChamadas = mysqli_query($conexao, $sql_qtdChamadas);
+                        $linha_qtdChamadas = mysqli_fetch_array($resultado_qtdChamadas);
+
+                        $sql_qtdPresencas = "select disciplina.nome, count(frequencia.frequencia) as qtdPresencas from frequencia join "
+                                . "turma on turma.id=frequencia.turma_id join disciplina on disciplina.id=turma.disciplina_id where "
+                                . "(frequencia.aluno_id=$aluno_id and disciplina.nome='$linha[nome]') and frequencia.frequencia='presenca'";
+                        $resultado_qtdPresencas = mysqli_query($conexao, $sql_qtdPresencas);
+                        $linha_qtdPresencas = mysqli_fetch_array($resultado_qtdPresencas);
+                        $frequencia = ($linha_qtdPresencas['qtdPresencas'] / $linha_qtdChamadas['qtdChamadas']) * 100;
+                        ?>   
+                        <td><?= $frequencia . ' %' ?></td>
+                    </tr>
+                    <?php
+                    if ($media < 6 || $frequencia < 75) {
+                        $reprovado = true;
+                    } else {
+                        $reprovado = false;
+                    }
+                }
+                ?>
+
+            </table>
+            <br>
+            <?php    
+             
+            if ($reprovado == true){
+                echo "<b>Situação: </b> Reprovado";
+            } else {
+                echo "<b>Situação: </b> Aprovado";
+            }
+        }
+        ?>
 
     </div>
 
