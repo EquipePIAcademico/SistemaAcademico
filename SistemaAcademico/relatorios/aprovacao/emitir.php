@@ -143,8 +143,6 @@
             echo "Ano de término: " . $linha['anoTermino'] . "<br>";
             echo "Semestre de término: " . $linha['semestreTermino'] . "<br>";
 
-//        Daqui para cima ta certo, para baixo tem q fazer ainda
-
             $sql = "select disciplina.nome, nota.nota from nota join turma on turma.id=nota.turma_id join "
                     . "disciplina on disciplina.id=turma.disciplina_id where nota.aluno_id=$aluno_id and turma.curso_id=$curso_id group by disciplina.nome";
 
