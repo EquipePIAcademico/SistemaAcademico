@@ -22,7 +22,7 @@
 
 #customers td, #customers th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 2.5px;
 }
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}

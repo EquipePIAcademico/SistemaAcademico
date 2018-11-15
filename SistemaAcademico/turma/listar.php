@@ -119,9 +119,7 @@ caption{
 
             $resultado = mysqli_query($conexao, $sql);
             ?> 
-            <form action="excluir_lote.php" method="post">
-                <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
-            
+            <form action="pesquisa.php?a=buscar" method="post" class="form-pesquisa">
                  
               <div class="form_pesquisa">
                   <input required="" type="text" placeholder="    Semestre..." name="pesquisaSemestre" />

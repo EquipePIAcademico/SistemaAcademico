@@ -101,11 +101,11 @@
         ini_set("display_errors", true);
         
         $curso_id = $_GET["curso"];
-        echo $curso_id;
+        
         
         //$turma_id = $_GET["turma_id"];
         
-       // $sql = "select nota.aluno_id, sum(nota)/count(nota) as media from nota where turma_id=$turma_id group by aluno_id order by aluno_id";
+       //  $sql = "select nota.aluno_id, sum(nota)/count(nota) as media from nota where turma_id=$turma_id group by aluno_id order by aluno_id";
         $sql_curso = "select nome from curso where id=$curso_id";
         $sql_todos_alunos_do_curso_selecionado = "select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = $curso_id group by aluno_id order by aluno_id";
         
@@ -123,9 +123,9 @@
         $linha_curso = mysqli_fetch_array($resultado_curso);
         
         
-      while (($linha = mysqli_fetch_array($resultado_curso))){
+      while (($linha_curso = mysqli_fetch_array($resultado_curso))){
             
-        if($linha['media']<6){
+        if($linha_curso['media']<6){
             $reprovados = $reprovados+1;
         }
         

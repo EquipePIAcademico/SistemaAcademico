@@ -167,8 +167,9 @@
                         $resultado_notas = mysqli_query($conexao, $sql_notas);
                         $linha_notas = mysqli_fetch_array($resultado_notas);
                         $media = $linha_notas['somaNotas'] / $linha_notas['qtdNotas'];
-                        ?>                       
-                        <td><?= $media ?></td>
+                        ?>   
+                        
+                        <td><?= number_format(round($media,2),1) ?></td>
 
                         <?php
                         $sql_qtdChamadas = "select disciplina.nome, count(frequencia.frequencia) as qtdChamadas from frequencia join "
@@ -184,7 +185,7 @@
                         $linha_qtdPresencas = mysqli_fetch_array($resultado_qtdPresencas);
                         $frequencia = ($linha_qtdPresencas['qtdPresencas'] / $linha_qtdChamadas['qtdChamadas']) * 100;
                         ?>   
-                        <td><?= $frequencia . ' %' ?></td>
+                        <td><?= number_format(round($frequencia,2),1) . ' %' ?></td>
                     </tr>
                     <?php
                     if ($media < 6 || $frequencia < 75) {

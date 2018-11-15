@@ -8,6 +8,13 @@ create table frequencia(
     data date
 );
 
+select * from aluno_curso where curso_id=14;
+
+
+select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 14 group by aluno_id order by aluno_id;
+
+
+
 
 
 
