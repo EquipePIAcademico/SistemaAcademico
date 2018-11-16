@@ -8,7 +8,30 @@ create table frequencia(
     data date
 );
 
-select * from aluno_curso where curso_id=14;
+
+
+select aluno.id, aluno.nome, aluno_curso.matricula, frequencia.frequencia from aluno join 
+                    aluno_curso on aluno.id=aluno_curso.aluno_id join frequencia on frequencia.aluno_id = aluno_curso.aluno_id join 
+                    turma on turma.id=frequencia.turma_id where aluno_curso.curso_id=15 and frequencia.turma_id=20 and 
+                    frequencia.data='2018/11/16' order by aluno.nome;
+
+select * from frequencia;
+
+
+
+
+
+select * from frequencia;
+
+select distinct aluno.id, aluno.nome, aluno_curso.matricula, sum(nota)/count(nota) as media from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id
+join aluno_turma on aluno_turma.aluno_id=aluno_curso.aluno_id join nota on nota.aluno_id=aluno_turma.aluno_id 
+where aluno_curso.curso_id=16 AND aluno_turma.turma_id=21 and nota.turma_id=21 group by nota.aluno_id order by nota.aluno_id;
+
+select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 15 group by aluno_id order by aluno_id;
+
+
+
+
 
 
 select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 14 group by aluno_id order by aluno_id;
