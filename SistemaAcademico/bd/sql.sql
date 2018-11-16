@@ -9,44 +9,6 @@ create table frequencia(
 );
 
 
-
-select aluno.id, aluno.nome, aluno_curso.matricula, frequencia.frequencia from aluno join 
-                    aluno_curso on aluno.id=aluno_curso.aluno_id join frequencia on frequencia.aluno_id = aluno_curso.aluno_id join 
-                    turma on turma.id=frequencia.turma_id where aluno_curso.curso_id=15 and frequencia.turma_id=20 and 
-                    frequencia.data='2018/11/16' order by aluno.nome;
-
-select * from frequencia;
-
-
-
-
-
-select * from frequencia;
-
-select distinct aluno.id, aluno.nome, aluno_curso.matricula, sum(nota)/count(nota) as media from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id
-join aluno_turma on aluno_turma.aluno_id=aluno_curso.aluno_id join nota on nota.aluno_id=aluno_turma.aluno_id 
-where aluno_curso.curso_id=16 AND aluno_turma.turma_id=21 and nota.turma_id=21 group by nota.aluno_id order by nota.aluno_id;
-
-select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 15 group by aluno_id order by aluno_id;
-
-
-
-
-
-
-select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 14 group by aluno_id order by aluno_id;
-
-
-
-
-
-
-select * from nota;select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 10 group by aluno_id order by aluno_id;
-select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 15 group by aluno_id order by aluno_id;
-
-select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 13 group by aluno_id order by aluno_id;
-
-
 create table nota(
     id integer primary key auto_increment,
     dataAvaliacao date,
@@ -187,16 +149,4 @@ create table aluno_turma(
     semestre_id integer references semestre(id),
     disciplina_id integer references disciplina(id)
 );
-
-select disciplina.nome, nota.nota from nota join turma on turma.id=nota.turma_id join disciplina on 
-disciplina.id=turma.disciplina_id where nota.aluno_id=1 and turma.curso_id=6 group by disciplina.nome;
-
-select disciplina.nome, sum(nota.nota), count(nota.nota) from nota join turma on turma.id=nota.turma_id join disciplina on 
-disciplina.id=turma.disciplina_id where (nota.aluno_id=1 and turma.curso_id=6) and disciplina.nome='Empreendedorismo';
-
-select disciplina.nome, count(frequencia.frequencia) from frequencia join turma on turma.id=frequencia.turma_id 
-join disciplina on disciplina.id=turma.disciplina_id where frequencia.aluno_id=1 and disciplina.nome='Empreendedorismo';
-
-select disciplina.nome, count(frequencia.frequencia) from frequencia join turma on turma.id=frequencia.turma_id 
-join disciplina on disciplina.id=turma.disciplina_id where (frequencia.aluno_id=1 and disciplina.nome='Empreendedorismo') and frequencia.frequencia='presenca';
 

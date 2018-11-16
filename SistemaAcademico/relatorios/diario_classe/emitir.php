@@ -89,64 +89,77 @@
             }
         </style>
 
-</head>
-<body>
-    <div id="interface">
+    </head>
+    <body>
+        <div id="interface">
 
 
-        <?php
-        //session_start();
-        include '../../cabecalho.php';
-        include '../../bd/conectar.php';
-        ini_set("display_errors", true);
-        
-        $curso_id = $_GET["curso"];
-        echo $curso_id;?><br><?php
-        $turma_id = $_GET["turma_id"];
-        echo $turma_id;
-//        $sql = "select nota.aluno_id, sum(nota)/count(nota) as media from nota where turma_id=$turma_id group by aluno_id order by aluno_id";
-//        $sql_curso = "select nome from curso where id=$curso_id";
-      $sql_turma = "select disciplina.nome from turma join disciplina on disciplina.id=turma.disciplina_id where turma.id=$turma_id";
-//         
-     //  $sql_nota = "select nota.aluno_id, sum(nota)/count(nota) as media from nota where turma_id=$turma_id group by aluno_id order by aluno_id";
-         $sql = "select distinct aluno.id, aluno.nome, aluno_curso.matricula, sum(nota)/count(nota) as media from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id join aluno_turma on aluno_turma.aluno_id=aluno_curso.aluno_id join nota on nota.aluno_id=aluno_turma.aluno_id where aluno_curso.curso_id=$curso_id AND aluno_turma.turma_id=$turma_id and nota.turma_id=$turma_id group by nota.aluno_id order by nota.aluno_id";
-                
-       // $resultado_curso = mysqli_query($conexao, $sql_curso);
-        $resultado_turma = mysqli_query($conexao, $sql_turma);
-           $resultado = mysqli_query($conexao, $sql);
-    //    $resultado_nota = mysqli_query($conexao, $sql_nota);
-        
-        //$reprovados=0;
-        //$linha_curso = mysqli_fetch_array($resultado_curso);
-       $linha_turma = mysqli_fetch_array($resultado_turma);
-//       $linha = mysqli_fetch_array($resultado);
-       //$linha_nota = mysqli_fetch_array($resultado_nota);?>     
-        
-         <table id="customers">
-             <caption>Diário de classe</caption>
+            <?php
+            //session_start();
+            include '../../cabecalho.php';
+            include '../../bd/conectar.php';
+            ini_set("display_errors", true);
+
+            $curso_id = $_GET["curso"];
+            $turma_id = $_GET["turma_id"];
+
+            $sql_turma = "select disciplina.nome from turma join disciplina on disciplina.id=turma.disciplina_id where turma.id=$turma_id";
+
+            $resultado_turma = mysqli_query($conexao, $sql_turma);
+
+            $linha_turma = mysqli_fetch_array($resultado_turma);
+
+            $sql = "select distinct aluno.id, aluno.nome, aluno_curso.matricula, sum(nota)/count(nota) as media "
+                    . "from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id join aluno_turma on "
+                    . "aluno_turma.aluno_id=aluno_curso.aluno_id join nota on nota.aluno_id=aluno_turma.aluno_id where "
+                    . "aluno_curso.curso_id=$curso_id AND aluno_turma.turma_id=$turma_id and nota.turma_id=$turma_id group by "
+                    . "nota.aluno_id order by aluno.nome";
+
+            $resultado = mysqli_query($conexao, $sql);
+
+          //  $linha = mysqli_fetch_array($resultado);
+            ?>     
+
+            <table id="customers">
+                <caption>Diário de classe</caption>
                 <tr class="estilo" >
                     <td colspan="4"><?= $linha_turma['nome'] ?></td>
                 </tr>
                 <tr class="estilo">
                     <td>Matrícula</td><td>Aluno</td><td>Nota</td><td>Frequência</td>
                 </tr>
-                 <?php
-                 
-            while ($linha = mysqli_fetch_array($resultado)) {
-               
-                ?>
-                <tr>
-                    <td><?= $linha['matricula'] ?></td>
-                    <td><?= $linha['nome'] ?></td>
-                    <td><?= number_format(round($linha['media'],2),1) ?></td>
-              
-       <?php }
-       ?>
-                </tr>
-              
-            </table>
-    </div>
+                <?php
+                while ($linha = mysqli_fetch_array($resultado)) {
+                    ?>
+                    <tr>
+                        <td><?= $linha['matricula'] ?></td>
+                        <td><?= $linha['nome'] ?></td>
+                        <td><?= number_format(round($linha['media'], 2), 1) ?></td>
 
-    <?php
-    require_once '../../rodape.php';
-    ?>
+                        <?php
+                        $sql_qtdChamadas = "select disciplina.nome, count(frequencia.frequencia) as qtdChamadas from frequencia join "
+                                . "turma on turma.id=frequencia.turma_id join disciplina on disciplina.id=turma.disciplina_id where "
+                                . "frequencia.aluno_id=$linha[id] and disciplina.nome='$linha_turma[nome]'";
+                        $resultado_qtdChamadas = mysqli_query($conexao, $sql_qtdChamadas);
+                        $linha_qtdChamadas = mysqli_fetch_array($resultado_qtdChamadas);
+
+                        $sql_qtdPresencas = "select disciplina.nome, count(frequencia.frequencia) as qtdPresencas from frequencia join "
+                                . "turma on turma.id=frequencia.turma_id join disciplina on disciplina.id=turma.disciplina_id where "
+                                . "(frequencia.aluno_id=$linha[id] and disciplina.nome='$linha_turma[nome]') and frequencia.frequencia='presenca'";
+                        $resultado_qtdPresencas = mysqli_query($conexao, $sql_qtdPresencas);
+                        $linha_qtdPresencas = mysqli_fetch_array($resultado_qtdPresencas);
+                        $frequencia = ($linha_qtdPresencas['qtdPresencas'] / $linha_qtdChamadas['qtdChamadas']) * 100;
+                        ?>
+
+                        <td><?= number_format(round($frequencia, 2), 1) . ' %' ?></td>
+
+                    <?php }
+                    ?>
+                </tr>
+
+            </table>
+        </div>
+
+        <?php
+        require_once '../../rodape.php';
+        ?>
