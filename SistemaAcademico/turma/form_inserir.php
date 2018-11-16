@@ -41,7 +41,7 @@
                 ?>
 
                 <label class="curso">Curso: </label>
-                <select name="curso_id" style="width: 350px; position: absolute; right: 463px;">
+                <select name="curso_id" style="width: 310px; position: absolute; right: 463px;">
 
                     <?php
                     while ($linha_disciplina = mysqli_fetch_array($retorno_disciplina)) {

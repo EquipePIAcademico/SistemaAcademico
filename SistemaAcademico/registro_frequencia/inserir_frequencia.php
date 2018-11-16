@@ -117,7 +117,9 @@ $inserir = "insert into frequencia values (default, '$frequencia[$i]', '$aluno_i
  }
 }
 ?>
- 
+   <h3> Frequência confirmada! </h3>
+    
+      <a href=listar_curso.php><button class="btn-gerenciamento button"> Ir para gerenciamento</button></a>
    
 </html>
 

@@ -129,21 +129,40 @@ caption{
     
 }
 button.btn-insira{
-      
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-bottom: 20px;
+   
+}
+
+td{
+    text-align: center;
+}
+.voltar{
     color: #2E2E2E;
     border: 2px solid #A4A4A4;
     cursor: pointer;
     border-radius: 5px;
     padding: 10px;
     font-size: 15px;
-    margin-top: 15px;
-    margin-left: 610px;
+    margin-top: 10px;
+    margin-left: 10px;
     margin-bottom: 20px;
+             }
+              .voltar:hover {
+    background-color:blue; /* Green */
+    color: white;
     
 }
-td{
-    text-align: center;
-}
+
 
        </style>
 
@@ -191,12 +210,15 @@ td{
                             }
                             ?>
                         </table>                       
-                        <button class="btn-insira button">Excluir</button>
+                       <input class="voltar" type="button" value="Voltar" onClick="JavaScript: window.history.back();">  
+             <button class="btn-insira">Excluir</button>
+
+
                         <?php
                          echo '<br> <a href=listar.php>Voltar para gerenciamento</a>   ';
                          ?>
                     </form>
-            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
+           
                 </div>
                 <?php
             } else {

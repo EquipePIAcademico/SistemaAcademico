@@ -31,6 +31,8 @@ function formatar(mascara, documento){
     cursor: pointer;
     border-radius: 5px;
     padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
     font-size: 15px;
     margin-bottom: 20px;
 }

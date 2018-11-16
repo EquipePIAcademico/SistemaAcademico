@@ -101,16 +101,15 @@
         ini_set("display_errors", true);
         
         $curso_id = $_GET["curso"];
+        echo $curso_id;?><br><?php
         $turma_id = $_GET["turma_id"];
-        
+        echo $turma_id;
 //        $sql = "select nota.aluno_id, sum(nota)/count(nota) as media from nota where turma_id=$turma_id group by aluno_id order by aluno_id";
 //        $sql_curso = "select nome from curso where id=$curso_id";
       $sql_turma = "select disciplina.nome from turma join disciplina on disciplina.id=turma.disciplina_id where turma.id=$turma_id";
 //         
      //  $sql_nota = "select nota.aluno_id, sum(nota)/count(nota) as media from nota where turma_id=$turma_id group by aluno_id order by aluno_id";
-         $sql = "select distinct aluno.id, aluno.nome, aluno_curso.matricula, sum(nota)/count(nota) as media from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id
-join aluno_turma on aluno_turma.aluno_id=aluno_curso.aluno_id join nota on nota.aluno_id=aluno_turma.aluno_id 
-where aluno_curso.curso_id=$curso_id AND aluno_turma.turma_id=$turma_id and nota.turma_id=$turma_id group by nota.aluno_id order by nota.aluno_id";
+         $sql = "select distinct aluno.id, aluno.nome, aluno_curso.matricula, sum(nota)/count(nota) as media from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id join aluno_turma on aluno_turma.aluno_id=aluno_curso.aluno_id join nota on nota.aluno_id=aluno_turma.aluno_id where aluno_curso.curso_id=$curso_id AND aluno_turma.turma_id=$turma_id and nota.turma_id=$turma_id group by nota.aluno_id order by nota.aluno_id";
                 
        // $resultado_curso = mysqli_query($conexao, $sql_curso);
         $resultado_turma = mysqli_query($conexao, $sql_turma);
@@ -120,7 +119,7 @@ where aluno_curso.curso_id=$curso_id AND aluno_turma.turma_id=$turma_id and nota
         //$reprovados=0;
         //$linha_curso = mysqli_fetch_array($resultado_curso);
        $linha_turma = mysqli_fetch_array($resultado_turma);
-       $linha = mysqli_fetch_array($resultado);
+//       $linha = mysqli_fetch_array($resultado);
        //$linha_nota = mysqli_fetch_array($resultado_nota);?>     
         
          <table id="customers">

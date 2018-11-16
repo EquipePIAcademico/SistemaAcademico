@@ -120,7 +120,7 @@
         
         $reprovados=0;
         $linha_nome_curso = mysqli_fetch_array($resultado_nome_curso);
-        $linha_curso = mysqli_fetch_array($resultado_curso);
+        //$linha_curso = mysqli_fetch_array($resultado_curso);
         
         
       while (($linha_curso = mysqli_fetch_array($resultado_curso))){

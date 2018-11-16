@@ -34,8 +34,6 @@
             <form action="listar_turmas_1.php" method="get"> 
 
                 
-                <fieldset> 
-                    <legend>Turma</legend>
                 
                 <label>Curso:</label><select name="curso_id" style="width: 220px;">
                     

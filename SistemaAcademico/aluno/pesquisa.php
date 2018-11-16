@@ -79,15 +79,20 @@ div#interface{
     
 }
 button.btn-insira{
-    color: #2E2E2E;
+        color: #2E2E2E;
     border: 2px solid #A4A4A4;
     cursor: pointer;
     border-radius: 5px;
     padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     font-size: 15px;
-    margin-top: 15px;
-    margin-left: 25px;
+    margin-top: 10px;
+    margin-left: 0px;
     margin-bottom: 20px;
+    
+
+
 }
 caption{
     font-size: 20px;
@@ -149,6 +154,23 @@ button.btn-insira{
     margin-bottom: 20px;
     
 }
+.voltar{
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+             }
+              .voltar:hover {
+    background-color:blue; /* Green */
+    color: white;
+    
+}
+
        </style>
 
 
@@ -204,10 +226,12 @@ button.btn-insira{
                             ?>
                         </table>                      
                      
-                          <button class="btn-insira button">Excluir</button>
-                        
+                          
+   <input class="voltar" type="button" value="Voltar" onClick="JavaScript: window.history.back();">  
+             <button class="btn-insira">Excluir</button>
+
                     </form>
-            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">
+          
                 </div>
                 <?php
             } else {
