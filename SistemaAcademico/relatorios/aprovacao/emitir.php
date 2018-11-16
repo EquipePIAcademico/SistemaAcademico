@@ -104,7 +104,8 @@
 
         $aluno_id = $_GET['aluno_id'];
         $curso_id = $_GET['curso_id'];
-
+        $contReprovacao = 0;
+        
         $sql_valid = "select aluno.nome, curso.nome from curso join disciplina on disciplina.curso_id=curso.id "
                 . "join turma on turma.disciplina_id=disciplina.id join aluno_turma on aluno_turma.turma_id=turma.id "
                 . "join aluno on aluno.id=aluno_turma.aluno_id where curso.id=$curso_id and aluno.id=$aluno_id";
@@ -189,18 +190,15 @@
                     </tr>
                     <?php
                     if ($media < 6 || $frequencia < 75) {
-                        $reprovado = true;
-                    } else {
-                        $reprovado = false;
-                    }
+                        $contReprovacao = 1;                   
+                    } 
                 }
                 ?>
 
             </table>
             <br>
             <?php    
-             
-            if ($reprovado == true){
+            if ($contReprovacao == 1){
                 echo "<b>Situação: </b> Reprovado";
             } else {
                 echo "<b>Situação: </b> Aprovado";

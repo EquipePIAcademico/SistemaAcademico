@@ -211,6 +211,7 @@
                   <a href='<?=$url?>/relatorios/aprovacao/form.php'>Emitir relatório de aprovação</a>
                   <a href='<?=$url?>/relatorios/reprovacao_disciplina/listar_cursos.php'>Emitir relatório de reprovação por disciplina</a>
                   <a href='<?=$url?>/relatorios/reprovacao_curso/listar_cursos.php'>Emitir relatório de reprovação por curso</a>
+                  <a href='<?=$url?>/relatorios/reprovacao_renda/form.php'>Emitir relatório de reprovação por faixa de renda</a>
                   <a href='<?=$url?>/relatorios/diario_classe/listar_cursos.php'>Emitir diário de classe</a>
                               </div>
                      </div>
