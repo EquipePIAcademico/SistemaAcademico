@@ -150,3 +150,4 @@ create table aluno_turma(
     disciplina_id integer references disciplina(id)
 );
 
+

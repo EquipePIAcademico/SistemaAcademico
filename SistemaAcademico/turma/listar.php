@@ -104,20 +104,23 @@ caption{
             //session_start();
 
             include '../cabecalho.php';
-
             include '../bd/conectar.php';
-            ?>
-
-           
-          
-               
-            <?php
             ini_set("display_errors", true);
 
+            $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
+            $sql_turma = "select * from turma";
+            $resultado_turma = mysqli_query($conexao, $sql_turma);
+            $total = mysqli_num_rows($resultado_turma);
+            $registros = 10;
+            $numPaginas = ceil($total / $registros);
+            $inicio = ($registros * $pagina) - $registros;
+            
             $sql = "select turma.id, turma.nVagas, disciplina.nome as disc_nome, semestre.valor as semestre_valor, usuario.nome as professor_nome from "
-                    . "usuario join turma on turma.professor_id=usuario.id join disciplina on disciplina.id=turma.disciplina_id join semestre on semestre.id=turma.semestre_id where perfil_acesso='professor(a)'";
+                    . "usuario join turma on turma.professor_id=usuario.id join disciplina on disciplina.id=turma.disciplina_id join semestre on "
+                    . "semestre.id=turma.semestre_id where perfil_acesso='professor(a)' limit $inicio,$registros";
 
             $resultado = mysqli_query($conexao, $sql);
+            $total = mysqli_num_rows($resultado);
             ?> 
             <form action="pesquisa.php?a=buscar" method="post" class="form-pesquisa">
                  
@@ -134,7 +137,7 @@ caption{
             </div>
                 </form>
             
-            <form action="excluir_lote.php" method="post">   
+            <form action="confirmacao_lote.php" method="post">   
                 <table id="customers">
                     <caption>Turmas Cadastradas</caption>
                     <tr class="estilo">
@@ -150,7 +153,7 @@ caption{
                             <td><?= $linha['semestre_valor'] ?></td>
                             <td><?= $linha['professor_nome'] ?></td>
                             
-                            <td><a href="excluir.php?id=<?= $linha['id'] ?>">
+                            <td><a href="confirmacao.php?id=<?= $linha['id'] ?>">
                                     <img src="../img/excluir2.png" height="30" width="30"/></a></td>
 
                             <td><a href="form_alterar.php?id=<?= $linha['id'] ?>">
@@ -162,6 +165,20 @@ caption{
 
                 </table>
                <button class="btn-insira">Excluir</button>
+               <?php
+                if ($pagina > 1) {
+                    echo "<a href='listar.php?pagina=" . ($pagina - 1) . "'>&laquo; anterior</a>";
+                }
+
+                for ($i = 1; $i < $numPaginas + 1; $i++) {
+                    $ativo = ($i == $pagina) ? 'numativo' : '';
+                    echo "<a href='listar.php?pagina= $i '> " . $i . " </a>";
+                }
+
+                if ($pagina < $numPaginas) {
+                    echo "<a href='listar.php?pagina=" . ($pagina + 1) . "'>proximo &raquo;</a>";
+                }
+                ?>
             </form>
 <!--            <input class="voltar" type="button" value="<<Voltar" onClick="JavaScript: window.history.back();">-->
         </div>
