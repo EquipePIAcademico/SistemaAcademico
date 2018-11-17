@@ -9,6 +9,16 @@ create table frequencia(
 );
 
 
+select disciplina.nome, sum(nota.nota) as somaNotas, count(nota.nota) as qtdNotas from nota join turma on 
+                                turma.id=nota.turma_id join disciplina on disciplina.id=turma.disciplina_id where turma.curso_id=15 and disciplina.nome='Paisagem';
+
+select count(frequencia.frequencia) as qtdPresencas from frequencia where turma_id=20 and frequencia.frequencia='presenca' group by aluno_id order by aluno_id;
+
+select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 15 group by aluno_id order by aluno_id;
+
+
+select * from frequencia;
+
 create table nota(
     id integer primary key auto_increment,
     dataAvaliacao date,
@@ -101,8 +111,15 @@ create table disciplina(
         descricao varchar(100),
         carga_horaria integer,
 	usuario_id integer references usuario(id),
-        curso_id integer references curso(id) 
+        curso_id integer references curso(id)
 );
+
+
+select * from curso;
+select * from disciplina;
+select * from turma;
+select * from aluno_curso;
+select * from aluno_turma;
 
 create table turma(
 	id integer primary key auto_increment,

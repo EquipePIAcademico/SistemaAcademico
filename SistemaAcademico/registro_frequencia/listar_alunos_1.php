@@ -184,7 +184,8 @@ caption{
 //       $sql = "select aluno_turma.semestre_id from aluno_turma where aluno_turma.semestre_id=$semestre_id";
        
       
-       $data = date('d-m-Y');
+       $data = date('Y-m-d');
+       echo $data;
        ?>
         <form action="inserir_frequencia.php" method="post">
                 <table id="customers">

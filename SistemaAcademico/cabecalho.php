@@ -13,7 +13,10 @@
         <link href="css/estilo.css" rel="stylesheet">
 
         <style>
-
+            body{
+                font-family: arial;
+            }
+            
             a{
                 text-decoration: none;
                 color: white;

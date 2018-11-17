@@ -127,10 +127,6 @@
         
         
       while (($linha = mysqli_fetch_array($resultado))){
-            
-        if($linha['media']<6){
-            $reprovados = $reprovados+1;
-        }
          
                         $sql_qtdChamadas = "select disciplina.nome, count(frequencia.frequencia) as qtdChamadas from frequencia join "
                                 . "turma on turma.id=frequencia.turma_id join disciplina on disciplina.id=turma.disciplina_id where "
@@ -146,10 +142,10 @@
                         $frequencia = ($linha_qtdPresencas['qtdPresencas'] / $linha_qtdChamadas['qtdChamadas']) * 100;
                         
                        
-                    
-         if($frequencia<75){
+             
+        if($linha['media']<6 || $frequencia<75){
             $reprovados = $reprovados+1;
-        }               
+        }          
                         
       }
                         ?>
