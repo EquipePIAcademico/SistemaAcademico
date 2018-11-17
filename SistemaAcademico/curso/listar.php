@@ -94,8 +94,15 @@ caption{
             <?php
             //session_start();
             include '../cabecalho.php';
-
             include '../bd/conectar.php';
+            
+            $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
+            $sql_curso = "select * from curso";
+            $resultado_curso = mysqli_query($conexao, $sql_curso);
+            $total = mysqli_num_rows($resultado_curso);
+            $registros = 10;
+            $numPaginas = ceil($total / $registros);
+            $inicio = ($registros * $pagina) - $registros;
             ?>
 
             <form method="post" action="pesquisa.php?a=buscar" class="form-pesquisa">
@@ -110,12 +117,13 @@ caption{
             ini_set("display_errors", true);
 
             $sql = "select curso.id, curso.nome as curso_nome, curso.descricao, curso.carga_horaria, curso.anoInicio, curso.semestreInicio, curso.anoTermino, curso.semestreTermino, "
-                    . "tipo.nome as tipo_nome, turno.nome as turno_nome from tipo join curso on curso.tipo_id = tipo.id join turno on turno.id=curso.turno_id order by curso_nome";
+                    . "tipo.nome as tipo_nome, turno.nome as turno_nome from tipo join curso on curso.tipo_id = tipo.id join turno on turno.id=curso.turno_id order by curso_nome limit $inicio,$registros";
 
             $resultado = mysqli_query($conexao, $sql);
+            $total = mysqli_num_rows($resultado);
             ?>
 
-            <form action="excluir_lote.php" method="post">   
+            <form action="confirmacao_lote.php" method="post">   
 
                 <table id="customers">
                     <caption>Cursos Cadastrados</caption>
@@ -137,7 +145,7 @@ caption{
                             <td><?= $linha['semestreTermino'] ?></td>
                             <td><?= $linha['turno_nome'] ?></td>
 
-                            <td><a href="excluir.php?id=<?= $linha['id'] ?>">
+                            <td><a href="confirmacao.php?id=<?= $linha['id'] ?>">
                                     <img src="../img/excluir2.png" height="30" width="30"/></a></td>
 
                             <td><a href="form_alterar.php?id=<?= $linha['id'] ?>">
@@ -149,6 +157,20 @@ caption{
 
                 </table>
                 <button class="btn-insira">Excluir</button>
+                <?php
+                if ($pagina > 1) {
+                    echo "<a href='listar.php?pagina=" . ($pagina - 1) . "'>&laquo; anterior</a>";
+                }
+
+                for ($i = 1; $i < $numPaginas + 1; $i++) {
+                    $ativo = ($i == $pagina) ? 'numativo' : '';
+                    echo "<a href='listar.php?pagina= $i '> " . $i . " </a>";
+                }
+
+                if ($pagina < $numPaginas) {
+                    echo "<a href='listar.php?pagina=" . ($pagina + 1) . "'>proximo &raquo;</a>";
+                }
+                ?>
 
             </form>
             
