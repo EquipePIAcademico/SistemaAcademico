@@ -29,6 +29,22 @@
             a.disciplina:hover{
                 color: #17a2b8;
             }
+            a.paginacao{
+               display: inline-block;
+                 padding: 0;
+                margin: 0;
+                 color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+            }
+            a:hover:not(.active)
+            {background-color: #ddd;}
+            
+            
+            
+            
+            
             .dropbtn {
                 background-color: #80d695;
                 color: white;
@@ -139,7 +155,57 @@
                 justify-content: center;
             }
 
-
+            .cancelar{
+                background-color: #ddd;
+                padding: 8px 16px;
+    border-radius: 5px;
+      position: absolute;
+              left: 580px;
+            
+    
+                
+            }
+            .confirmar{
+                background-color: #ddd;
+                padding: 8px 16px;
+                border-radius: 5px;
+                  position: absolute;
+              left: 680px;
+            
+    
+            }
+            a.cancelar:hover{
+                background-color: red;
+                padding: 8px 16px;
+                border-radius: 5px;
+    
+            }    
+            a.confirmar:hover{
+                  background-color: green;
+                padding: 8px 16px;
+                border-radius: 5px;
+    
+            }
+            h3{
+                text-align: center;
+            }
+            input.confirmar{
+                  background-color: #ddd;
+                padding: 8px 16px;
+                border-radius: 5px;
+                  position: absolute;
+              left: 680px;
+            
+             
+            }
+             a.confirmar:hover{
+                  background-color: green;
+                padding: 8px 16px;
+                border-radius: 5px;
+                cursor: pointer;
+    
+            }
+           
         </style>
     </head>
     <body>

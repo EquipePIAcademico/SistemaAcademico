@@ -107,7 +107,7 @@ caption{
             $sql_usuario = "select * from usuario";
             $resultado_usuario = mysqli_query($conexao, $sql_usuario);
             $total = mysqli_num_rows($resultado_usuario);
-            $registros = 10;
+            $registros = 2;
             $numPaginas = ceil($total / $registros);
             $inicio = ($registros * $pagina) - $registros;
             ?>
@@ -163,16 +163,16 @@ caption{
                  <button class="btn-insira">Excluir</button>
                  <?php
                 if ($pagina > 1) {
-                    echo "<a href='listar.php?pagina=" . ($pagina - 1) . "'>&laquo; anterior</a>";
+                    echo "<a class='paginacao' href='listar.php?pagina=" . ($pagina - 1) . "'>&laquo; anterior</a>";
                 }
 
                 for ($i = 1; $i < $numPaginas + 1; $i++) {
                     $ativo = ($i == $pagina) ? 'numativo' : '';
-                    echo "<a href='listar.php?pagina= $i '> " . $i . " </a>";
+                    echo "<a class='paginacao' href='listar.php?pagina= $i '> " . $i . " </a>";
                 }
 
                 if ($pagina < $numPaginas) {
-                    echo "<a href='listar.php?pagina=" . ($pagina + 1) . "'>proximo &raquo;</a>";
+                    echo "<a class='paginacao' href='listar.php?pagina=" . ($pagina + 1) . "'>proximo &raquo;</a>";
                 }
                 ?>
             </form>
