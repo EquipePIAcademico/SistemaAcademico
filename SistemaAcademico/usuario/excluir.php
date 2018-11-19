@@ -69,9 +69,15 @@ if ($resultado_valid == null) {
 
     header('Location: listar.php');
 } else {
+
     ?>
 <h3 id="cadastro">Este(a) professor(a) está associado(a) à turma(s)! Primeiramente deve-se excluir a(s) turma(s)</h3>
     
     <a href=listar.php class="btn-gerenciamento button">Voltar para gerenciamento</a>
+
+    echo "Este(a) professor(a) está associado(a) à turma(s)! Primeiramente deve-se excluir a(s) turma(s)!" . "<br>";
+    ?>
+<a href=listar.php>Voltar para gerenciamento</a>
+
     <?php
 }

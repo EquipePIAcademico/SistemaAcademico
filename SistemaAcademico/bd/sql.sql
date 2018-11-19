@@ -1,3 +1,4 @@
+
 create database bancoSistema;
 
 create table frequencia(

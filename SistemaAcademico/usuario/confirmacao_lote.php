@@ -7,7 +7,12 @@
 ini_set("display_errors", true);
 
 include '../bd/conectar.php';
+
 include '../cabecalho.php';
+
+include './autenticacao.php';
+
+
 $id = $_POST['id'];
 ?>
 <h3>Deseja realmente excluir?</h3>
