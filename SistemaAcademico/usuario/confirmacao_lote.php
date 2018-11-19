@@ -7,12 +7,12 @@
 ini_set("display_errors", true);
 
 include '../bd/conectar.php';
-
+include '../cabecalho.php';
 $id = $_POST['id'];
-
-echo "Deseja realmente excluir?" . "<br>";
 ?>
-<a href=listar.php>Cancelar</a>
+<h3>Deseja realmente excluir?</h3>
+
+<a href=listar.php><input type="submit" value="Cancelar" class="cancelar"></a>
 
 <form action="excluir_lote.php" method="post">
     <?php
@@ -27,7 +27,7 @@ echo "Deseja realmente excluir?" . "<br>";
         }
     }
     ?>
-    <input type="submit" value="Confirmar" >      
+       <input type="submit" value="Confirmar" class="confirmar">           
 
 </form>
 

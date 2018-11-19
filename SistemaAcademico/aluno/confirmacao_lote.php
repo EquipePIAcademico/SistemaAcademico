@@ -12,7 +12,7 @@ include_once '../cabecalho.php';
 $id = $_POST['id'];
 ?>
 <h3>Deseja realmente excluir?</h3>
-<a class="cancelar" href=listar.php>Cancelar</a>
+<a href=listar.php><input type="submit" value="Cancelar" class="cancelar"></a>
 
 <form action="excluir_lote.php" method="post">
     <?php

@@ -232,8 +232,13 @@ button.btn-insira{
                 </div>
                 <?php
             } else {
-                echo "<script>alert('Nenhuma turma foi encontrada com a disciplina $pesquisaDisciplina e com o semestre $pesquisaSemestre')</script>";
-            }
+               
+           ?>
+                <h3> Nenhuma disciplina foi encontrada com o nome <?= $pesquisaDisciplina?> e com o semestre <?=$pesquisaSemestre?></h3>
+
+                <a href=listar.php> <button class="btn-continuar button">Voltar para gerenciamento</button></a>   
+                <?php
+                }
             ?>
 
 

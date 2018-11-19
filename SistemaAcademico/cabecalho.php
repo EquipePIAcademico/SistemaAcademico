@@ -314,8 +314,8 @@
                       <a href='<?=$url?>/index.php'><button class='dropbtn'>Home</button> </a> 
                          </div>
                                  <div class="dropdown">   
-        <button class='dropbtn'>Registros</button>
-                     <div class="dropdown-matricula">
+                        <button class='dropbtn'>Registros</button>
+                     
                             <a href='<?=$url?>/registro_notas/listar_cursos_professores.php'>Registrar notas</a>
                             <a href='<?=$url?>/registro_frequencia/listar_cursos_professores.php'>Registrar frequência</a>
                             </div>

@@ -1,8 +1,56 @@
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Excluir curso</title>
+        <meta charset="utf-8">
+      <!-- <link href="../css/estilo.css" rel="stylesheet">-->
+      <style>
+          h3{
+            display: flex;
+            justify-content: center;
+              
+          }
+         .btn-continuar:hover {
+    background-color:green; /* Green */
+    color: white;
+    
+}
+.btn-gerenciamento:hover{
+     background-color:blue; /* Green */
+    color: white;
+}
+.button{
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    
+}
+          
+          .btn-continuar{
+              position: absolute;
+              left: 460px;
+              background-color: #ccc;
+             
+          }
+          .btn-gerenciamento{
+              background-color: #ccc;
+              position: absolute;
+              left: 690px;
+          }
+      </style>
+<?php
 
 ini_set("display_errors", true);
 
 include '../bd/conectar.php';
+include '../cabecalho.php';
 
 $id = $_POST['id'];
 $cont = 0;
@@ -26,9 +74,19 @@ foreach ($id as $value) {
 }
 
 if ($resultado_valid != null){
-    echo 'Disciplina(s) associada(s) à turmas! Primeiramente deve-se excluir as turmas!';
-    ?>
-    <a href=listar.php>Voltar para gerenciamento</a><a href=../turma/listar.php>Ir para gerenciamento de turmas</a>
+    ?><h3 id="cadastro">Disciplina(s) associada(s) à turmas! Primeiramente deve-se excluir as turmas</h3>
+   
+    <a href=listar.php class="btn-continuar button">Voltar para gerenciamento</a><a href=../turma/listar.php class="btn-gerenciamento button">Ir para gerenciamento de turmas</a>
 
     <?php
 }
+
+
+
+    
+    
+
+
+
+
+

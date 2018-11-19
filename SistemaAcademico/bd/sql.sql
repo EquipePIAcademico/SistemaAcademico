@@ -17,7 +17,7 @@ select count(frequencia.frequencia) as qtdPresencas from frequencia where turma_
 select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 15 group by aluno_id order by aluno_id;
 
 
-select * from turma;
+select * from curso;
 
 create table nota(
     id integer primary key auto_increment,
