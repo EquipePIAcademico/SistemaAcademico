@@ -56,7 +56,7 @@ function formatar(mascara, documento){
                <label> CPF:  </label>
                 <input type="text" required="" name="cpf" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)"><br>
                 <label>Perfil de acesso:  </label>
-                <select name="perfil_acesso">
+                <select name="perfil_acesso" style="width: 220px; text-align-last: center;">
                     <option value="secretario(a)">Secretário(a)</option>
                     <option value="professor(a)">Professor(a)</option>
                 </select><br>

@@ -117,15 +117,20 @@
             ini_set("display_errors", true);
 
             $pegaid = $_GET['curso_id'];
+            
+           $sql_nome = "select nome from curso where curso.id=$pegaid";
            
             $sql = "select aluno_curso.aluno_id, aluno_curso.matricula, aluno_curso.curso_id, aluno.id, aluno.nome from aluno_curso "
                     . "join aluno on aluno_curso.aluno_id=aluno.id where aluno_curso.curso_id=$pegaid order by nome";
 
             $resultado = mysqli_query($conexao, $sql);
+            $resultado_nome = mysqli_query($conexao, $sql_nome);
+           $linha_nome = mysqli_fetch_array($resultado_nome)
             ?>
             <form action="excluir_lote.php" method="post">
                 <table id="customers">
-                    <caption>Alunos Matriculados</caption>
+                    <br><br>
+                    <caption>Alunos matriculados em "<?=$linha_nome['nome']?>"  </caption>
                     <tr class="estilo">
                         <td>Selecionar</td> <td>Matricula</td><td>Nome do aluno</td><td>Excluir</td><td>Alterar</td>
                     </tr>
@@ -136,7 +141,7 @@
                             <td><input type="checkbox" name="id[]" value="<?= $linha['id'] ?>"</td>
                             <td><?= $linha['matricula'] ?></td>
                             <td><?= $linha['nome'] ?></td>
-                            <td><a href="excluir.php?id=<?= $linha['id'] ?>">
+                            <td><a href="confirmacao.php?id=<?= $linha['id'] ?>">
                                     <img src="../img/excluir2.png" height="30" width="30"/></a></td>
 
                             <td><a href="form_alterar.php?id=<?= $linha['id'] ?>">

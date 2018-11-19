@@ -197,7 +197,7 @@ button.btn-insira{
                     ?>
                     <form action="excluir_lote.php" method="post">
                         <table id="customers">
-                            <caption>Turmas Cadastradas</caption>
+                          <caption>Turmas encontradas no semestre (<?=$pesquisaSemestre?>) com o nome "<?=$pesquisaDisciplina?>"</caption>
                             <tr class="estilo">
                                 <td>Selecionar</td><td>Número de vagas</td><td>Disciplina</td><td>Semestre</td><td>Professor(a)</td><td>Excluir</td><td>Alterar</td>
                             </tr>

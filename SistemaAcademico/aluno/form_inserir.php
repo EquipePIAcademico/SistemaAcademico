@@ -18,6 +18,23 @@ function formatar(mascara, documento){
 }
  
 </script>
+             <style>
+    .button:hover {
+    background-color:green; /* Green */
+    color: white;
+    
+}
+.button{
+      
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+</style>
     </head>
     <body>
         <div id="interface">
@@ -69,7 +86,7 @@ function formatar(mascara, documento){
                     </select> <br>
                     
                     <label for="nasc">Nacionalidade: </label>
-                    <select required="" name="nacionalidade" id="nasc" style="width: 215px;">
+                    <select required="" name="nacionalidade" id="nasc" style="width: 215px; text-align-last: center;">
                         <option value="África do Sul">África do Sul</option>
                         <option value="Albânia">Albânia</option>
                         <option value="Alemanha">Alemanha</option>
@@ -261,7 +278,7 @@ function formatar(mascara, documento){
                     <input type="number" required="" name="numero" id="num"min="0" max="99999" ><br>
                 </fieldset><br><br>
 
-                <input class="btn" type="submit" value="Inserir">
+                <button class="button">Inserir</button>
                 
             </form>
         </div>

@@ -39,7 +39,7 @@
                 $retorno = mysqli_query($conexao, $sql);
                 ?>
 
-                <label>Tipo de curso:</label> <select name="tipo_id" class="espacamento" style="width: 220px;">
+                <label>Tipo de curso:</label> <select name="tipo_id" class="espacamento" style="width: 220px; text-align-last: center;">
 
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
@@ -55,8 +55,6 @@
 
                 <label>Nome do curso: </label>
                 <input type="text" required="" name="nome"><br>
-                <label>Descrição: </label>
-                <input type="text" required="" name="descricao"><br>
                 <label>Carga horária: </label>
                 <input type="number" required="" name="carga_horaria"><br>
                 <label>Ano de início: </label>
@@ -78,7 +76,7 @@
                 $retorno = mysqli_query($conexao, $sql);
                 ?>
 
-                <label>Turno:</label> <select name="turno_id" style="width: 220px;">
+                <label>Turno:</label> <select name="turno_id" style="width: 220px; text-align-last: center;">
 
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
@@ -90,7 +88,12 @@
                     }
                     ?>
 
-                </select> <br>
+                </select><br>
+                <label>  Descrição:</label>
+                <textarea style="width: 215px; position: absolute; left: 580px; border-radius: 10px;" name="descricao">
+              </textarea> 
+                <br><br><br>
+              
                 
                <button class="button">Inserir</button>
             </form>

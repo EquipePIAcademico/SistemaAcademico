@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Confirmar exclusão</title>
+        <meta charset="utf-8">
 <?php
 ini_set("display_errors", true);
 

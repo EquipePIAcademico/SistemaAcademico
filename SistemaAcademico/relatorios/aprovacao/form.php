@@ -41,7 +41,7 @@
                 $retorno = mysqli_query($conexao, $sql_aluno);
                 ?>
 
-                <label class="espacamento">Alunos:</label> <select name="aluno_id" class="espacamento" style="width: 220px;">
+                <label class="espacamento">Alunos:</label> <select name="aluno_id" class="espacamento" style="width: 220px; text-align-last: center;">
 
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
@@ -59,7 +59,7 @@
                 $sql_curso = "select curso.id, curso.nome from curso order by nome";
                 $retorno = mysqli_query($conexao, $sql_curso);
                 ?>
-                <label>Cursos:</label> <select name="curso_id" style="width: 220px;">
+                <label>Cursos:</label> <select name="curso_id" style="width: 220px; text-align-last: center;">
 
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {

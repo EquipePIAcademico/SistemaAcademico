@@ -42,7 +42,7 @@ session_start();
           }
           .btn-gerenciamento{
               position: absolute;
-              left: 690px;
+              left: 590px;
           }
           body{
                font-family: sans-serif;
@@ -79,7 +79,7 @@ $inserir = "insert into nota values (default, '$dataAvaliacao', '$descricao', '$
 
       <h3> Notas confirmadas! </h3>
     
-      <a href=listar_curso.php><button class="btn-gerenciamento button"> Ir para gerenciamento</button></a>
+      <a href=listar_curso.php><button class="btn-gerenciamento button notas"> Ir para gerenciamento</button></a>
 
 </html>
 

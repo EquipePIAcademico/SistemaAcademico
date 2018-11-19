@@ -123,7 +123,7 @@ caption{
             $total = mysqli_num_rows($resultado);
             ?> 
             <form action="pesquisa.php?a=buscar" method="post" class="form-pesquisa">
-                 
+                 <br><br>
               <div class="form_pesquisa">
                   <input required="" type="text" placeholder="    Semestre..." name="pesquisaSemestre" />
                 <button><?php include "../img/magnifying-glass.svg"; ?></button>
@@ -136,9 +136,10 @@ caption{
                
             </div>
                 </form>
-            
+            <br><br>
             <form action="confirmacao_lote.php" method="post">   
                 <table id="customers">
+                    
                     <caption>Turmas Cadastradas</caption>
                     <tr class="estilo">
                         <td>Selecionar</td><td>Número de vagas</td><td>Disciplina</td><td>Semestre</td><td>Professor(a)</td><td>Excluir</td><td>Alterar</td>

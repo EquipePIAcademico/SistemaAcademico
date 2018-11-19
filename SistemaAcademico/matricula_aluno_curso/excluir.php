@@ -14,4 +14,4 @@ mysqli_query($conexao, $sql_turma);
 
 
 
-header('Location: listar_alunos.php');
+header('Location: listar_cursos.php');

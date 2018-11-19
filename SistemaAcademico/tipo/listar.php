@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Tipos</title>
+        <title>Tipos de cursos</title>
         <meta charset="utf-8">
         <!--<link href="../css/estilo.css" rel="stylesheet">-->
         <link href="../css/form_buscar.css" rel="stylesheet">

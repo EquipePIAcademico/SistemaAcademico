@@ -25,10 +25,10 @@
             <form action="listar_alunos.php" method="get">   
 
                   
-                    <caption>Cursos Cadastrados</caption>
-                    <br><br>
+                <h3 id="cadastro">Cursos cadastrados</h3>
                     
-                    Curso:<select name="curso_id" class="espacamento" style="width: 220px;">
+                    
+                    <label>Curso:</label><select name="curso_id" class="espacamento" style="width: 220px; text-align-last: center;">
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
                         ?>

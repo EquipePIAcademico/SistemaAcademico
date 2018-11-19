@@ -32,10 +32,11 @@
             $retorno = mysqli_query($conexao, $sql_disciplina);
                 ?>
             <form action="listar_turmas_1.php" method="get"> 
-
                 
+                           
+                <h3 id="cadastro">Cursos cadastrados</h3>
                 
-                <label>Curso:</label><select name="curso_id" style="width: 220px;">
+                <label>Curso:</label><select name="curso_id" style="width: 220px; text-align-last: center;">
                     
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {

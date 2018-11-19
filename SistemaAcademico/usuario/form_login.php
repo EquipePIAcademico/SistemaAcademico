@@ -25,7 +25,7 @@
             <h3 id="cadastro">Acesso</h3>
             <form method="post" action="logar.php">
                 <label> Perfil de acesso:</label> 
-                <select name="perfil_acesso" style="width: 220px;">
+                <select name="perfil_acesso" style="width: 220px; text-align-last: center;">
                     <option value="secretario(a)">Secretário(a)</option>
                     <option value="professor(a)">Professor(a)</option>
                 </select><br>

@@ -44,6 +44,10 @@ session_start();
               position: absolute;
               left: 690px;
           }
+          .erro{
+              position: absolute;
+              left: 600px;
+          }
           body{
                font-family: sans-serif;
     font-size: 14px;
@@ -79,14 +83,14 @@ if ($resultado == null) {
    
    <h3> Aluno matriculado com sucesso!  </h3>
     
-   <a href=form_inserir.php> <button class="btn-continuar button">Continuar matriculando </button></a>   <a href=listar_curso.php><button class="btn-gerenciamento button"> Ir para gerenciamento</button></a>
+   <a href=form_inserir_aluno_1.php> <button class="btn-continuar button">Continuar matriculando </button></a>   <a href=listar_curso.php><button class="btn-gerenciamento button"> Ir para gerenciamento</button></a>
 <?php
       }   
     
 } else {
     ?>
    <h3>Aluno já matriculado</h3>
-   <a href=form_inserir_aluno_1.php> <button class="btn-continuar button">Tentar novamente </button></a> 
+   <a href=form_inserir_aluno_1.php> <button class="btn-continuar button erro">Tentar novamente </button></a> 
    <?php
 }
 

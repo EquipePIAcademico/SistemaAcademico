@@ -87,6 +87,24 @@
                 background: white;
                 cursor: pointer;
             }
+             .btn-gerenciamento{
+              position: absolute;
+              left: 590px;
+              background-color: #ccc;
+          }
+         .btn-gerenciamento:hover{
+     background-color:blue; /* Green */
+    color: white;
+}
+.button{
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    
+}
         </style>
 
 
@@ -115,9 +133,8 @@
         $resultado_valid = mysqli_fetch_array($retorno_valid);
 
         if ($resultado_valid == null) {
-            echo 'Erro! Aluno não está matriculado neste curso!';
-            ?>
-            <a href=form.php>Tentar novamente</a>
+            ?><h3 id="cadastro">Erro! Aluno não está matriculado neste curso</h3>
+            <a href=form.php class="btn-gerenciamento button">Tentar novamente</a>
             <?php
         } else {
             $sql = "select aluno.nome as nome_aluno, aluno_curso.matricula, curso.nome as nome_curso, curso.carga_horaria, "

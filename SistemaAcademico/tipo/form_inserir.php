@@ -34,8 +34,10 @@
                <label class="espacamento">Nome:</label>
                 <input type="text" required="" name="nome" id="cNome" class="espacamento" /><br>
               <label>  Descrição:</label>
-                <input type="text" required="" name="descricao" id="cDescricao" /><br><br>
-                   <button class="button">Inserir</button>
+              <textarea style="width: 215px; position: absolute; left: 590px; border-radius: 10px;" name="descricao">
+              </textarea> 
+                <br><br><br>
+                <button class="button">Inserir</button>
             </form>
 
         </div>

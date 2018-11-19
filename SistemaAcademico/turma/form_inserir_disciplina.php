@@ -45,7 +45,7 @@
                 ?>
 
                 <label>Disciplina da turma: </label>
-                <select name="disciplina_id" style="width: 220px;">
+                <select name="disciplina_id" style="width: 220px; text-align-last: center;">
 
                     <?php
                     while ($linha_disciplina = mysqli_fetch_array($retorno_disciplina)) {
@@ -83,7 +83,7 @@
                 $retorno_professor = mysqli_query($conexao, $sql_professor);
                 ?>
 
-                <label>Professor:</label> <select name="professor_id" style="width: 220px;">
+                <label>Professor:</label> <select name="professor_id" style="width: 220px; text-align-last: center;">
 
                     <?php
                     while ($linha_professor = mysqli_fetch_array($retorno_professor)) {

@@ -46,7 +46,7 @@
                 $retorno = mysqli_query($conexao, $sql_aluno);
                 ?>
 
-                <label class="espacamento">Aluno:</label> <select name="aluno_curso_id" class="espacamento" style="width: 220px;">
+                <label class="espacamento">Aluno:</label> <select name="aluno_curso_id" class="espacamento" style="width: 220px; text-align-last: center;">
 
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {

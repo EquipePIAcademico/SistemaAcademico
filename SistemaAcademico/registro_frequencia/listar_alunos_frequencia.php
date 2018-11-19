@@ -119,11 +119,12 @@
             ?>
             <br>
             <table id="customers">
+               
                 <tr class="estilo">
                     <td>Data da chamada</td>
                 </tr>
                 <tr>
-                    <td><?= $dataChamada ?></td>
+                    <td><?= ($dataChamada)?></td>
                  
                 </tr>
             </table>

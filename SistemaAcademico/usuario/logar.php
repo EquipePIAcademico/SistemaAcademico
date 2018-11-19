@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cadastro de curso</title>
+        <title>Login</title>
         <meta charset="utf-8">
       <!-- <link href="../css/estilo.css" rel="stylesheet">-->
       <style>

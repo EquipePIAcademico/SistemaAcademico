@@ -174,19 +174,20 @@ td{
             include '../bd/conectar.php';
 
             $a = $_GET['a'];
-
+            
             if ($a == "buscar") {
                 $pesquisaCurso = trim($_POST['pesquisaCurso']);
                 $sql = "select curso.id, curso.nome, curso.descricao, curso.carga_horaria, curso.anoInicio, curso.semestreInicio, curso.anoTermino, curso.semestreTermino, tipo.nome as tipo_nome, turno.nome as turno_nome 
                         from tipo join curso on curso.tipo_id = tipo.id join turno on turno.id=curso.turno_id where curso.nome like '" . $pesquisaCurso . "%'  order by curso.nome";
                 $resultado = mysqli_query($conexao, $sql);
                 $numRegistros = mysqli_num_rows($resultado);
+                
                 if ($numRegistros != 0) {
                     ?>
                     <form action="excluir_lote.php" method="post">   
 
                         <table id="customers">
-                            <caption>Cursos Cadastrados</caption>
+                            <caption>Cursos encontrados com o nome "<?=$pesquisaCurso?>"</caption>
                             <tr class="estilo">
                                 <td class="cc">Selecionar</td><td class="cc">Tipo</td><td class="cc">Nome</td><td class="cc">Descrição</td><td class="cc">Carga horária</td><td class="cc">Ano de início</td><td class="cc">Semestre de início</td><td class="cc">Ano de término</td><td class="cc">Semestre de término</td><td class="cc">Turno</td><td class="ce">Excluir</td><td class="ca">Alterar</td>
                             </tr>

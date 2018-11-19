@@ -92,7 +92,49 @@
                 background: white;
                 cursor: pointer;
             }
+               .button:hover {
+    background-color:green; /* Green */
+    color: white;
+    
+}
+.button{
+      
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 20px;
+      position: absolute;
+    left: 630px;
+  
+}
+label.data{
+   margin-top: 50px;
+    position: absolute;
+    right: 1180px;
+    font-size: 18px;
+    color: #343a40;
+    
+}
+input.data{
+    margin-top: 50px;
+    position: absolute;
+    right: 1030px;
+    border-radius: 10px;
+}
+select.data{
+    margin-top: 50px;
+      position: absolute;
+    right: 1095px;
+    border-radius: 10px;
+    text-align-last: center;
+    padding: 2px;
+}
+
         </style>
+        
     </head>
     <body>
         <div id="interface">
@@ -115,17 +157,19 @@
             $retorno = mysqli_query($conexao, $sql_aluno);
             ?>
             <form action="inserir_notas.php" method="post">
-
-                <label>Data da avaliação: </label>
-                <input type="date" required="" name="dataAvaliacao"><br>
-
-                <label>Descrição: </label> <select name="descricao">
+                 
+                <label class="data">Data da avaliação: </label>
+                <input type="date" required="" name="dataAvaliacao" class="data"><br>
+                <br>
+                <label class="data">Descrição: </label> <select class="data" name="descricao">
                     <option value="prova">Prova</option>
                     <option value="trabalho">Trabalho</option>
                 </select> <br>
-
+                
                 <table id="customers">
-                    <caption>Alunos Matriculados</caption>
+                   
+                    <h3 id="cadastro">Registrar notas</h3>
+                    <br><br>
                     <tr class="estilo">
                         <td>Matricula</td><td>Nome do aluno</td><td>Nota</td>
                     </tr>
@@ -140,7 +184,8 @@
                         <td><?= $linha['matricula'] ?></td>
                         <td><?= $linha['nome'] ?></td>
                         <td>
-                            <input type="number" step="0.1" name="nota[]">
+                            <input class="nota" type="number" step="0.1" name="nota[]" min="0" max="10.0"> 
+                            
 
                         </td>
 
@@ -152,7 +197,7 @@
 
                 </table><br>
 
-                <input class="btn" type="submit" value="Inserir">
+                <button class="button">Inserir notas</button>
             </form>
 
 

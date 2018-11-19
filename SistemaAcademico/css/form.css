@@ -9,12 +9,15 @@ form{
     margin: auto;
     background-color:white;
 }
-input{
+input, textArea{
     font-family: sans-serif;
     font-weight: normal; 
     font-size: 13pt;
 }
 input:hover{
+    background-color: #ececf6;
+}
+textArea:hover{
     background-color: #ececf6;
 }
 legend{

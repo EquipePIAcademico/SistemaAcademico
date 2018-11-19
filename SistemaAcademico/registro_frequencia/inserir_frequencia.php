@@ -42,7 +42,7 @@ session_start();
           }
           .btn-gerenciamento{
               position: absolute;
-              left: 690px;
+              left: 590px;
           }
           body{
                font-family: sans-serif;

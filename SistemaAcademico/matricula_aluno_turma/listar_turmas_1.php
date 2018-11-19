@@ -23,21 +23,25 @@
 //            $retorno = mysqli_query($conexao, $sql);
 //            
             
-            $curso_id = $_GET['curso_id'];  
+            $curso_id = $_GET['curso_id']; 
+            
               $sql_disciplina = "select distinct turma.id, disciplina.nome from disciplina join curso on disciplina.curso_id=curso.id join turma on turma.disciplina_id=disciplina.id where disciplina.curso_id=$curso_id";
-              
+              $sql_nome = "select nome from curso where curso.id=$curso_id";
            
                 //$sql_disciplina = "select aluno_turma.disciplina_id, disciplina.nome from aluno_turma join disciplina on aluno_turma.disciplina_id=disciplina.id where aluno_id=$aluno_curso_id";
-               // $sql_disciplina = "select disciplina.id, disciplina.nome, turma.disciplina_id from disciplina join turma on turma.disciplina_id=disciplina.id";
+               // $sql_disciplina = "select disciplina.id, disciplina.nome, turma.
+               // disciplina_id from disciplina join turma on turma.disciplina_id=disciplina.id";
             $retorno = mysqli_query($conexao, $sql_disciplina);
+              $resultado_nome = mysqli_query($conexao, $sql_nome);
+           $linha_nome = mysqli_fetch_array($resultado_nome)
                 ?>
             <form action="listar_alunos_1.php" method="get"> 
-
+                <h3 id="cadastro">Disciplinas do curso "<?=$linha_nome['nome']?>"  </h3>
                 
                 <fieldset> 
                     <legend>Turma</legend>
                   <input type="hidden"  name="curso" value="<?=$curso_id?>" />
-                <label>Disciplina:</label><select name="turma_id" style="width: 220px;">
+                <label>Disciplina:</label><select name="turma_id" style="width: 220px; text-align-last: center;">
                     
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {

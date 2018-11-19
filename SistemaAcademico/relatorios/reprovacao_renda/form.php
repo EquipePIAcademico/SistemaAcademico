@@ -24,11 +24,11 @@
 
             <form action="emitir.php" method="get">   
 
+    <h3 id="cadastro">Emitir relatório de reprovação por faixa de renda</h3>
+              
+               
 
-                <caption>Emitir relatório de reprovação por faixa de renda</caption>
-                <br><br>
-
-                Curso:<select name="curso_id" class="espacamento" style="width: 220px;">
+                Curso:<select name="curso_id" class="espacamento" style="width: 220px; text-align-last: center;">
                     <?php
                     while ($linha_curso = mysqli_fetch_array($retorno_curso)) {
                         ?>

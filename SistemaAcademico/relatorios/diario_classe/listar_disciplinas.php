@@ -33,12 +33,12 @@
             $retorno = mysqli_query($conexao, $sql_disciplina);
                 ?>
             <form action="emitir.php" method="get"> 
-
+            <h3 id="cadastro">Emitir diário de classe</h3>
                 
                 <fieldset> 
                     <legend>Turma</legend>
                   <input type="hidden"  name="curso" value="<?=$curso_id?>" />
-                <label>Disciplina:</label><select name="turma_id" style="width: 220px;">
+                <label>Disciplina:</label><select name="turma_id" style="width: 220px; text-align-last: center;">
                     
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {

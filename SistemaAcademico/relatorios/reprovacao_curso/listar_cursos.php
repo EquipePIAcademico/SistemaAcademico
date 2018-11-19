@@ -25,10 +25,10 @@
             <form action="emitir.php" method="get">   
 
                   
-                    <caption>Cursos Cadastrados</caption>
-                    <br><br>
+                  <h3 id="cadastro">Emitir relatório de reprovação por curso</h3>
+                   
                     
-                    Curso:<select name="curso" class="espacamento" style="width: 220px;">
+                    Curso:<select name="curso" class="espacamento" style="width: 220px; text-align-last: center;">
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
                         ?>

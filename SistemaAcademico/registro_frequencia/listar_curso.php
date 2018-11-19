@@ -33,7 +33,7 @@
             $retorno = mysqli_query($conexao, $sql_curso);
             ?>
             <form action="listar_turmas_2.php" method="get"> 
-                <h3 id="cadastro">Listar notas</h3>
+                <h3 id="cadastro">Listar frequência</h3>
 
                 <fieldset> 
                     <legend>Turma</legend>

@@ -188,7 +188,7 @@
                     ?>
                     <form action="excluir_lote.php" method="post">
                         <table id="customers">
-                            <caption>Disciplinas Cadastradas</caption>
+                            <caption>Disciplinas encontradas com o nome "<?=$pesquisaDisciplina?>"</caption>
                             <tr class="estilo">
                                 <td>Selecionar</td><td>Curso da disciplina</td><td>Nome</td><td>Descrição</td><td>Carga horária</td><td>Excluir</td><td>Alterar</td>
                             </tr>

@@ -196,7 +196,7 @@ button.btn-insira{
                     <form action="excluir_lote.php" method="post">
 
                         <table id="customers">
-                            <caption>Alunos Cadastrados</caption>
+                           <caption>Alunos encontrados com o nome "<?=$pesquisaAluno?>"</caption>
                             <tr class="estilo"> <td class="cc">Selecionar</td><td class="cc">Nome</td><td class="cc">E-mail</td><td class="cc">Data de nascimento</td><td class="cc">Renda</td><td class="cc">Nacionalidade</td><td class="cc" colspan="5">Endereço</td><td class="ce">Excluir</td><td class="ca">Alterar</td>
                             </tr>
                             <?php

@@ -87,6 +87,24 @@
                 background: white;
                 cursor: pointer;
             }
+             .btn-gerenciamento{
+              position: absolute;
+              left: 590px;
+              background-color: #ccc;
+          }
+         .btn-gerenciamento:hover{
+     background-color:blue; /* Green */
+    color: white;
+}
+.button{
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    
+}
         </style>
 
     </head>
@@ -106,9 +124,9 @@
             $nReprovacoes = 0;
             
             if ($rendaIni_id > $rendaFim_id) {
-                echo 'Faixa de renda inválida! A renda inicial é maior que a final!';
-                ?>
-                <a href=form.php>Tentar novamente</a>
+                ?> <h3 id="cadastro">Faixa de renda inválida! A renda inicial é maior que a final</h3>
+                
+                <a href=form.php class="btn-gerenciamento button">Tentar novamente</a>
                 <?php
             } else {
                 $sql = "select renda.valor, aluno.id, aluno.nome as nome_aluno, curso.nome as nome_curso from renda join aluno on "

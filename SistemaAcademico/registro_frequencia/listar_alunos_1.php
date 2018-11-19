@@ -92,6 +92,25 @@ caption{
                  background: white;
                  cursor: pointer;
              }
+                        .button:hover {
+    background-color:green; /* Green */
+    color: white;
+    
+}
+.button{
+      
+    color: #2E2E2E;
+    border: 2px solid #A4A4A4;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 20px;
+      position: absolute;
+    left: 600px;
+  
+}
+    
        </style>
     </head>
     <body>
@@ -184,12 +203,12 @@ caption{
 //       $sql = "select aluno_turma.semestre_id from aluno_turma where aluno_turma.semestre_id=$semestre_id";
        
       
-       $data = date('Y-m-d');
-       echo $data;
+       $data = date('d-m-Y');
        ?>
         <form action="inserir_frequencia.php" method="post">
                 <table id="customers">
-                     <caption>Alunos Matriculados</caption>
+                    <br><br>
+                     <h3 id="cadastro">Registrar frequência</h3>
                      <tr class="estilo">
                         <td>Matricula</td><td>Nome do aluno</td><td>Frequência</td>
                     </tr>
@@ -206,7 +225,7 @@ caption{
                              <td><?= $linha['matricula'] ?></td>
                             <td><?= $linha['nome'] ?></td>
                             <td>
-                                <select name="frequencia[]">
+                                <select name="frequencia[]" style="border-radius: 10px;">
                                     <option value="presenca">Presença</option>
                                     <option value="falta">Falta</option>
                                 </select>
@@ -228,7 +247,7 @@ caption{
 
                 </table><br>
 <!--                <input type="hidden" name="total_de_alunos" value="<?=$i?>">-->
-            <input class="btn" type="submit" value="Inserir">
+            <button class="button">Inserir frequência</button>
             </form>
             <?php
            

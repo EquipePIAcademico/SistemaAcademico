@@ -122,6 +122,7 @@ caption{
             $curso_id = $_GET['curso'];
             
             $turma_id = $_GET['turma_id'];
+            $sql_nome = "select nome from disciplina join turma on turma.disciplina_id=disciplina.id where turma.id=$turma_id";
                 
                   
 //            $disciplina_id = $_GET['disciplina_id'];
@@ -173,6 +174,8 @@ caption{
 //            $sql_aluno = "select aluno.nome, aluno_curso.matricula from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id join turma on aluno_curso.curso_id=turma.curso_id where turma.id=$turma_id";
     $sql_aluno = "select distinct aluno.id, aluno.nome, aluno_curso.matricula from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id join aluno_turma on aluno_turma.aluno_id=aluno_curso.aluno_id where aluno_curso.curso_id=$curso_id AND aluno_turma.turma_id=$turma_id"; 
             $retorno = mysqli_query($conexao, $sql_aluno);
+             $resultado_nome = mysqli_query($conexao, $sql_nome);
+           $linha_nome = mysqli_fetch_array($resultado_nome)
        
 //       $sql = "select aluno_turma.semestre_id from aluno_turma where aluno_turma.semestre_id=$semestre_id";
        
@@ -181,7 +184,8 @@ caption{
        ?>
         <form action="excluir_lote.php" method="post">
                 <table id="customers">
-                     <caption>Alunos Matriculados</caption>
+                    <br>
+                      <caption>Alunos matriculados na disciplina "<?=$linha_nome['nome']?>"  </caption>
                      <tr class="estilo">
                         <td>Selecionar</td><td>Matricula</td><td>Nome do aluno</td><td>Excluir</td><td>Alterar</td>
                     </tr>
@@ -192,7 +196,7 @@ caption{
                              <td><input type="checkbox" name="id[]" value="<?= $linha['id'] ?>"</td>
                              <td><?= $linha['matricula'] ?></td>
                             <td><?= $linha['nome'] ?></td>
-                            <td><a href="excluir.php?id=<?= $linha['id'] ?>">
+                            <td><a href="confirmacao.php?id=<?= $linha['id'] ?>">
                                     <img src="../img/excluir2.png" height="30" width="30"/></a></td>
 
                             <td><a href="form_alterar.php?id=<?= $linha['id'] ?>">

@@ -38,7 +38,7 @@
     text-decoration: none;
     border-radius: 5px;
             }
-            a:hover:not(.active)
+            a.paginacao:hover:not(.active)
             {background-color: #ddd;}
             
             
@@ -158,7 +158,7 @@
             .cancelar{
                 background-color: #ddd;
                 padding: 8px 16px;
-    border-radius: 5px;
+    border-radius: 15px;
       position: absolute;
               left: 580px;
             
@@ -168,7 +168,7 @@
             .confirmar{
                 background-color: #ddd;
                 padding: 8px 16px;
-                border-radius: 5px;
+                border-radius: 15px;
                   position: absolute;
               left: 680px;
             
@@ -180,23 +180,32 @@
                 border-radius: 5px;
     
             }    
-            a.confirmar:hover{
-                  background-color: green;
-                padding: 8px 16px;
-                border-radius: 5px;
-    
-            }
+            
             h3{
                 text-align: center;
             }
             input.confirmar{
-                  background-color: #ddd;
+                color: white;
+                 background-color: #ddd;
                 padding: 8px 16px;
-                border-radius: 5px;
+                border-radius: 15px;
+                border-style: none;
                   position: absolute;
               left: 680px;
             
              
+            }
+            input.cancelar{
+                color: white;
+                padding: 8px 16px;
+                 background-color: #ddd;
+                padding: 8px 16px;
+                border-radius: 15px;
+                border-style: none;
+                  position: absolute;
+              left: 580px;
+            
+
             }
              a.confirmar:hover{
                   background-color: green;
@@ -204,6 +213,18 @@
                 border-radius: 5px;
                 cursor: pointer;
     
+            }
+            input.cancelar:hover{
+                 background-color: red;
+                padding: 8px 16px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+           input.confirmar:hover{
+                 background-color: green;
+                padding: 8px 16px;
+                border-radius: 5px;
+                cursor: pointer;
             }
            
         </style>

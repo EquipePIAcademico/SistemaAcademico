@@ -49,6 +49,7 @@
                 <input type="text" required="" name="nome" class="espacamento" value="<?= $linha['nome'] ?>" /><br>
                <label>Descrição:</label>
                 <input type="text" required="" name="descricao" value="<?= $linha['descricao'] ?>" /><br><br>
+                
                <button class="button">Alterar</button>
             </form>
 

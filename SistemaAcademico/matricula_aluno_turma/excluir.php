@@ -12,4 +12,4 @@ mysqli_query($conexao, $sql_turma);
  
 
 
-//header('Location: listar.php');
+header('Location: listar_curso.php');
