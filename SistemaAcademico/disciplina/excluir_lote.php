@@ -53,7 +53,6 @@ include '../bd/conectar.php';
 include '../cabecalho.php';
 
 $id = $_POST['id'];
-$cont = 0;
 
 foreach ($id as $value) {
 
