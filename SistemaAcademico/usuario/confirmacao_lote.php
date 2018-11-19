@@ -2,6 +2,7 @@
 ini_set("display_errors", true);
 
 include '../bd/conectar.php';
+include './autenticacao.php';
 
 $id = $_POST['id'];
 

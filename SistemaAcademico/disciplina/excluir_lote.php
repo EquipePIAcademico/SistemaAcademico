@@ -5,7 +5,6 @@ ini_set("display_errors", true);
 include '../bd/conectar.php';
 
 $id = $_POST['id'];
-$cont = 0;
 
 foreach ($id as $value) {
 
