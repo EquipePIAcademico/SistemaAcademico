@@ -107,7 +107,7 @@ caption{
             $sql_usuario = "select * from usuario";
             $resultado_usuario = mysqli_query($conexao, $sql_usuario);
             $total = mysqli_num_rows($resultado_usuario);
-            $registros = 2;
+            $registros = 10;
             $numPaginas = ceil($total / $registros);
             $inicio = ($registros * $pagina) - $registros;
             ?>

@@ -172,7 +172,7 @@
                 $numRegistros = mysqli_num_rows($resultado);
                 if ($numRegistros != 0) {
                     ?>
-                    <form action="excluir_lote.php" method="post">
+            <form action="confirmacao_lote.php" method="post">
                         <table id="customers">
                             <caption>Usuários Cadastrados</caption>
                             <tr class="estilo">
@@ -190,7 +190,7 @@
                                     <td><?= $linha['perfil_acesso'] ?></td>
                                     <td><?= $linha['username'] ?></td>
 
-                                    <td><a href="excluir.php?id=<?= $linha['id'] ?>">
+                                    <td><a href="confirmacao.php?id=<?= $linha['id'] ?>">
                                             <img src="../img/excluir2.png" height="30" width="30"/></a></td>
 
                                     <td><a href="form_alterar.php?id=<?= $linha['id'] ?>">

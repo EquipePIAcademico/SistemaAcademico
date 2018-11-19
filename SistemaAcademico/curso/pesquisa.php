@@ -184,7 +184,7 @@ td{
                 
                 if ($numRegistros != 0) {
                     ?>
-                    <form action="excluir_lote.php" method="post">   
+            <form action="confirmacao_lote.php" method="post">   
 
                         <table id="customers">
                             <caption>Cursos encontrados com o nome "<?=$pesquisaCurso?>"</caption>
@@ -206,7 +206,7 @@ td{
                                     <td><?= $linha['semestreTermino'] ?></td>
                                     <td><?= $linha['turno_nome'] ?></td>
 
-                                    <td><a href="excluir.php?id=<?= $linha['id'] ?>">
+                                    <td><a href="confirmacao.php?id=<?= $linha['id'] ?>">
                                             <img src="../img/excluir2.png" height="30" width="30"/></a></td>
 
                                     <td><a href="form_alterar.php?id=<?= $linha['id'] ?>">

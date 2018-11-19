@@ -185,7 +185,7 @@ td{
                 $numRegistros = mysqli_num_rows($resultado);
                 if ($numRegistros != 0) {
                     ?>
-                    <form action="excluir_lote.php" method="post">    
+            <form action="confirmacao_lote.php" method="post">    
                         
                         <table id="customers">
                             <caption>Tipos de Curso Cadastrados</caption>
@@ -200,7 +200,7 @@ td{
                                     <td><input type="checkbox" name="id[]" value="<?= $linha['id'] ?>"</td>
                                     <td><?= $linha['nome'] ?></td>
                                     <td><?= $linha['descricao'] ?></td>
-                                    <td><a href="excluir.php?id=<?= $linha['id'] ?>">
+                                    <td><a href="confirmacao.php?id=<?= $linha['id'] ?>">
                                             <img src="../img/excluir2.png" height="30" width="30"/></a></td>
 
                                     <td><a href="form_alterar.php?id=<?= $linha['id'] ?>">
