@@ -1,4 +1,3 @@
-create database bancoSistema;
 
 create database bancoSistema;
 
