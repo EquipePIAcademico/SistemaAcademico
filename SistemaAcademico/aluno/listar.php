@@ -128,7 +128,7 @@
             $sql_aluno = "select * from aluno";
             $resultado_aluno = mysqli_query($conexao, $sql_aluno);
             $total = mysqli_num_rows($resultado_aluno);
-            $registros = 2;
+            $registros = 10;
             $numPaginas = ceil($total / $registros);
             $inicio = ($registros * $pagina) - $registros;
             ?>

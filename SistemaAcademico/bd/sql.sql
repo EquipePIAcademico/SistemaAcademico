@@ -167,4 +167,5 @@ create table aluno_turma(
     disciplina_id integer references disciplina(id)
 );
 
-
+select disciplina.nome from disciplina join turma on turma.disciplina_id=disciplina.id where disciplina.id=19;
+select * from disciplina;

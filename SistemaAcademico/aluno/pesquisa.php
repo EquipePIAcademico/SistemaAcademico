@@ -193,7 +193,7 @@ button.btn-insira{
                 $numRegistros = mysqli_num_rows($resultado);
                 if ($numRegistros != 0) {                 
                     ?>
-                    <form action="excluir_lote.php" method="post">
+            <form action="confirmacao_lote.php" method="post">
 
                         <table id="customers">
                             <caption>Alunos Cadastrados</caption>
@@ -215,7 +215,7 @@ button.btn-insira{
                                 <td>CEP:<?= $linha['cep'] ?></td>
                                 <td>Número: <?= $linha['numero'] ?></td>
 
-                                <td><a href="excluir.php?id=<?= $linha['id'] ?>">
+                                <td><a href="confirmacao.php?id=<?= $linha['id'] ?>">
                                         <img src="../img/excluir2.png" height="30" width="30"/></a></td>
 
                                 <td><a href="form_alterar.php?id=<?= $linha['id'] ?>">

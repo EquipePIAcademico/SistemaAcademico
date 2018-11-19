@@ -111,7 +111,7 @@
                 . "join aluno on aluno.id=aluno_turma.aluno_id where curso.id=$curso_id and aluno.id=$aluno_id";
 
         $retorno_valid = mysqli_query($conexao, $sql_valid);
-//
+
         $resultado_valid = mysqli_fetch_array($retorno_valid);
 
         if ($resultado_valid == null) {
