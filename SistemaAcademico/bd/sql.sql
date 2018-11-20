@@ -1,3 +1,4 @@
+
 create database bancoSistema;
 
 create table frequencia(
@@ -7,6 +8,20 @@ create table frequencia(
     turma_id integer, 
     data date
 );
+
+select id from aluno_curso order by id desc limit 10;
+
+
+select nome from disciplina join turma on turma.disciplina_id=disciplina.id where turma.id=25;
+select disciplina.nome, sum(nota.nota) as somaNotas, count(nota.nota) as qtdNotas from nota join turma on 
+                                turma.id=nota.turma_id join disciplina on disciplina.id=turma.disciplina_id where turma.curso_id=15 and disciplina.nome='Paisagem';
+
+select count(frequencia.frequencia) as qtdPresencas from frequencia where turma_id=20 and frequencia.frequencia='presenca' group by aluno_id order by aluno_id;
+
+select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 15 group by aluno_id order by aluno_id;
+
+
+select * from curso;
 
 create table nota(
     id integer primary key auto_increment,
@@ -93,6 +108,7 @@ create table curso(
         turno_id integer references turno(id)
 );
 
+
 create table disciplina(
 	id integer primary key auto_increment,
 	nome varchar(100),
@@ -101,6 +117,13 @@ create table disciplina(
 	usuario_id integer references usuario(id),
         curso_id integer references curso(id)
 );
+
+
+select * from curso;
+select * from disciplina;
+select * from turma;
+select * from aluno_curso;
+select * from aluno_turma;
 
 create table turma(
 	id integer primary key auto_increment,
@@ -139,6 +162,29 @@ create table aluno_curso(
         matricula integer
 );
 
+select * from aluno_curso;
+
+delete from aluno_curso where id=10;
+
+select * from aluno_curso where id=8;
+
+INSERT INTO aluno (nome, email, sexo, dataN, rg, cpf, nacionalidade, bairro, rua, complemento, cep, numero, usuario_id, renda_id) VALUES
+
+
+('Jussara Medeiros', 'ju@ju', 'feminino', '1990-01-10', '78986545', '123458865', 'Brasil', 'São João', 'Candido Darela', 'casa', '88704080', 655, 48, 2);
+
+select id from aluno_curso order by id desc limit 10;
+
+
+(9, 'João da Silva', 'j@f', 'masculino', '2000-11-20', '56565565', '8978898', 'Brasil', 'São João', 'Candido Darela', 'casa', '88704080', 655, 48, 2),
+(10, 'Marcelo da Silva', 'm@f', 'masculino', '2000-11-20', '2689889889', '3268985454', 'Brasil', 'São João', 'Candido Darela', 'casa', '88704080', 655, 48, 2);
+
+
+
+select * from aluno;
+
+select id from aluno_curso order by id desc limit 10;
+
 create table aluno_turma(
     id integer primary key auto_increment,
     aluno_id integer references aluno(id),
@@ -148,10 +194,7 @@ create table aluno_turma(
     disciplina_id integer references disciplina(id)
 );
 
-select turma.id, aluno.nome from aluno join aluno_turma on aluno_turma.aluno_id=aluno.id 
-join turma on turma.id=aluno_turma.turma_id where aluno_turma.id=28;
+select disciplina.nome from disciplina join turma on turma.disciplina_id=disciplina.id where disciplina.id=19;
+select * from disciplina;
 
-select * from turma;
-
-select disciplina.nome, semestre.valor from disciplina join turma on turma.disciplina_id=disciplina.id join 
-semestre on semestre.id=turma.semestre_id where turma.id=10;
+SELECT * FROM aluno_curso;

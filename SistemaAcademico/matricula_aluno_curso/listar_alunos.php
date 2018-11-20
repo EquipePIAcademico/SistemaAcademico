@@ -127,7 +127,7 @@
             $resultado_nome = mysqli_query($conexao, $sql_nome);
            $linha_nome = mysqli_fetch_array($resultado_nome)
             ?>
-            <form action="excluir_lote.php" method="post">
+            <form action="confirmacao_lote.php" method="post">
                 <table id="customers">
                     <br><br>
                     <caption>Alunos matriculados em "<?=$linha_nome['nome']?>"  </caption>

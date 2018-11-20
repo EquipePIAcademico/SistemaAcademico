@@ -7,8 +7,9 @@ include '../bd/conectar.php';
 $id = $_GET['id'];
 
 foreach ($id as $value) {
-    $sql = "delete from aluno_curso where id= $id";
+    $sql = "delete from aluno_curso where id=$id";
+    echo $sql;
     mysqli_query($conexao, $sql);
 }
 
-header('Location: listar_alunos.php');
+//header('Location: listar_cursos.php');

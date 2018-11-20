@@ -70,7 +70,14 @@ foreach ($id as $value) {
 
         mysqli_query($conexao, $sql_aluno_curso);
         
-        header('Location: listar.php');
+       
+      ?>
+    <h3>Curso excluido com sucesso!</h3>
+    
+    <a href=listar.php class="btn-gerenciamento button">Voltar para gerenciamento</a>
+      
+        
+     <?php   
     }
 
 }
