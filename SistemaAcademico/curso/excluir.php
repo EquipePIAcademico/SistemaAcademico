@@ -65,6 +65,10 @@ if ($resultado_valid == null) {
 
     mysqli_query($conexao, $sql);
 
+    $sql_aluno_curso = "delete from aluno_curso where aluno_curso.curso_id=$id";
+
+    mysqli_query($conexao, $sql_aluno_curso);
+    
     header('Location: listar.php');
 } else {
     ?><h3 id="cadastro">Este curso está associado à disciplinas! Primeiramente deve-se excluir as disciplinas</h3>

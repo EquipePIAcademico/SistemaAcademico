@@ -40,6 +40,11 @@ session_start();
               left: 500px;
              
           }
+          .btn-continuar.erro{
+              position: absolute;
+              left: 600px;
+             
+          }
           .btn-gerenciamento{
               position: absolute;
               left: 690px;
@@ -75,7 +80,7 @@ if (@mysqli_query($conexao, $sql)) {
      ?>
    <h3> Não foi possível realizar o cadastro </h3>
     
-   <a href=form_inserir.php> <button class="btn-continuar button">Insira novamente </button></a>
+   <a href=form_inserir.php> <button class="btn-continuar button erro">Insira novamente </button></a>
 <?php
 }
 ?>

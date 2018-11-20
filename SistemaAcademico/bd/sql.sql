@@ -1,4 +1,3 @@
-
 create database bancoSistema;
 
 create table frequencia(
@@ -8,17 +7,6 @@ create table frequencia(
     turma_id integer, 
     data date
 );
-
-select nome from disciplina join turma on turma.disciplina_id=disciplina.id where turma.id=25;
-select disciplina.nome, sum(nota.nota) as somaNotas, count(nota.nota) as qtdNotas from nota join turma on 
-                                turma.id=nota.turma_id join disciplina on disciplina.id=turma.disciplina_id where turma.curso_id=15 and disciplina.nome='Paisagem';
-
-select count(frequencia.frequencia) as qtdPresencas from frequencia where turma_id=20 and frequencia.frequencia='presenca' group by aluno_id order by aluno_id;
-
-select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 15 group by aluno_id order by aluno_id;
-
-
-select * from curso;
 
 create table nota(
     id integer primary key auto_increment,
@@ -105,7 +93,6 @@ create table curso(
         turno_id integer references turno(id)
 );
 
-
 create table disciplina(
 	id integer primary key auto_increment,
 	nome varchar(100),
@@ -114,13 +101,6 @@ create table disciplina(
 	usuario_id integer references usuario(id),
         curso_id integer references curso(id)
 );
-
-
-select * from curso;
-select * from disciplina;
-select * from turma;
-select * from aluno_curso;
-select * from aluno_turma;
 
 create table turma(
 	id integer primary key auto_increment,
@@ -168,7 +148,10 @@ create table aluno_turma(
     disciplina_id integer references disciplina(id)
 );
 
-select disciplina.nome from disciplina join turma on turma.disciplina_id=disciplina.id where disciplina.id=19;
-select * from disciplina;
+select turma.id, aluno.nome from aluno join aluno_turma on aluno_turma.aluno_id=aluno.id 
+join turma on turma.id=aluno_turma.turma_id where aluno_turma.id=28;
 
-SELECT * FROM nota;
+select * from turma;
+
+select disciplina.nome, semestre.valor from disciplina join turma on turma.disciplina_id=disciplina.id join 
+semestre on semestre.id=turma.semestre_id where turma.id=10;

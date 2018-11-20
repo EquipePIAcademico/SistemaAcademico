@@ -66,6 +66,10 @@ foreach ($id as $value) {
 
         mysqli_query($conexao, $sql);
 
+        $sql_aluno_curso = "delete from aluno_curso where aluno_curso.curso_id=$value";
+
+        mysqli_query($conexao, $sql_aluno_curso);
+        
         header('Location: listar.php');
     }
 
