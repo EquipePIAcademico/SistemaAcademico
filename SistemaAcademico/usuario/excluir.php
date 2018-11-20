@@ -63,11 +63,13 @@ $retorno_valid = mysqli_query($conexao, $sql_valid);
 $resultado_valid = mysqli_fetch_array($retorno_valid);
 
 if ($resultado_valid == null) {
+    
     $sql = "delete from usuario where id= $id";
 
-    mysqli_query($conexao, $sql);
-
-    header('Location: listar.php');
+    mysqli_query($conexao, $sql);?>
+      <h3 id="cadastro">Usuário excluído com sucesso!</h3>
+ <a href=listar.php class="btn-gerenciamento button">Voltar para gerenciamento</a><?php
+   // header('Location: listar.php');
 } else {
 
     ?>
