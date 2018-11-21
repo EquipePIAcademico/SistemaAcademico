@@ -279,4 +279,32 @@ create table aluno_turma(
 select disciplina.nome from disciplina join turma on turma.disciplina_id=disciplina.id where disciplina.id=19;
 select * from disciplina;
 
-SELECT * FROM aluno_curso;
+SELECT * FROM aluno_turma;
+
+select aluno_curso.id, aluno_curso.aluno_id, aluno_curso.matricula, aluno_curso.curso_id, aluno.nome from aluno_curso 
+join aluno on aluno_curso.aluno_id=aluno.id where aluno_curso.id=1 order by nome;
+
+select * from aluno_curso where aluno_curso.id=1;
+
+select aluno_curso.aluno_id, aluno_curso.matricula, aluno_curso.curso_id, aluno.id, aluno.nome from aluno_curso 
+join aluno on aluno_curso.aluno_id=aluno.id where aluno_curso.aluno_id=1 order by nome;
+
+select * from aluno_curso where aluno_id= 1;
+
+select * from aluno_turma where aluno_id= 1;
+
+select * from aluno_curso where aluno_id= 19;
+
+SELECT aluno_turma.id FROM aluno_turma where aluno_turma.aluno_id=1;
+
+SELECT * FROM turma;
+
+select * from aluno_turma where aluno_turma.aluno_id=1;
+
+select aluno_turma.id from aluno_turma where aluno_turma.aluno_id=19;
+
+select aluno_turma.id from aluno_turma where aluno_turma.aluno_id=9;
+
+select * from aluno_turma where aluno_turma.id=33;
+
+select * from aluno_turma where aluno_turma.id=32;

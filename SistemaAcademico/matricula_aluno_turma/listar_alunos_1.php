@@ -182,7 +182,11 @@ caption{
       
        
        ?>
+<<<<<<< HEAD
         <form action="confirmacao_lote.php" method="post">
+=======
+            <form action="confirmacao_lote.php" method="post">
+>>>>>>> origin/master
                 <table id="customers">
                     <br>
                       <caption>Alunos matriculados na disciplina "<?=$linha_nome['nome']?>"  </caption>
