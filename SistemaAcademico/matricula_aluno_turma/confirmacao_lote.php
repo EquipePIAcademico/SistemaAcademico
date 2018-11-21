@@ -12,13 +12,12 @@ $id = $_POST['id'];
 
 ?>
 <h3>Deseja realmente excluir?</h3>
-<a href=listar_cursos.php><input type="submit" value="Cancelar" class="cancelar"></a>
+<a href=listar_curso.php><input type="submit" value="Cancelar" class="cancelar"></a>
 
 <form action="excluir_lote.php" method="post">
     <?php
     foreach ($id as $value) {
-        $sql = "select aluno_curso.aluno_id, aluno_curso.matricula, aluno_curso.curso_id, aluno.id, aluno.nome from aluno_curso "
-                    . "join aluno on aluno_curso.aluno_id=aluno.id where aluno_curso.aluno_id=$value order by nome";
+        $sql = "select aluno_turma.id from aluno_turma where aluno_turma.aluno_id=$value";
         $resultado = mysqli_query($conexao, $sql);
         while ($linha = mysqli_fetch_array($resultado)) {
             ?>

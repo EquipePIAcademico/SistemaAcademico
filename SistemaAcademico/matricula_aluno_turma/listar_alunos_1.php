@@ -182,7 +182,7 @@ caption{
       
        
        ?>
-        <form action="excluir_lote.php" method="post">
+            <form action="confirmacao_lote.php" method="post">
                 <table id="customers">
                     <br>
                       <caption>Alunos matriculados na disciplina "<?=$linha_nome['nome']?>"  </caption>
