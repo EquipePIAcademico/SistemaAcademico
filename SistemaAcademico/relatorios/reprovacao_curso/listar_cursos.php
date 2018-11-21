@@ -16,7 +16,7 @@
 
             ini_set("display_errors", true);
 
-            $sql = "select distinct curso.id, curso.nome FROM curso join turma on curso.id=turma.curso_id";
+            $sql = "select distinct curso.id, curso.nome FROM curso join turma on curso.id=turma.curso_id group by curso.id";
             
             $retorno = mysqli_query($conexao, $sql);
             
@@ -32,7 +32,6 @@
                     <?php
                     while ($linha = mysqli_fetch_array($retorno)) {
                         ?>
-
                         <option value="<?= $linha['id'] ?>"><?= $linha['nome'] ?></option>
 
                         <?php
