@@ -63,14 +63,6 @@
                     <br>
                 </fieldset>
                 
-                <label>Descrição: </label> <select name="descricao">
-                    <option value="prova">Prova</option>
-                    <option value="trabalho">Trabalho</option>
-                </select> <br>
-                
-                <label>Data da avaliação: </label>
-                <input type="date" required="" name="dataAvaliacao"><br>
-                
                 <br><input class="btn" type="submit" value="Listar notas">
             </form>      
 

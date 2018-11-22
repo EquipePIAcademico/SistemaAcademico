@@ -49,7 +49,6 @@ session_start();
 ini_set("display_errors", true);
 
 include '../bd/conectar.php';
-include '../cabecalho.php';
 
 $id = $_POST['id'];
 
@@ -70,14 +69,7 @@ foreach ($id as $value) {
 
         mysqli_query($conexao, $sql_aluno_curso);
         
-       
-      ?>
-    <h3>Curso excluido com sucesso!</h3>
-    
-    <a href=listar.php class="btn-gerenciamento button">Voltar para gerenciamento</a>
-      
-        
-     <?php   
+        header('Location: listar.php');
     }
 
 }

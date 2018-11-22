@@ -66,9 +66,11 @@ if ($resultado_valid == null) {
     
     $sql = "delete from usuario where id= $id";
 
-    mysqli_query($conexao, $sql);?>
+    mysqli_query($conexao, $sql);
+    ?>
       <h3 id="cadastro">Usuário excluído com sucesso!</h3>
- <a href=listar.php class="btn-gerenciamento button">Voltar para gerenciamento</a><?php
+ <a href=listar.php class="btn-gerenciamento button">Voltar para gerenciamento</a>
+     <?php
    // header('Location: listar.php');
 } else {
 
@@ -76,10 +78,6 @@ if ($resultado_valid == null) {
 <h3 id="cadastro">Este(a) professor(a) está associado(a) à turma(s)! Primeiramente deve-se excluir a(s) turma(s)</h3>
     
     <a href=listar.php class="btn-gerenciamento button">Voltar para gerenciamento</a>
-
-    echo "Este(a) professor(a) está associado(a) à turma(s)! Primeiramente deve-se excluir a(s) turma(s)!" . "<br>";
-    ?>
-<a href=listar.php>Voltar para gerenciamento</a>
 
     <?php
 }
