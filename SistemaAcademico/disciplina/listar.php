@@ -106,7 +106,7 @@ td{
             <div class="form_pesquisa">
 <!--                    Pesquisar disciplinas: <input type="search" placeholder="Por nome" name="pesquisaDisciplina" >-->
                 <input required="" type="text" placeholder="    Pesquisar disciplina..." name="pesquisaDisciplina" />
-                <button><?php include "../img/magnifying-glass.svg"; ?></button>
+                <button><img src="../img/search.png" height="30" width="30" style="cursor: pointer;"/></button>
 <!--                <input class="btn" type="submit" value="Buscar">-->
            
             </div>

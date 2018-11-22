@@ -137,7 +137,7 @@
                 <div class="form_pesquisa">   
 <!--                Pesquisar alunos: <input required="" type="search" placeholder="Por nome" name="pesquisaAluno">-->
                     <input required="" type="text" placeholder="   Pesquisar aluno..." name="pesquisaAluno" />
-                    <button><?php include "../img/magnifying-glass.svg"; ?></button>
+                    <button><img src="../img/search.png" height="25" width="30" style="cursor: pointer;"/></button>
                 </div>
             </form>
 

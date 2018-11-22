@@ -105,6 +105,9 @@
     font-size: 15px;
     
 }
+.dados{
+    text-align: left;
+}
         </style>
 
 
@@ -146,13 +149,13 @@
             $linha = mysqli_fetch_array($resultado);
             ?>
 
-            <h3>Dados do aluno</h3>
+            <h3 class="dados">Dados do aluno</h3>
             <?php
             echo "Nome: " . $linha['nome_aluno'] . "<br>";
             echo "Matrícula: " . $linha['matricula'] . "<br>";
             ?>
 
-            <h3>Dados do curso</h3>
+            <h3 class="dados">Dados do curso</h3>
             <?php
             echo "Nome: " . $linha['nome_curso'] . "<br>";
             echo "Carga horária: " . $linha['carga_horaria'] . "h <br>";

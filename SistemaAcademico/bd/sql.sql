@@ -10,7 +10,7 @@ create table frequencia(
 );
 
 select id from aluno_curso order by id desc limit 10;
-
+select * from frequencia;
 
 select nome from disciplina join turma on turma.disciplina_id=disciplina.id where turma.id=25;
 select disciplina.nome, sum(nota.nota) as somaNotas, count(nota.nota) as qtdNotas from nota join turma on 

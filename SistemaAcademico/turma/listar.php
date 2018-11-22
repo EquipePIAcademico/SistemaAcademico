@@ -126,7 +126,7 @@ caption{
                  <br><br>
               <div class="form_pesquisa">
                   <input required="" type="text" placeholder="    Semestre..." name="pesquisaSemestre" />
-                <button><?php include "../img/magnifying-glass.svg"; ?></button>
+                <button><img src="../img/search.png" height="30" width="30" style="cursor: pointer;"/></button>
 <!--<input class="btn" type="submit" value="Buscar">-->
                 
              </div>
