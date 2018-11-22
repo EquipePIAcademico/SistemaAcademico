@@ -113,13 +113,23 @@
                     . "group by aluno.nome order by aluno.nome";
             
             $retorno = mysqli_query($conexao, $sql);
+            $linha = mysqli_fetch_array($retorno);
+            $sql_notas = "select aluno.id, aluno.nome, aluno_curso.matricula, nota.nota from aluno join aluno_curso on "
+                                . "aluno.id=aluno_curso.aluno_id join nota on nota.aluno_id = aluno_curso.aluno_id join turma on "
+                                . "turma.id=nota.turma_id where (aluno_curso.curso_id=$curso_id and nota.turma_id=$turma_id) and aluno.nome='$linha[nome]'";
+                        
+                        $retorno_notas = mysqli_query($conexao, $sql_notas);
+                        $numColunas = mysqli_num_rows($retorno_notas);
+            
+            
+            
             ?>
             <br>
 
             <table id="customers">
                 <caption>Notas dos alunos</caption>
                 <tr class="estilo">
-                    <td>Matricula</td><td>Nome do aluno</td><td>Notas</td>
+                    <td>Matricula</td><td>Nome do aluno</td><td colspan="<?= $numColunas ?>">Notas</td>
                 </tr>
                 <?php
                 while ($linha = mysqli_fetch_array($retorno)) {
