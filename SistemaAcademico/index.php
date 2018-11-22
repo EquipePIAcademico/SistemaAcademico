@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <link href="css/estilo.css" rel="stylesheet">
         <style>
-/*            #container {
+            #container {
                 display: flex;
                 justify-content: center;
 
@@ -19,7 +19,7 @@
                 margin: 50px 40px 10px 10px;
                 padding-left: 10px;     
             }
-*/            a.home {    font-family: verdana, arial, sans-serif; 
+            a.home {    font-family: verdana, arial, sans-serif; 
                         font-size: 10pt; 
                         font-weight: bold; 
                         padding: 4px; 
@@ -29,7 +29,7 @@
                         display: flex;
                         justify-content: center;
                         margin-right: 10px;
-            }/*
+            }
             .home:hover { 
                 border-bottom: 1px solid #cccccc; 
                 border-top: 2px solid #666666; 
@@ -46,11 +46,13 @@
 
             }
             li{
-                font-family: oxygen;
-            }*/
+                font-family: roboto;
+            }
 
         </style>
-        <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lato|Montserrat|Oxygen" rel="stylesheet">
+      
+      <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">
+
 
     </head>
 
@@ -60,10 +62,11 @@
             require_once './cabecalho.php';
             include './bd/conectar.php';
             require_once 'usuario/autenticacao.php';
+            
             ?>   
             <?php
             if (estaLogado()) {
-                if (exibirPerfilAcesso() == 'secretario(a)'){
+                if ((exibirPerfilAcesso() == 'secretario(a)') && (exibirUsername()!= 'administrador')){
                         $sql_aluno_id = "select id from aluno order by id desc limit 10";
 
                         $retorno_aluno_id = mysqli_query($conexao, $sql_aluno_id);
@@ -102,7 +105,7 @@
                                 <br> <a href=matricula_aluno_curso/form_inserir.php class="home">Matricular novos alunos em curso</a> 
                             </div><br><br>
                             <?php
-                            $sql_aluno_turma_id = "select id from aluno_turma order by id desc limit 10";
+                            $sql_aluno_turma_id = "select id from aluno_turma order by id desc limit 3";
 
                             $retorno_aluno_turma_id = mysqli_query($conexao, $sql_aluno_turma_id);
                             ?> <div class="box"><h4 class="titulo"> Últimas matriculas em turma realizadas </h4><?php
@@ -155,9 +158,9 @@
                                     echo "<li>" . $resultado_nota['nome'];
                                     
                                 }
-                            
+                          
                          }
-                         ?><br><a href=registro_notas/listar_cursos_professores.php class="home">Fazer novos registros</a>  <?php
+                         ?><br><a href=registro_notas/listar_cursos_professores.php class="home">Fazer novos registros</a> </div> <?php
                          $sql_freq_id = "select distinct id from frequencia group by frequencia.turma_id order by id desc limit 10";
                         $retorno_freq_id = mysqli_query($conexao, $sql_freq_id);
                          ?>  <div class="box"><h4 class="titulo">Últimos registros de frequência</h4><?php
@@ -180,11 +183,13 @@
                                 }
                             
                          }
-                    ?><br><a href=registro_frequencia/listar_cursos_professores.php class="home">Fazer novos registros</a>  <?php
+                    ?><br><a href=registro_frequencia/listar_cursos_professores.php class="home">Fazer novos registros</a>   </div><?php
                     }
                 }
             
             require_once './rodape.php';
+            ?></div><?php
             ?>   
-        </div>
+       
+                         
 </html>

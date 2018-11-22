@@ -227,7 +227,7 @@ select distinct disciplina.nome, turma.id FROM curso join turma on curso.id=turm
 
 
 
-select * from nota;
+select * from ALUNO;
 select id from nota order by id desc limit 1;
 select disciplina.nome from turma join nota on nota.turma_id=turma.id join disciplina on disciplina.id=turma.disciplina_id 
                                              where nota.id=119;

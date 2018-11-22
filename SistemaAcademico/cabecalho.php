@@ -310,8 +310,7 @@
                         } else {
                             //echo 'Olá ' . exibirUsername() . '   ';?>
                      <div class="dropdown">
-                     
-                      <a href='<?=$url?>/index.php'><button class='dropbtn'>Home</button> </a> 
+                      <a href='<?=$url?>/index.php'><button class='dropbtn'>Home</button></a> 
                          </div>
                                  <div class="dropdown">   
                         <button class='dropbtn'>Registros</button>
