@@ -1,4 +1,3 @@
-
 create database bancoSistema;
 
 create table frequencia(
@@ -8,20 +7,6 @@ create table frequencia(
     turma_id integer, 
     data date
 );
-
-select id from aluno_curso order by id desc limit 10;
-
-
-select nome from disciplina join turma on turma.disciplina_id=disciplina.id where turma.id=25;
-select disciplina.nome, sum(nota.nota) as somaNotas, count(nota.nota) as qtdNotas from nota join turma on 
-                                turma.id=nota.turma_id join disciplina on disciplina.id=turma.disciplina_id where turma.curso_id=15 and disciplina.nome='Paisagem';
-
-select count(frequencia.frequencia) as qtdPresencas from frequencia where turma_id=20 and frequencia.frequencia='presenca' group by aluno_id order by aluno_id;
-
-select nota.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 15 group by aluno_id order by aluno_id;
-
-
-select * from curso;
 
 create table nota(
     id integer primary key auto_increment,
@@ -108,7 +93,6 @@ create table curso(
         turno_id integer references turno(id)
 );
 
-
 create table disciplina(
 	id integer primary key auto_increment,
 	nome varchar(100),
@@ -117,13 +101,6 @@ create table disciplina(
 	usuario_id integer references usuario(id),
         curso_id integer references curso(id)
 );
-
-
-select * from curso;
-select * from disciplina;
-select * from turma;
-select * from aluno_curso;
-select * from aluno_turma;
 
 create table turma(
 	id integer primary key auto_increment,
@@ -162,111 +139,6 @@ create table aluno_curso(
         matricula integer
 );
 
-select disciplina.nome from disciplina join turma on turma.disciplina_id=disciplina.id where turma.id=5;
-
-delete from aluno_curso where id=10;
-
-select * from turma;
-
-select distinct disciplina.nome, turma.id from turma join nota on nota.turma_id=turma.id join disciplina on disciplina.id=turma.disciplina_id where nota.id=119;
-select disciplina.nome from turma join nota on nota.turma_id=turma.id join disciplina on disciplina.id=turma.disciplina_id 
-                                             where nota.id=119;
-select distinct nota.id from turma join nota on nota.turma_id=turma.id join disciplina on disciplina.id=turma.disciplina_id where nota.id=121;
-
-
-select distinct disciplina.nome from turma join nota on nota.turma_id=turma.id join disciplina on disciplina.id=turma.disciplina_id 
-                                             where nota.id=121;
-
-select distinct nota.id from turma join nota on nota.turma_id=turma.id join disciplina on disciplina.id=turma.disciplina_id where nota.id=122;
-
-select distinct disciplina.nome from turma join nota on nota.turma_id=turma.id join disciplina on disciplina.id=turma.disciplina_id 
-                                             where nota.id=125
-;
-
-select distinct id from nota order by id desc group by nota.turma_id;
-select distinct id from nota group by nota.turma_id order by id desc limit 10;
-select distinct id from frequencia group by frequencia.turma_id order by id desc limit 10;
-select * from curso;
-
-select frequencia.aluno_id, sum(nota)/count(nota) as media from nota join turma on turma.id=nota.turma_id join curso on curso.id=turma.curso_id where curso.id = 31 group by aluno_id order by aluno_id;
-
-
-select distinct curso.id, turma.id, curso.nome FROM curso join turma on curso.id=turma.curso_id group by curso.id;
-
-select distinct disciplina.nome, turma.id FROM curso join turma on curso.id=turma.curso_id join disciplina on turma.disciplina_id=disciplina.id where curso.id=31;
-
-select disciplina.nome, count(frequencia.frequencia) as qtdChamadas from frequencia join 
-                                turma on turma.id=frequencia.turma_id join disciplina on disciplina.id=turma.disciplina_id where 
-                                frequencia.aluno_id= and disciplina.nome='$linha_turma[nome]';
-
-
-
-
-
-select distinct disciplina.nome, turma.id, curso.id FROM curso join turma on curso.id=turma.curso_id join disciplina on turma.disciplina_id=disciplina.id where curso.id=31;
-
-
-select frequencia.frequencia, frequencia.turma_id, disciplina.nome from frequencia join turma on frequencia.turma_id=turma.id join disciplina on disciplina.id=turma.disciplina_id where turma.id=8;
-
-
-select distinct aluno.id, aluno.nome, aluno_curso.matricula, sum(nota)/count(nota) as media 
-                    from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id join aluno_turma on 
-                    aluno_turma.aluno_id=aluno_curso.aluno_id join nota on nota.aluno_id=aluno_turma.aluno_id where 
-                    aluno_curso.curso_id=31 AND aluno_turma.turma_id=8 and nota.turma_id=8 group by 
-                    nota.aluno_id order by aluno.nome;
-select nome, id from curso;
-select distinct curso.id, turma.id, curso.nome FROM curso join turma on curso.id=turma.curso_id group by curso.id;
-select distinct disciplina.nome, turma.id FROM curso join turma on curso.id=turma.curso_id join disciplina on turma.disciplina_id=disciplina.id where curso.id=31;
-
-
-
-
-
-
-
-
-
-
-select * from ALUNO;
-select id from nota order by id desc limit 1;
-select disciplina.nome from turma join nota on nota.turma_id=turma.id join disciplina on disciplina.id=turma.disciplina_id 
-                                             where nota.id=119;
-
-select disciplina.nome, count(frequencia.frequencia) as qtdChamadas from frequencia join 
-                            turma on turma.id=frequencia.turma_id join disciplina on disciplina.id=turma.disciplina_id where 
-                            frequencia.aluno_id=5 and disciplina.nome='Banco de Dados';
-
-select distinct aluno.id, aluno.nome, aluno_curso.matricula, sum(nota)/count(nota) as media 
-                        from aluno join aluno_curso on aluno.id=aluno_curso.aluno_id join aluno_turma on 
-                        aluno_turma.aluno_id=aluno_curso.aluno_id join nota on nota.aluno_id=aluno_turma.aluno_id where 
-                        aluno_curso.curso_id=31 AND aluno_turma.turma_id=8 and nota.turma_id=8 group by 
-                        nota.aluno_id order by aluno.nome;
-select * from frequencia;
-
-select disciplina.nome from disciplina join turma on turma.disciplina_id=disciplina.id where turma.id=5;
-
-select * from turma join disciplina on disciplina.id=turma.disciplina_id;
-select * from frequencia;
-
-select distinct nota.id from turma join nota on nota.turma_id=turma.id join disciplina on disciplina.id=turma.disciplina_id where nota.id=119;
-
-INSERT INTO aluno (nome, email, sexo, dataN, rg, cpf, nacionalidade, bairro, rua, complemento, cep, numero, usuario_id, renda_id) VALUES
-
-
-('Jussara Medeiros', 'ju@ju', 'feminino', '1990-01-10', '78986545', '123458865', 'Brasil', 'São João', 'Candido Darela', 'casa', '88704080', 655, 48, 2);
-
-select id from aluno_curso order by id desc limit 10;
-
-
-(9, 'João da Silva', 'j@f', 'masculino', '2000-11-20', '56565565', '8978898', 'Brasil', 'São João', 'Candido Darela', 'casa', '88704080', 655, 48, 2),
-(10, 'Marcelo da Silva', 'm@f', 'masculino', '2000-11-20', '2689889889', '3268985454', 'Brasil', 'São João', 'Candido Darela', 'casa', '88704080', 655, 48, 2);
-
-
-
-select * from aluno;
-
-select id from aluno_curso order by id desc limit 10;
-
 create table aluno_turma(
     id integer primary key auto_increment,
     aluno_id integer references aluno(id),
@@ -276,35 +148,5 @@ create table aluno_turma(
     disciplina_id integer references disciplina(id)
 );
 
-select disciplina.nome from disciplina join turma on turma.disciplina_id=disciplina.id where disciplina.id=19;
-select * from disciplina;
 
-SELECT * FROM aluno_turma;
 
-select aluno_curso.id, aluno_curso.aluno_id, aluno_curso.matricula, aluno_curso.curso_id, aluno.nome from aluno_curso 
-join aluno on aluno_curso.aluno_id=aluno.id where aluno_curso.id=1 order by nome;
-
-select * from aluno_curso where aluno_curso.id=1;
-
-select aluno_curso.aluno_id, aluno_curso.matricula, aluno_curso.curso_id, aluno.id, aluno.nome from aluno_curso 
-join aluno on aluno_curso.aluno_id=aluno.id where aluno_curso.aluno_id=1 order by nome;
-
-select * from aluno_curso where aluno_id= 1;
-
-select * from aluno_turma where aluno_id= 1;
-
-select * from aluno_curso where aluno_id= 19;
-
-SELECT aluno_turma.id FROM aluno_turma where aluno_turma.aluno_id=1;
-
-SELECT * FROM turma;
-
-select * from aluno_turma where aluno_turma.aluno_id=1;
-
-select aluno_turma.id from aluno_turma where aluno_turma.aluno_id=19;
-
-select aluno_turma.id from aluno_turma where aluno_turma.aluno_id=9;
-
-select * from aluno_turma where aluno_turma.id=33;
-
-select * from aluno_turma where aluno_turma.id=32;

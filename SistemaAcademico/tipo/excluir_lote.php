@@ -3,6 +3,7 @@
 ini_set("display_errors", true);
 
 include '../bd/conectar.php';
+include '../cabecalho.php';
 
 $id = $_POST['id'];
 
