@@ -221,8 +221,9 @@
                             }
                         }
 
-                        require_once './rodape.php';
+                       
                         ?></div><?php
+                         require_once './rodape.php';
                         ?>   
 
 
