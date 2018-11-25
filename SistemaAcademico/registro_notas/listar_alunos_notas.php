@@ -107,21 +107,21 @@
             $curso_id = $_GET['curso'];
             $turma_id = $_GET['turma_id'];
 
-            $sql = "select aluno.id, aluno.nome, aluno_curso.matricula from aluno join aluno_curso on "
-                    . "aluno.id=aluno_curso.aluno_id join aluno_turma on aluno_turma.aluno_id=aluno_curso.aluno_id join "
-                    . "turma on turma.id=aluno_turma.turma_id where aluno_curso.curso_id=$curso_id and turma.id=$turma_id "
-                    . "group by aluno.nome order by aluno.nome";
+            $sql = "select aluno.id, aluno.nome, aluno_curso.matricula from aluno_curso join aluno on "
+                    . "aluno.id=aluno_curso.aluno_id join nota on nota.aluno_id=aluno.id join turma on "
+                    . "turma.id=nota.turma_id where aluno_curso.curso_id=$curso_id and turma.id=$turma_id group by aluno.nome";
             
             $retorno = mysqli_query($conexao, $sql);
-            $linha = mysqli_fetch_array($retorno);
-            $sql_notas = "select aluno.id, aluno.nome, aluno_curso.matricula, nota.nota from aluno join aluno_curso on "
-                                . "aluno.id=aluno_curso.aluno_id join nota on nota.aluno_id = aluno_curso.aluno_id join turma on "
-                                . "turma.id=nota.turma_id where (aluno_curso.curso_id=$curso_id and nota.turma_id=$turma_id) and aluno.nome='$linha[nome]'";
-                        
-                        $retorno_notas = mysqli_query($conexao, $sql_notas);
-                        $numColunas = mysqli_num_rows($retorno_notas);
+
+            $qtdAlunos = mysqli_num_rows($retorno);
             
+            $sql_colunas = "select count(nota.nota) as qtdNotas from nota where nota.turma_id=$turma_id";
             
+            $retorno_colunas = mysqli_query($conexao, $sql_colunas);
+            
+            $linha_colunas = mysqli_fetch_array($retorno_colunas);
+            
+            $numColunas = $linha_colunas['qtdNotas'] / $qtdAlunos ;
             
             ?>
             <br>
@@ -144,7 +144,7 @@
                                 . "turma.id=nota.turma_id where (aluno_curso.curso_id=$curso_id and nota.turma_id=$turma_id) and aluno.nome='$linha[nome]'";
                         
                         $retorno_notas = mysqli_query($conexao, $sql_notas);
-                        
+
                         while ($linha_notas = mysqli_fetch_array($retorno_notas)) {
                             ?>
                             <td><?= $linha_notas['nota'] ?></td>
@@ -152,9 +152,9 @@
                         }
                         ?>
                     </tr>
-                    <?php
-                }
-                ?>
+                        <?php
+                    }
+                    ?>
 
             </table><br>
 

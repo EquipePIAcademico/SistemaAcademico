@@ -147,10 +147,3 @@ create table aluno_turma(
     semestre_id integer references semestre(id),
     disciplina_id integer references disciplina(id)
 );
-select * from aluno;
-select * from turma;
-select aluno.id, aluno.nome, aluno_curso.matricula, nota.nota from aluno join aluno_curso on 
-                                aluno.id=aluno_curso.aluno_id join nota on nota.aluno_id = aluno_curso.aluno_id join turma on 
-                                turma.id=nota.turma_id where (aluno_curso.curso_id=33 and nota.turma_id=5);
-
-
